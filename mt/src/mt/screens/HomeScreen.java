@@ -17,6 +17,7 @@ public class HomeScreen extends AbstractScreen{
 		super(game);
 	}
 
+	private static float SCALE = 0.8f;
 	@Override
 	public void resize(int width, int height) {
 		super.resize(width, height);
@@ -27,7 +28,7 @@ public class HomeScreen extends AbstractScreen{
 		bg.setFillParent( true );
 		stage.addActor( bg );
 		
-		HeaderBox headerBox = new HeaderBox( ResourcesLoader.getHeaderBoxDrawable() );
+		HeaderBox headerBox = new HeaderBox( width, height, SCALE );
 		headerBox.setY( height - 180*AbstractImage.SCALE );
 		
 		TeamBox teamBox = new TeamBox( ResourcesLoader.getTeamBoxDrawable() );
@@ -43,8 +44,7 @@ public class HomeScreen extends AbstractScreen{
 		awardButton.setPosition( width/2 - (410/2)*AbstractImage.SCALE, height - (180 + 325 + 280)*AbstractImage.SCALE );
 		
 		MenuBox menuBox = new MenuBox( ResourcesLoader.getMenuButtonDrawable() );
-		
-		
+
 		stage.addActor( headerBox );
 		stage.addActor( teamBox );
 		stage.addActor( heroButton );

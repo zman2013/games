@@ -82,4 +82,70 @@ public class ResourcesLoader {
 		
 		return bgDrawable;
 	}
+	
+	//level_1
+	private static Texture level1Texture;
+	private static TextureRegion level1TextureRegion;
+	private static TextureRegionDrawable level1Drawable;
+	
+	public static TextureRegionDrawable getLevel1Drawable(){
+		level1Texture = new Texture( Gdx.files.internal("assets/images/people_level/level_1.png") );
+		level1TextureRegion = new TextureRegion( level1Texture );
+		level1Drawable = new TextureRegionDrawable( level1TextureRegion );
+		
+		return level1Drawable;
+	}
+	
+	//expbar_1_1
+	private static Texture expBar11Texture;
+	private static TextureRegion expBar11TextureRegion;
+	private static TextureRegionDrawable expBar11Drawable;
+	
+	public static TextureRegionDrawable getExpBar11Drawable(){
+		expBar11Texture = new Texture( Gdx.files.internal("assets/images/experience_bar/data.dat_000059.png") );
+		expBar11TextureRegion = new TextureRegion( expBar11Texture );
+		expBar11Drawable = new TextureRegionDrawable( expBar11TextureRegion );
+		
+		return expBar11Drawable;
+	}
+	
+	//expbar_1_2
+	private static Texture expBar12Texture;
+	private static TextureRegion expBar12TextureRegion;
+	private static TextureRegionDrawable expBar12Drawable;
+	
+	public static TextureRegionDrawable getExpBar12Drawable(){
+		expBar12Texture = new Texture( Gdx.files.internal("assets/images/experience_bar/data.dat_000060.png") );
+		expBar12TextureRegion = new TextureRegion( expBar12Texture );
+		expBar12Drawable = new TextureRegionDrawable( expBar12TextureRegion );
+		
+		return expBar12Drawable;
+	}
+	
+	//expbar_2_1
+	private static Texture expBar21Texture;
+	private static TextureRegion expBar21TextureRegion;
+	private static TextureRegionDrawable expBar21Drawable;
+	
+	public static TextureRegionDrawable getExpBar21Drawable(){
+		expBar21Texture = new Texture( Gdx.files.internal("assets/images/experience_bar/data.dat_000048.png") );
+		expBar21TextureRegion = new TextureRegion( expBar21Texture );
+		expBar21Drawable = new TextureRegionDrawable( expBar21TextureRegion );
+		
+		return expBar21Drawable;
+	}
+	
+	//expbar_2_2
+	private static Texture expBar22Texture;
+	private static TextureRegion expBar22TextureRegion;
+	private static TextureRegionDrawable expBar22Drawable;
+	
+	public static TextureRegionDrawable getExpBar22Drawable(){
+		expBar22Texture = new Texture( Gdx.files.internal("assets/images/experience_bar/data.dat_000049.png") );
+		expBar22TextureRegion = new TextureRegion( expBar22Texture );
+		expBar22Drawable = new TextureRegionDrawable( expBar22TextureRegion );
+		
+		return expBar22Drawable;
+	}
+	
 }
