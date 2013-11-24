@@ -28,10 +28,12 @@ public class HomeScreen extends AbstractScreen{
 		bg.setFillParent( true );
 		stage.addActor( bg );
 		
-		HeaderBox headerBox = new HeaderBox( width, height, SCALE );
+		HeaderBox headerBox = new HeaderBox( );
+		headerBox.setScale( SCALE );
 		headerBox.setY( height - 180*AbstractImage.SCALE );
 		
-		TeamBox teamBox = new TeamBox( ResourcesLoader.getTeamBoxDrawable() );
+		TeamBox teamBox = new TeamBox( );
+		teamBox.setScale( SCALE );
 		teamBox.setY( height - (180 + 325)*AbstractImage.SCALE );
 		
 		HomeButton heroButton = new HomeButton( ResourcesLoader.getHomeButtonDrawable(), ResourcesLoader.getHomeButtonActiveDrawable() );

@@ -1,8 +1,8 @@
 package mt.actors;
 
+import mt.resources.FontLoader;
 import mt.resources.ResourcesLoader;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -17,12 +17,10 @@ public class HeaderBox extends WidgetGroup{
 	private Image expBar11, expBar12;
 	private Image expBar21, expBar22;
 	
-	public HeaderBox( float width, float height, float scale ){
-		setScale( scale );
-		
+	public HeaderBox( ){
 		Image bg = new Image( ResourcesLoader.getHeaderBoxDrawable() );
 		//font
-		bitmapFont = new BitmapFont( Gdx.files.internal( "assets/font/home_screen.fnt" ), Gdx.files.internal( "assets/font/home_screen.png" ), false );
+		bitmapFont = FontLoader.getBitmapFont();
 		levelIcon = new Image( ResourcesLoader.getLevel1Drawable() );
 		levelIcon.setScale( 0.8f );
 		levelIcon.setPosition( 55, 139 );

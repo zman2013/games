@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.IntMap;
 
 public class ResourcesLoader {
 	
@@ -147,5 +148,61 @@ public class ResourcesLoader {
 		
 		return expBar22Drawable;
 	}
+	
+	//leader_icon
+	private static Texture leaderIconTexture;
+	private static TextureRegion leaderIconTextureRegion;
+	private static TextureRegionDrawable leaderIconDrawable;
+	public static TextureRegionDrawable getLeaderIconDrawable(){
+		leaderIconTexture = new Texture( Gdx.files.internal("assets/images/team_images/leader_icon.png") );
+		leaderIconTextureRegion = new TextureRegion( leaderIconTexture );
+		leaderIconDrawable = new TextureRegionDrawable( leaderIconTextureRegion );
+		
+		return leaderIconDrawable;
+	}
+	
+	//add_icon
+	private static Texture addIconTexture;
+	private static TextureRegion addIconTextureRegion;
+	private static TextureRegionDrawable addIconDrawable;
+	public static TextureRegionDrawable getAddIconDrawable(){
+		addIconTexture = new Texture( Gdx.files.internal("assets/images/team_images/add_icon.png") );
+		addIconTextureRegion = new TextureRegion( addIconTexture );
+		addIconDrawable = new TextureRegionDrawable( addIconTextureRegion );
+		
+		return addIconDrawable;
+	}
+	
+	//hero icon
+	private static Texture heroIconTexture;
+	private static TextureRegion heroIconTextureRegion;
+	private static TextureRegionDrawable heroIconDrawable;
+	private static IntMap<TextureRegionDrawable> heroIconCache = new IntMap<TextureRegionDrawable>();
+	public static TextureRegionDrawable getHeroIconDrawable( int index ){
+		if( heroIconCache.containsKey(index) ){
+			return heroIconCache.get( index );
+		}
+		heroIconTexture = new Texture( Gdx.files.internal("assets/images/heros/data.dat_000"+index+".png") );
+		heroIconTextureRegion = new TextureRegion( heroIconTexture );
+		heroIconDrawable = new TextureRegionDrawable( heroIconTextureRegion );
+		heroIconCache.put( index, heroIconDrawable );
+		return heroIconDrawable;
+	}
+	
+	//border icon
+	private static Texture borderIconTexture;
+	private static TextureRegion borderIconTextureRegion;
+	private static TextureRegionDrawable borderIconDrawable;
+	private static IntMap<TextureRegionDrawable> borderIconCache = new IntMap<TextureRegionDrawable>();
+	public static TextureRegionDrawable getBorderIconDrawable( int index ){
+		if( borderIconCache.containsKey( index ) ){
+			return borderIconCache.get( index );
+		}
+		borderIconTexture = new Texture( Gdx.files.internal("assets/images/team_images/border_"+index+".png") );
+		borderIconTextureRegion = new TextureRegion( borderIconTexture );
+		borderIconDrawable = new TextureRegionDrawable( borderIconTextureRegion );
+		borderIconCache.put( index, borderIconDrawable );
+		return borderIconDrawable;
+	}	
 	
 }
