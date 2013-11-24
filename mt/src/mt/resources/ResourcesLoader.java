@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.IntMap;
+import com.badlogic.gdx.utils.ObjectMap;
 
 public class ResourcesLoader {
 	
@@ -203,6 +204,21 @@ public class ResourcesLoader {
 		borderIconDrawable = new TextureRegionDrawable( borderIconTextureRegion );
 		borderIconCache.put( index, borderIconDrawable );
 		return borderIconDrawable;
-	}	
+	}
 	
+	//menu button image
+	private static Texture menuButtonTexture;
+	private static TextureRegion menuButtonTextureRegion;
+	private static TextureRegionDrawable menuButtonDrawable;
+	private static ObjectMap<String,TextureRegionDrawable> menuButtonCache = new ObjectMap<String, TextureRegionDrawable>();
+	public static TextureRegionDrawable getMenuButtonDrawable( String filename ){
+		if( menuButtonCache.containsKey( filename ) ){
+			return menuButtonCache.get( filename );
+		}
+		menuButtonTexture = new Texture( Gdx.files.internal("assets/images/menu_button_images/"+filename+".png") );
+		menuButtonTextureRegion = new TextureRegion( menuButtonTexture );
+		menuButtonDrawable = new TextureRegionDrawable( menuButtonTextureRegion );
+		menuButtonCache.put( filename, menuButtonDrawable );
+		return menuButtonDrawable;
+	}
 }

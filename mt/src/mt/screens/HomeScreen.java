@@ -40,7 +40,8 @@ public class HomeScreen extends AbstractScreen{
 		homeButtonGroup.setScale( 0.7f );
 		homeButtonGroup.setPosition(  width/2f-90, 80 );
 		
-		MenuBox menuBox = new MenuBox( ResourcesLoader.getMenuButtonDrawable() );
+		MenuBox menuBox = new MenuBox( );
+		menuBox.setScale( SCALE );
 
 		stage.addActor( headerBox );
 		stage.addActor( teamBox );
