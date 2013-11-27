@@ -221,4 +221,20 @@ public class ResourcesLoader {
 		menuButtonCache.put( filename, menuButtonDrawable );
 		return menuButtonDrawable;
 	}
+	
+	//resource generic getter
+	private static Texture resourceTexture;
+	private static TextureRegion resourceTextureRegion;
+	private static TextureRegionDrawable resourceDrawable;
+	private static ObjectMap<String,TextureRegionDrawable> resourceCache = new ObjectMap<String, TextureRegionDrawable>();
+	public static TextureRegionDrawable getDrawable( String filepath ){
+		if( resourceCache.containsKey( filepath ) ){
+			return resourceCache.get( filepath );
+		}
+		resourceTexture = new Texture( Gdx.files.internal( filepath ) );
+		resourceTextureRegion = new TextureRegion( resourceTexture );
+		resourceDrawable = new TextureRegionDrawable( resourceTextureRegion );
+		menuButtonCache.put( filepath, resourceDrawable );
+		return resourceDrawable;
+	}
 }

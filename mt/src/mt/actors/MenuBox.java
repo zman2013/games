@@ -1,6 +1,8 @@
 package mt.actors;
 
+import mt.MTGame;
 import mt.resources.ResourcesLoader;
+import mt.screens.HomeScreen;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -24,7 +26,10 @@ public class MenuBox extends WidgetGroup{
 	private TextureRegionDrawable fightButtonActiveDrawable = ResourcesLoader.getMenuButtonDrawable( "fight_icon_active" );
 	private Image fightButton;
 	
-	public MenuBox( ){
+	private MTGame game;
+	
+	public MenuBox( MTGame game ){
+		this.game = game;
 		bg = new Image( ResourcesLoader.getMenuButtonDrawable() );
 		
 		homeButton = new Image( homeButtonDrawable );
@@ -53,6 +58,7 @@ public class MenuBox extends WidgetGroup{
 			public void touchUp(InputEvent event, float x, float y,
 					int pointer, int button) {
 				homeButton.setDrawable( homeButtonDrawable );
+				game.setScreen( game.getScreen( HomeScreen.class ) );
 			}
 		});
 		

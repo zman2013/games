@@ -1,6 +1,7 @@
 package mt.screens;
 
-import com.badlogic.gdx.Game;
+import mt.MTGame;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
@@ -8,13 +9,18 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class AbstractScreen extends ScreenAdapter{
 
-	protected Game game;
+	protected MTGame game;
 	
 	protected Stage stage;
 	
-	public AbstractScreen( Game game ){
-		this.game = game;
+	protected static float SCALE = 0.8f;
+	
+	public AbstractScreen( ){
 		this.stage = new Stage( 0, 0, true );
+	}
+	
+	public void setGame(MTGame game) {
+		this.game = game;
 	}
 
 	@Override
