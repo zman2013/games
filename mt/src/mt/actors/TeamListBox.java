@@ -6,10 +6,14 @@ import mt.resources.ResourcesLoader;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class TeamListBox extends WidgetGroup{
 
@@ -20,7 +24,12 @@ public class TeamListBox extends WidgetGroup{
 	//font
 	private BitmapFont font;
 	
-	public TeamListBox(){
+	//stage
+	private Stage stage;
+	
+	public TeamListBox( Stage stage ){
+		this.stage = stage;
+		
 		listHeader = new Image( ResourcesLoader.getDrawable( "assets/images/home_images/list_header.png" ) );
 		listHeader.setY( 520 );
 		
@@ -45,6 +54,8 @@ public class TeamListBox extends WidgetGroup{
 		
 		addActor( listHeader );
 		addActor( scrollPane );
+		
+		initListener();
 	}
 
 	@Override
@@ -54,7 +65,27 @@ public class TeamListBox extends WidgetGroup{
 		font.draw( batch, "гЂал", listHeader.getX()+235, listHeader.getY()+14 );
 	}
 	
-	
+	private void initListener() {
+		scrollPane.addListener( new ClickListener() {
+
+			@Override
+			public void enter(InputEvent event, float x, float y, int pointer,
+					Actor fromActor) {
+				super.enter(event, x, y, pointer, fromActor);
+				
+				stage.setScrollFocus( scrollPane );
+			}
+
+			@Override
+			public void exit(InputEvent event, float x, float y, int pointer,
+					Actor toActor) {
+				super.exit(event, x, y, pointer, toActor);
+				
+				stage.setScrollFocus( null );
+			}
+			
+		});
+	}
 	
 }
 

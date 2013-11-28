@@ -32,7 +32,7 @@ public class HomeScreen extends AbstractScreen{
 		teamBox.setScale( SCALE );
 		teamBox.setY( height - (180 + 325)*AbstractScreen.SCALE );
 		
-		HomeButtonGroup homeButtonGroup = new HomeButtonGroup( );
+		HomeButtonGroup homeButtonGroup = new HomeButtonGroup( game );
 		homeButtonGroup.setScale( 0.7f );
 		homeButtonGroup.setPosition(  width/2f-90, 80 );
 		

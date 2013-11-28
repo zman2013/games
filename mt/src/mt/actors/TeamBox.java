@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
+import com.badlogic.gdx.utils.IntMap;
 
 public class TeamBox extends WidgetGroup{
 
@@ -68,14 +69,11 @@ public class TeamBox extends WidgetGroup{
 		bitmapFont.draw( batch, ""+3604, 370, getY()+43 );
 	}
 	
-	private static int threshold= 0;
-	private WidgetGroup produceHeroWidget( WidgetGroup container, Integer borderIndex, Integer heroIndex ){
-		//////////////avoid memory leak, ad hoc here/////////////// here recreate too many Image, these image should be cached somewhere
-		if( threshold > 5 ){
-			return null;
+	private IntMap<WidgetGroup> heroMap = new IntMap<WidgetGroup>();
+	private void produceHeroWidget( WidgetGroup container, Integer borderIndex, Integer heroIndex ){
+		if( heroMap.containsKey( container.hashCode() ) ){
+			return;
 		}
-		threshold++;
-		////////////////////////////////////////////////////////////////
 		container.clear();
 		
 		Image borderBg = new Image( ResourcesLoader.getBorderIconDrawable( 0 ) );
@@ -97,7 +95,7 @@ public class TeamBox extends WidgetGroup{
 			container.addActor( addIcon );
 		}
 		
-		return container;
+		heroMap.put( container.hashCode(), container );
 	}
 	
 	

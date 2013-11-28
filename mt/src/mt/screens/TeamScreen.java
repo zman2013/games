@@ -26,7 +26,7 @@ public class TeamScreen extends AbstractScreen{
 		headerBox.setScale( SCALE );
 		headerBox.setY( height - 180*AbstractScreen.SCALE );
 		
-		TeamListBox teamList = new TeamListBox();
+		TeamListBox teamList = new TeamListBox( stage );
 		teamList.setScale( SCALE );
 		teamList.setY( 70 );
 		

@@ -1,7 +1,9 @@
 package mt.actors;
 
+import mt.MTGame;
 import mt.resources.FontLoader;
 import mt.resources.ResourcesLoader;
+import mt.screens.TeamScreen;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -23,7 +25,11 @@ public class HomeButtonGroup extends WidgetGroup{
 	private TextureRegionDrawable defaultButton;
 	private TextureRegionDrawable activeButton;
 	
-	public HomeButtonGroup( ){
+	private MTGame game;
+	
+	public HomeButtonGroup( MTGame game ){
+		this.game = game;
+		
 		bitmapFont = FontLoader.getBitmapFont();
 		
 		defaultButton = ResourcesLoader.getHomeButtonDrawable();
@@ -31,15 +37,13 @@ public class HomeButtonGroup extends WidgetGroup{
 		
 		heroButton = new Image( defaultButton );
 		heroButton.setY( 225 );
-		addListener( heroButton );
 		upgradeButton = new Image( defaultButton );
 		upgradeButton.setY( 150 );
-		addListener( upgradeButton );
 		evolveButton = new Image( defaultButton );
 		evolveButton.setY( 75 );
-		addListener( evolveButton );
 		awardButton = new Image( defaultButton );
-		addListener( awardButton );
+		
+		initListeners();
 		
 		addActor( heroButton );
 		addActor( upgradeButton );
@@ -59,22 +63,22 @@ public class HomeButtonGroup extends WidgetGroup{
 
 
 
-	private void addListener( final Image actor ) {
-		actor.addListener( new ClickListener(){
+	private void initListeners( ) {
+		initHeroButtonListener( );
+	}
 
-			@Override
+	private void initHeroButtonListener() {
+		heroButton.addListener( new ClickListener(){
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
-				actor.setDrawable( activeButton );
+				heroButton.setDrawable( activeButton );
 				return true;
 			}
-
-			@Override
 			public void touchUp(InputEvent event, float x, float y,
 					int pointer, int button) {
-				actor.setDrawable( defaultButton );
+				heroButton.setDrawable( defaultButton );
+				game.setScreen( game.getScreen( TeamScreen.class ));
 			}
-			
 		});
 	}
 
