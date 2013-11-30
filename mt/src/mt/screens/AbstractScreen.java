@@ -16,18 +16,13 @@ public class AbstractScreen extends ScreenAdapter{
 	protected static float SCALE = 0.8f;
 	
 	public AbstractScreen( ){
-		this.stage = new Stage( 0, 0, true );
+		this.stage = new Stage( 512, 700, true );
 	}
 	
 	public void setGame(MTGame game) {
 		this.game = game;
 	}
 
-	@Override
-	public void resize(int width, int height) {
-		stage.setViewport( width, height );
-	}
-	
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);

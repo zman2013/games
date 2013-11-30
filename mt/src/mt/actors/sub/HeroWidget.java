@@ -28,5 +28,17 @@ public class HeroWidget extends BaseDrawable{
 		borderDrawable.draw( batch, x, y, width, height );
 	}
 
+	@Override
+	public float getMinWidth() {
+		return 100;
+	}
+
+	@Override
+	public float getMinHeight() {
+		return 100;
+	}
+	
+	
+
 	
 }

@@ -237,4 +237,15 @@ public class ResourcesLoader {
 		menuButtonCache.put( filepath, resourceDrawable );
 		return resourceDrawable;
 	}
+	
+	//resource generic getter
+		private static Texture newResourceTexture;
+		private static TextureRegion newResourceTextureRegion;
+		private static TextureRegionDrawable newResourceDrawable;
+		public static TextureRegionDrawable newDrawable( String filepath ){
+			newResourceTexture = new Texture( Gdx.files.internal( filepath ) );
+			newResourceTextureRegion = new TextureRegion( newResourceTexture );
+			newResourceDrawable = new TextureRegionDrawable( newResourceTextureRegion );
+			return newResourceDrawable;
+		}
 }
