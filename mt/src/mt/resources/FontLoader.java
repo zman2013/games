@@ -3,6 +3,11 @@ package mt.resources;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
+/**
+ * This class will be deprecated. Use ResouceUtil instead.
+ * @author zman
+ *
+ */
 public class FontLoader {
 
 	private static BitmapFont bitmapFont;

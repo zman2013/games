@@ -7,6 +7,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.IntMap;
 import com.badlogic.gdx.utils.ObjectMap;
 
+/**
+ * This class will be deprecated. Use ResouceUtil instead.
+ * @author zman
+ *
+ */
 public class ResourcesLoader {
 	
 	//header box

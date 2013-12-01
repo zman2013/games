@@ -1,12 +1,11 @@
 package mt.screens;
 
-import mt.actors.sub.HeroWidget;
+import mt.actors.Fighter;
 import mt.resources.ResourcesLoader;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
 public class FightScreen extends AbstractScreen{
@@ -15,7 +14,7 @@ public class FightScreen extends AbstractScreen{
 	private Drawable bgDrawable2;
 	private Drawable bossGbDrawable;
 	
-	private Image hero;
+	private Fighter fighter;
 	
 	public FightScreen(){
 		super();
@@ -23,9 +22,8 @@ public class FightScreen extends AbstractScreen{
 		bgDrawable2 = ResourcesLoader.getDrawable( "assets/images/fight_background/data.dat_000017.jpg" );
 		bossGbDrawable = ResourcesLoader.getDrawable( "assets/images/fight_background/data.dat_000445.png" );
 	
-		HeroWidget heroWidget = new HeroWidget( 160, 1 );
-		hero = new Image( heroWidget );
-		hero.setPosition( 215, 100 );
+		fighter = new Fighter( 2, 1, 100, 100, 0.5f );
+		fighter.setPosition( 215, 100 );
 	}
 
 	private SpriteBatch spriteBatch;
@@ -35,7 +33,7 @@ public class FightScreen extends AbstractScreen{
 		super.resize( width, height );
 		stage.clear();
 		
-		stage.addActor( hero );
+		stage.addActor( fighter );
 		spriteBatch = stage.getSpriteBatch();
 		
 		bg1Y = 0;
@@ -44,7 +42,6 @@ public class FightScreen extends AbstractScreen{
 
 	private float bg1Y;
 	private float bg2Y;
-	private float timeCount = 0;
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
@@ -61,9 +58,7 @@ public class FightScreen extends AbstractScreen{
 		stage.draw();
 	}
 	
-	private float heroWalk = 0;
 	private void moveBackground(float delta){
-		timeCount += delta;
 		bg1Y -= 1;
 		bg2Y -= 1;
 		if( bg1Y <= -HEIGHT ){
@@ -71,20 +66,6 @@ public class FightScreen extends AbstractScreen{
 		}
 		if( bg2Y <= -HEIGHT ){
 			bg2Y = HEIGHT;
-		}
-		
-		heroWalk += delta;
-		if(  heroWalk < 0.5 ){
-			hero.setScale( 1.01f );
-			hero.setX( 214 );
-			hero.setY( hero.getY() + 2 );
-		}else if( heroWalk < 1.5 ){
-			hero.setScale( 1 );
-			hero.setX( 215 );
-			hero.setY( hero.getY() - 1 );
-		}else{
-			hero.setPosition( 215, 100 );
-			heroWalk = 0;
 		}
 	}
 	
