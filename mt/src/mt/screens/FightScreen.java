@@ -6,24 +6,27 @@ import mt.resources.ResourcesLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
 public class FightScreen extends AbstractScreen{
 
 	private Drawable bgDrawable1;
 	private Drawable bgDrawable2;
-	private Drawable bossGbDrawable;
 	
 	private Fighter fighter;
+	private Fighter boss;
 	
 	public FightScreen(){
 		super();
 		bgDrawable1 = ResourcesLoader.getDrawable( "assets/images/fight_background/data.dat_000017.jpg" );
 		bgDrawable2 = ResourcesLoader.getDrawable( "assets/images/fight_background/data.dat_000017.jpg" );
-		bossGbDrawable = ResourcesLoader.getDrawable( "assets/images/fight_background/data.dat_000445.png" );
 	
-		fighter = new Fighter( 2, 1, 100, 100, 0.5f );
-		fighter.setPosition( 215, 100 );
+		fighter = new Fighter( 2, 1, 0.5f, 215, 100 );
+//		fighter.addAction( Actions.sequence( Actions.fadeOut(1f), Actions.fadeIn(1f), Actions.moveTo(0, 0), Actions.rotateTo(-45) ) );
+//		fighter.addAction( Actions.rotateTo(-45) );
+		
+		boss = new Fighter( 4, 2, 1, 160, 400 );
 	}
 
 	private SpriteBatch spriteBatch;
@@ -34,6 +37,7 @@ public class FightScreen extends AbstractScreen{
 		stage.clear();
 		
 		stage.addActor( fighter );
+		stage.addActor( boss );
 		spriteBatch = stage.getSpriteBatch();
 		
 		bg1Y = 0;

@@ -13,20 +13,24 @@ public class FighterInfo {
 	private int hp = 1000;
 	
 	//位置、动作信息
-	//大小
-	private float width, height;
+	//大小, no use currently
+//	private float width, height;
 	//位置
 	private float x, y;
 	//目标 索引
 	private int targetIndex;
 	//
 	private boolean isWalking;
+	//
+	private final float originX, originY;
 	
-	public FighterInfo( int borderIndex, int heroIndex, float width, float height ){
+	public FighterInfo( int borderIndex, int heroIndex, float originX, float originY ){
 		this.borderIndex = borderIndex;
 		this.heroIndex = heroIndex;
-		this.width = width;
-		this.height = height;
+		this.originX = originX;
+		this.originY = originY;
+		this.x = originX;
+		this.y = originY;
 	}
 	
 
@@ -84,20 +88,22 @@ public class FighterInfo {
 		return hp;
 	}
 
-	public float getWidth() {
-		return width;
-	}
-
-	public float getHeight() {
-		return height;
-	}
-
 	public int getTargetIndex() {
 		return targetIndex;
 	}
 
 	public void setTargetIndex(int targetIndex) {
 		this.targetIndex = targetIndex;
+	}
+
+
+	public float getOriginX() {
+		return originX;
+	}
+
+
+	public float getOriginY() {
+		return originY;
 	}
 	
 }
