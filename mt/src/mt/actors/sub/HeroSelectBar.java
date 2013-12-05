@@ -3,8 +3,8 @@ package mt.actors.sub;
 import mt.resources.FontLoader;
 import mt.resources.ResourcesLoader;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -72,7 +72,7 @@ public class HeroSelectBar extends Image{
 	private boolean checked;
 	
 	@Override
-	public void draw(SpriteBatch batch, float parentAlpha) {
+	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
 		heroWidget.draw( batch, getX()-10, getY(), 100, 100 );

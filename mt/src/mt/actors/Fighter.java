@@ -5,8 +5,11 @@ import mt.resources.ResourceUtil;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -32,6 +35,8 @@ public class Fighter extends Image{
 		initResource( borderIndex, heroIndex );
 		
 		walkSteps = 0;
+		
+//		attach();
 	}
 
 	
@@ -75,27 +80,41 @@ public class Fighter extends Image{
 		}
 	}
 
+	private float previousRotation;
 	@Override
-	public void draw(SpriteBatch batch, float parentAlpha) {
+	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		
+
 		float x = fighterInfo.getX();
 		float y = fighterInfo.getY();
 		float scaleX = getScaleX();
 		float scaleY = getScaleY();
 		float rotation = getRotation();
 		
+//		batch.draw(bottomSlateTextureRegion, x, y, bottomSlateWidth, bottomSlateHeight);
+//		batch.draw(borderTextureRegion, x, y, borderWidth, borderHeight);
+//		batch.draw(heroTextureRegion, x-11, y+35, heroWidth, heroHeight);
 		if (scaleX == 1 && scaleY == 1 && rotation == 0){
 			batch.draw(bottomSlateTextureRegion, x, y, bottomSlateWidth, bottomSlateHeight);
 			batch.draw(borderTextureRegion, x+11, y+18, borderWidth, borderHeight);
 			batch.draw(heroTextureRegion, x-11, y+35, heroWidth, heroHeight);
 		}else {
+			if( rotation != previousRotation ){
+				previousRotation = rotation;
+				borderOrigin.rotate( rotation );
+				heroOrigin.rotate( rotation );
+			}
 			batch.draw(bottomSlateTextureRegion, x, y, 0, 0, bottomSlateWidth, bottomSlateHeight, scaleX, scaleY, rotation);
-			batch.draw(borderTextureRegion, x+11*scaleX, y+18*scaleY, 0, 0, borderWidth, borderHeight, scaleX, scaleY, rotation);
-			batch.draw(heroTextureRegion, x-11*scaleX, y+35*scaleY, 0, 0, heroWidth, heroHeight, scaleX, scaleY, rotation);
+			batch.draw(borderTextureRegion, x, y, borderOrigin.x, borderOrigin.y, borderWidth, borderHeight, scaleX, scaleY, rotation);
+			batch.draw(heroTextureRegion, x, y, heroOrigin.x, heroOrigin.y, heroWidth, heroHeight, scaleX, scaleY, rotation);
 		}
 		
 	}
+	
+	private Vector2 borderOrigin = new Vector2( 11, 18 );
+	private Vector2 heroOrigin = new Vector2( -11, 35 );
+//	private Vector2 borderOrigin = new Vector2( -3.5f, 14.5f );
+//	private Vector2 heroOrigin = new Vector2( -23, 12 );
 	
 	private float bottomSlateWidth, bottomSlateHeight;
 	private float borderWidth, borderHeight;
@@ -140,6 +159,11 @@ public class Fighter extends Image{
 	public void setPosition(float x, float y) {
 		fighterInfo.setX( x );
 		fighterInfo.setY( y );
+	}
+	
+	public void attach(){
+//		addAction( Actions.repeat( 18, Actions.rotateBy(10) ) );
+		addAction( Actions.rotateTo( 90 ) );
 	}
 	
 	

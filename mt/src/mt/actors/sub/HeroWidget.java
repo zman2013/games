@@ -1,6 +1,6 @@
 package mt.actors.sub;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.utils.BaseDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
@@ -21,7 +21,7 @@ public class HeroWidget extends BaseDrawable{
 	}
 	
 	@Override
-	public void draw( SpriteBatch batch, float x, float y, float width,
+	public void draw( Batch batch, float x, float y, float width,
 			float height ) {
 		bgDrawable.draw( batch, x, y, width, height );
 		heroDrawable.draw( batch, x, y, width, height );

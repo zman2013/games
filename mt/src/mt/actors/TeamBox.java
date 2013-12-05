@@ -3,8 +3,8 @@ package mt.actors;
 import mt.resources.FontLoader;
 import mt.resources.ResourcesLoader;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
 import com.badlogic.gdx.utils.IntMap;
@@ -48,7 +48,7 @@ public class TeamBox extends WidgetGroup{
 	}
 
 	@Override
-	public void draw(SpriteBatch batch, float parentAlpha) {
+	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
 		produceHeroWidget( heroContainer1, 2, 160 );

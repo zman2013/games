@@ -5,8 +5,8 @@ import mt.resources.FontLoader;
 import mt.resources.ResourcesLoader;
 import mt.screens.TeamScreen;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
@@ -52,7 +52,7 @@ public class HomeButtonGroup extends WidgetGroup{
 	}
 	
 	@Override
-	public void draw(SpriteBatch batch, float parentAlpha) {
+	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
 		bitmapFont.draw( batch, "гЂал", getX()+60, getY()+194 );

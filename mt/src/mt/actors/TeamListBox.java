@@ -4,8 +4,8 @@ import mt.actors.sub.HeroSelectBar;
 import mt.resources.FontLoader;
 import mt.resources.ResourcesLoader;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -59,7 +59,7 @@ public class TeamListBox extends WidgetGroup{
 	}
 
 	@Override
-	public void draw(SpriteBatch batch, float parentAlpha) {
+	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
 		font.draw( batch, "гЂал", listHeader.getX()+235, listHeader.getY()+14 );

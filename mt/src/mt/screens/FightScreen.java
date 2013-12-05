@@ -5,8 +5,7 @@ import mt.resources.ResourcesLoader;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
 public class FightScreen extends AbstractScreen{
@@ -23,13 +22,10 @@ public class FightScreen extends AbstractScreen{
 		bgDrawable2 = ResourcesLoader.getDrawable( "assets/images/fight_background/data.dat_000017.jpg" );
 	
 		fighter = new Fighter( 2, 1, 0.5f, 215, 100 );
-//		fighter.addAction( Actions.sequence( Actions.fadeOut(1f), Actions.fadeIn(1f), Actions.moveTo(0, 0), Actions.rotateTo(-45) ) );
-//		fighter.addAction( Actions.rotateTo(-45) );
-		
 		boss = new Fighter( 4, 2, 1, 160, 400 );
 	}
 
-	private SpriteBatch spriteBatch;
+	private Batch spriteBatch;
 	private static float HEIGHT = 768;
 	@Override
 	public void resize(int width, int height) {
