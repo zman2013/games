@@ -33,7 +33,7 @@ public class FightScreen extends AbstractScreen{
 		stage.clear();
 		
 		stage.addActor( fighter );
-		stage.addActor( boss );
+//		stage.addActor( boss );
 		spriteBatch = stage.getSpriteBatch();
 		
 		bg1Y = 0;

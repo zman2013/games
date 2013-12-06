@@ -1,22 +1,23 @@
 package mt.actors;
 
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveBy;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.repeat;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 import mt.actors.domain.FighterInfo;
 import mt.resources.ResourceUtil;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 public class Fighter extends Image{
-
+	
 	private FighterInfo fighterInfo;
 	//resources
 	//最下石板
@@ -29,70 +30,35 @@ public class Fighter extends Image{
 	private TextureRegion heroTextureRegion;
 	private Drawable heroDrawable;
 	
-	public Fighter( int borderIndex, int heroIndex, float scale, float originX, float originY ){
-		fighterInfo = new FighterInfo( borderIndex, heroIndex, originX, originY );
+	public Fighter( int borderIndex, int heroIndex, float scale, float x, float y ){
+		fighterInfo = new FighterInfo( borderIndex, heroIndex );
 		setScale( scale );
 		initResource( borderIndex, heroIndex );
-		
-		walkSteps = 0;
-		
-//		attach();
+		setPosition( x, y );
+		attack();
 	}
 
-	
-	private float heroWalkTime = 0;
 	@Override
 	public void act(float delta) {
 		super.act(delta);
 		
-		heroWalk( delta );
+//		heroWalk( delta );
 	}
 	
-	/**
-	 * 走一0.5s，停1s
-	 * @param delta
-	 */
-	private float walkSteps = -1;
-	private void heroWalk( float delta ) {
-		if( walkSteps == -1 ){
-			return;
-		}
-		heroWalkTime += delta;
-		if(  heroWalkTime < 0.5 ){
-			if( !fighterInfo.isWalking() ){
-				fighterInfo.setX( fighterInfo.getX() - 1 );
-			}
-			fighterInfo.setWalking( true );
-			fighterInfo.setY( fighterInfo.getY() + 2 );
-		}else if( heroWalkTime < 1.5 ){
-			if( fighterInfo.isWalking() ){
-				fighterInfo.setX( fighterInfo.getX() + 1 );
-			}
-			fighterInfo.setWalking( false );
-			fighterInfo.setY( fighterInfo.getY() - 1 );
-		}else{
-			setPosition( fighterInfo.getOriginX(), fighterInfo.getOriginY() );
-			heroWalkTime = 0;
-			walkSteps++;
-			if( walkSteps == 4 ){
-				walkSteps = -1;
-			}
-		}
-	}
-
-	private float previousRotation;
+	private float previousRotation = 0;
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 
-		float x = fighterInfo.getX();
-		float y = fighterInfo.getY();
+		float x = getX();
+		float y = getY();
 		float scaleX = getScaleX();
 		float scaleY = getScaleY();
 		float rotation = getRotation();
 		
 //		batch.draw(bottomSlateTextureRegion, x, y, bottomSlateWidth, bottomSlateHeight);
 //		batch.draw(borderTextureRegion, x, y, borderWidth, borderHeight);
+//		batch.draw(borderTextureRegion, x+borderOrigin.x, y+borderOrigin.y, borderWidth, borderHeight);
 //		batch.draw(heroTextureRegion, x-11, y+35, heroWidth, heroHeight);
 		if (scaleX == 1 && scaleY == 1 && rotation == 0){
 			batch.draw(bottomSlateTextureRegion, x, y, bottomSlateWidth, bottomSlateHeight);
@@ -100,21 +66,21 @@ public class Fighter extends Image{
 			batch.draw(heroTextureRegion, x-11, y+35, heroWidth, heroHeight);
 		}else {
 			if( rotation != previousRotation ){
+				float deltaRotation = rotation - previousRotation;
 				previousRotation = rotation;
-				borderOrigin.rotate( rotation );
-				heroOrigin.rotate( rotation );
+				borderOffset.rotate( deltaRotation );
+				heroOffset.rotate( deltaRotation );
 			}
+			//draw, 以originX, originY作为原点进行旋转
 			batch.draw(bottomSlateTextureRegion, x, y, 0, 0, bottomSlateWidth, bottomSlateHeight, scaleX, scaleY, rotation);
-			batch.draw(borderTextureRegion, x, y, borderOrigin.x, borderOrigin.y, borderWidth, borderHeight, scaleX, scaleY, rotation);
-			batch.draw(heroTextureRegion, x, y, heroOrigin.x, heroOrigin.y, heroWidth, heroHeight, scaleX, scaleY, rotation);
+			batch.draw(borderTextureRegion, x+borderOffset.x*scaleX, y+borderOffset.y*scaleY, 0, 0, borderWidth, borderHeight, scaleX, scaleY, rotation);
+			batch.draw(heroTextureRegion, x+heroOffset.x*scaleX, y+heroOffset.y*scaleY, 0, 0, heroWidth, heroHeight, scaleX, scaleY, rotation);
 		}
 		
 	}
 	
-	private Vector2 borderOrigin = new Vector2( 11, 18 );
-	private Vector2 heroOrigin = new Vector2( -11, 35 );
-//	private Vector2 borderOrigin = new Vector2( -3.5f, 14.5f );
-//	private Vector2 heroOrigin = new Vector2( -23, 12 );
+	private Vector2 borderOffset = new Vector2( 11, 18 );
+	private Vector2 heroOffset = new Vector2( -11, 35 );
 	
 	private float bottomSlateWidth, bottomSlateHeight;
 	private float borderWidth, borderHeight;
@@ -155,15 +121,32 @@ public class Fighter extends Image{
 		heroTextureRegion = ((TextureRegionDrawable)heroDrawable).getRegion();
 	}
 
-	@Override
-	public void setPosition(float x, float y) {
-		fighterInfo.setX( x );
-		fighterInfo.setY( y );
+	public void attack(){
+//		addAction( Actions.repeat( 18, Actions.rotateBy(10) ) );
+//		MoveToAction action = Actions.moveTo(100, 0);
+//		action.setDuration( 2 );
+//		MoveToAction action2 = Actions.moveTo(0, 100);
+//		action2.setDuration( 2 );
+//		addAction( action2 );
+//		addAction( action );
+//		float x = getX(), y = getY(), rotation = 0.0f, duration = 1.0f;
+//		addAction(sequence(
+//				moveTo(x, y+40, 1f, Interpolation.swingIn)
+//				,moveTo(x, y, 1f, Interpolation.swingOut)
+////				,moveTo(x, y, 2f, Interpolation.swingOut)
+//				));
+		walk();
 	}
 	
-	public void attach(){
-//		addAction( Actions.repeat( 18, Actions.rotateBy(10) ) );
-		addAction( Actions.rotateTo( 90 ) );
+	public void walk(){
+		addAction(
+				repeat( 10,
+					sequence(
+							repeat( 40, moveBy( 0, 1 ) )
+							,repeat( 40, moveBy( 0, -1 ) )
+					)
+				)
+		);
 	}
 	
 	
