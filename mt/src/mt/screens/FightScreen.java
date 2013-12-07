@@ -4,8 +4,11 @@ import mt.actors.Fighter;
 import mt.resources.ResourcesLoader;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
 public class FightScreen extends AbstractScreen{
@@ -21,8 +24,11 @@ public class FightScreen extends AbstractScreen{
 		bgDrawable1 = ResourcesLoader.getDrawable( "assets/images/fight_background/data.dat_000017.jpg" );
 		bgDrawable2 = ResourcesLoader.getDrawable( "assets/images/fight_background/data.dat_000017.jpg" );
 	
-		fighter = new Fighter( 2, 1, 0.5f, 215, 100 );
-		boss = new Fighter( 4, 2, 1, 160, 400 );
+		fighter = new Fighter( 2, 1, Fighter.HERO, 0.5f, 215, 100 );
+		boss = new Fighter( 4, 2, Fighter.MONSTER, 1, 160, 400 );
+		fighter.setEnemy( boss );
+		boss.setEnemy( fighter );
+		
 	}
 
 	private Batch spriteBatch;
@@ -33,11 +39,24 @@ public class FightScreen extends AbstractScreen{
 		stage.clear();
 		
 		stage.addActor( fighter );
-//		stage.addActor( boss );
+		stage.addActor( boss );
 		spriteBatch = stage.getSpriteBatch();
 		
 		bg1Y = 0;
 		bg2Y = HEIGHT;
+		
+		stage.addListener( new InputListener(){
+
+			@Override
+			public boolean keyUp(InputEvent event, int keycode) {
+				if( keycode == Input.Keys.LEFT ){
+					fighter.attack();
+				}else{
+					boss.attack();
+				}
+				return true;
+			}
+		});
 	}
 
 	private float bg1Y;
@@ -47,7 +66,7 @@ public class FightScreen extends AbstractScreen{
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
 		Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
 		
-		moveBackground( delta );
+//		moveBackground( delta );
 		
 		spriteBatch.begin();
 		bgDrawable1.draw( spriteBatch, 0, bg1Y, stage.getWidth(), HEIGHT );
@@ -58,6 +77,7 @@ public class FightScreen extends AbstractScreen{
 		stage.draw();
 	}
 	
+	@SuppressWarnings("unused")
 	private void moveBackground(float delta){
 		bg1Y -= 1;
 		bg2Y -= 1;

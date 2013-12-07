@@ -69,4 +69,12 @@ public class FighterInfo {
 	public void setTargetIndex(int targetIndex) {
 		this.targetIndex = targetIndex;
 	}
+	
+	public void bleeding( int value ){
+		hp -= value;
+	}
+	
+	public int randomMeleeAttach(){
+		return (int) (minMeleeAttack+Math.random()*(maxMeleeAttack-minMeleeAttack));
+	}
 }

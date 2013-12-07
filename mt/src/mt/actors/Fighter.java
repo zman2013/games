@@ -3,6 +3,8 @@ package mt.actors;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveBy;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.repeat;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
+import mt.actor.skill.MeleeAttack;
+import mt.actor.skill.SkillPool;
 import mt.actors.domain.FighterInfo;
 import mt.resources.ResourceUtil;
 
@@ -10,7 +12,9 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -18,7 +22,16 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 public class Fighter extends Image{
 	
+	public static byte HERO = 1;
+	public static byte MONSTER = -1;
+	
 	private FighterInfo fighterInfo;
+	
+	private Fighter enemy;
+	
+	//英雄所属势力：-1：上，1：下
+	private int camp;
+
 	//resources
 	//最下石板
 	private TextureRegion bottomSlateTextureRegion;
@@ -30,19 +43,24 @@ public class Fighter extends Image{
 	private TextureRegion heroTextureRegion;
 	private Drawable heroDrawable;
 	
-	public Fighter( int borderIndex, int heroIndex, float scale, float x, float y ){
+	private float originX, originY;
+	public Fighter( int borderIndex, int heroIndex, byte camp, float scale, float x, float y ){
 		fighterInfo = new FighterInfo( borderIndex, heroIndex );
 		setScale( scale );
 		initResource( borderIndex, heroIndex );
 		setPosition( x, y );
-		attack();
+		originX = x;
+		originY = y;
+		this.camp = camp;
 	}
 
 	@Override
 	public void act(float delta) {
 		super.act(delta);
 		
-//		heroWalk( delta );
+		if( fighterInfo.getHp() < 0 ){
+			remove();
+		}
 	}
 	
 	private float previousRotation = 0;
@@ -56,10 +74,6 @@ public class Fighter extends Image{
 		float scaleY = getScaleY();
 		float rotation = getRotation();
 		
-//		batch.draw(bottomSlateTextureRegion, x, y, bottomSlateWidth, bottomSlateHeight);
-//		batch.draw(borderTextureRegion, x, y, borderWidth, borderHeight);
-//		batch.draw(borderTextureRegion, x+borderOrigin.x, y+borderOrigin.y, borderWidth, borderHeight);
-//		batch.draw(heroTextureRegion, x-11, y+35, heroWidth, heroHeight);
 		if (scaleX == 1 && scaleY == 1 && rotation == 0){
 			batch.draw(bottomSlateTextureRegion, x, y, bottomSlateWidth, bottomSlateHeight);
 			batch.draw(borderTextureRegion, x+11, y+18, borderWidth, borderHeight);
@@ -122,20 +136,41 @@ public class Fighter extends Image{
 	}
 
 	public void attack(){
-//		addAction( Actions.repeat( 18, Actions.rotateBy(10) ) );
-//		MoveToAction action = Actions.moveTo(100, 0);
-//		action.setDuration( 2 );
-//		MoveToAction action2 = Actions.moveTo(0, 100);
-//		action2.setDuration( 2 );
-//		addAction( action2 );
-//		addAction( action );
-//		float x = getX(), y = getY(), rotation = 0.0f, duration = 1.0f;
-//		addAction(sequence(
-//				moveTo(x, y+40, 1f, Interpolation.swingIn)
-//				,moveTo(x, y, 1f, Interpolation.swingOut)
-////				,moveTo(x, y, 2f, Interpolation.swingOut)
-//				));
-		walk();
+		//1 find target
+		findTarget();
+		//2 attack
+		attackAction();
+		MeleeAttack attack = SkillPool.getMeleeAttack();
+		attack.setFighter( this );
+		attack.setEnemy( enemy );
+		getStage().addActor( attack );
+		enemy.beingAttacked( attack );
+	}
+	
+	private void findTarget() {
+		//todo
+	}
+	
+	public void beingAttacked( MeleeAttack attack ){
+		addAction( 
+				sequence( 
+						Actions.moveTo( getX()-10, getY()+5, 0.2f, Interpolation.swingIn )
+						,Actions.moveTo( originX, originY, 0.2f, Interpolation.swingOut )
+				)
+		);
+		int damage = fighterInfo.randomMeleeAttach();
+		fighterInfo.bleeding( damage );
+		attack.setDamage( damage );
+		System.out.println( damage+":"+fighterInfo.getHp() );
+	}
+
+	private void attackAction(){
+		addAction( 
+				sequence( 
+						Actions.moveTo( getX(), getY()+20*camp, 1, Interpolation.elasticOut)
+						,Actions.moveTo( originX, originY, 0.5f )
+				)
+		);
 	}
 	
 	public void walk(){
@@ -148,6 +183,13 @@ public class Fighter extends Image{
 				)
 		);
 	}
-	
-	
+
+	public Fighter getEnemy() {
+		return enemy;
+	}
+
+	public void setEnemy(Fighter enemy) {
+		this.enemy = enemy;
+	}
+
 }

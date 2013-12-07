@@ -1,0 +1,33 @@
+
+melee_attack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+melee_attack
+  rotate: false
+  xy: 2, 2
+  size: 201, 182
+  orig: 201, 182
+  offset: 0, 0
+  index: 0
+melee_attack
+  rotate: false
+  xy: 205, 2
+  size: 201, 182
+  orig: 201, 182
+  offset: 0, 0
+  index: 1
+melee_attack
+  rotate: false
+  xy: 408, 2
+  size: 201, 182
+  orig: 201, 182
+  offset: 0, 0
+  index: 2
+melee_attack
+  rotate: false
+  xy: 611, 2
+  size: 201, 182
+  orig: 201, 182
+  offset: 0, 0
+  index: 3

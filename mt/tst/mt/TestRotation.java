@@ -31,16 +31,12 @@ public class TestRotation extends ApplicationAdapter{
 	     float width = 100;
 	     float height = 100;
 	     
-	     float offsetX = 100;
-	     float offsetY = 100;
-	     
 	     float originX = 200;
 	     float originY = 200;
 	     
 	     
 	     batch.begin();
 	     batch.draw( region, x, y, width, height );
-//	     batch.draw( region, x+originX, y+originY, width, height );
 	     for( int i = 2; i < 4; i ++ ){
 		     batch.draw( region, x, y, originX, originY, width, height, 1, 1, 30*i );
 	     }
