@@ -73,8 +73,7 @@ public class Fighter extends Image{
 				@Override
 				public boolean touchDown(InputEvent event, float x, float y,
 						int pointer, int button) {
-					startDragPosition.x = x;
-					startDragPosition.y = y;
+					startDragPosition.set( x, y );
 					localToStageCoordinates( startDragPosition );
 					return true;
 				}
@@ -82,13 +81,11 @@ public class Fighter extends Image{
 				@Override
 				public void touchDragged(InputEvent event, float x, float y,
 						int pointer) {
-					draggingPosition.x = x;
-					draggingPosition.y = y;
+					draggingPosition.set( x, y );
 					localToStageCoordinates( draggingPosition );
 					setX( getX() + (draggingPosition.x-startDragPosition.x) );
 					setY( getY() + (draggingPosition.y-startDragPosition.y) );
-					startDragPosition.x = draggingPosition.x;
-					startDragPosition.y = draggingPosition.y;
+					startDragPosition.set( draggingPosition.x, draggingPosition.y );
 				}
 			});
 		}

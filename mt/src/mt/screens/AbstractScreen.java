@@ -5,6 +5,7 @@ import mt.MTGame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class AbstractScreen extends ScreenAdapter{
@@ -13,14 +14,23 @@ public class AbstractScreen extends ScreenAdapter{
 	
 	protected Stage stage;
 	
+	protected Batch batch;
+	
 	protected static float SCALE = 0.8f;
 	
 	public AbstractScreen( ){
 		this.stage = new Stage();
+		batch = stage.getSpriteBatch();
 	}
 	
 	public void setGame(MTGame game) {
 		this.game = game;
+	}
+	
+	@Override
+	public void resize(int width, int height) {
+		super.resize(width, height);
+		stage.setViewport( width, height );
 	}
 
 	@Override
@@ -32,8 +42,6 @@ public class AbstractScreen extends ScreenAdapter{
 		stage.draw();
 	}
 	
-	
-
 	@Override
 	public void show() {
 		Gdx.input.setInputProcessor( stage );

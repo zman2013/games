@@ -82,7 +82,7 @@ public class FightScreen extends AbstractScreen{
 		super.resize( width, height );
 		stage.setViewport( width, height );
 	}
-
+	
 	private float bg1Y;
 	private float bg2Y;
 	@Override
@@ -96,7 +96,7 @@ public class FightScreen extends AbstractScreen{
 		bgDrawable1.draw( spriteBatch, 0, bg1Y, stage.getWidth(), HEIGHT );
 		bgDrawable2.draw( spriteBatch, 0, bg2Y, stage.getWidth(), HEIGHT );
 		spriteBatch.end();
-		
+
 		stage.act( delta );
 		stage.draw();
 	}
