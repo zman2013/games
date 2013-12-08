@@ -16,7 +16,7 @@ public class MTGameDesckopLauncher {
 	        String title = "MTGame";
 
 	        // define the window's size
-	        int width = 512, height = 700;
+	        int width = 480, height = 750;
 
 	        // whether to use OpenGL ES 2.0
 	        boolean useOpenGLES2 = true;

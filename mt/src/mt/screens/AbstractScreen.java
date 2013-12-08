@@ -16,7 +16,7 @@ public class AbstractScreen extends ScreenAdapter{
 	protected static float SCALE = 0.8f;
 	
 	public AbstractScreen( ){
-		this.stage = new Stage( 512, 700, true );
+		this.stage = new Stage();
 	}
 	
 	public void setGame(MTGame game) {
@@ -31,6 +31,8 @@ public class AbstractScreen extends ScreenAdapter{
 		stage.act( delta );
 		stage.draw();
 	}
+	
+	
 
 	@Override
 	public void show() {

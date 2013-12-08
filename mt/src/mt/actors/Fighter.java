@@ -14,9 +14,11 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
@@ -52,11 +54,44 @@ public class Fighter extends Image{
 		originX = x;
 		originY = y;
 		this.camp = camp;
+		
+		setWidth( heroWidth );
+		setHeight( heroHeight );
 	}
 
+	private Vector2 startDragPosition = new Vector2();
+	private Vector2 draggingPosition = new Vector2();
+	boolean initListener = false;
 	@Override
 	public void act(float delta) {
 		super.act(delta);
+		
+		if( !initListener ){
+			initListener = true;
+			addListener( new ClickListener(){
+
+				@Override
+				public boolean touchDown(InputEvent event, float x, float y,
+						int pointer, int button) {
+					startDragPosition.x = x;
+					startDragPosition.y = y;
+					localToStageCoordinates( startDragPosition );
+					return true;
+				}
+
+				@Override
+				public void touchDragged(InputEvent event, float x, float y,
+						int pointer) {
+					draggingPosition.x = x;
+					draggingPosition.y = y;
+					localToStageCoordinates( draggingPosition );
+					setX( getX() + (draggingPosition.x-startDragPosition.x) );
+					setY( getY() + (draggingPosition.y-startDragPosition.y) );
+					startDragPosition.x = draggingPosition.x;
+					startDragPosition.y = draggingPosition.y;
+				}
+			});
+		}
 		
 		if( fighterInfo.getHp() < 0 ){
 			remove();
@@ -76,8 +111,8 @@ public class Fighter extends Image{
 		
 		if (scaleX == 1 && scaleY == 1 && rotation == 0){
 			batch.draw(bottomSlateTextureRegion, x, y, bottomSlateWidth, bottomSlateHeight);
-			batch.draw(borderTextureRegion, x+11, y+18, borderWidth, borderHeight);
-			batch.draw(heroTextureRegion, x-11, y+35, heroWidth, heroHeight);
+			batch.draw(borderTextureRegion, x+borderOffset.x, y+borderOffset.y, borderWidth, borderHeight);
+			batch.draw(heroTextureRegion, x+heroOffset.x, y+heroOffset.y, heroWidth, heroHeight);
 		}else {
 			if( rotation != previousRotation ){
 				float deltaRotation = rotation - previousRotation;
@@ -161,7 +196,7 @@ public class Fighter extends Image{
 		int damage = fighterInfo.randomMeleeAttach();
 		fighterInfo.bleeding( damage );
 		attack.setDamage( damage );
-		System.out.println( damage+":"+fighterInfo.getHp() );
+//		System.out.println( damage+":"+fighterInfo.getHp() );
 	}
 
 	private void attackAction(){
