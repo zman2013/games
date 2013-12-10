@@ -1,0 +1,47 @@
+{
+backgroundFilePath: assets/images/fight_background/data.dat_000017.jpg,
+enemyInfos: [
+	{
+		borderFilePath: assets/images/border/5.png,
+		x: 135,
+		scale: 1,
+		y: 500,
+		fighterFilePath: assets/images/fighter/1.png
+	},
+	{
+		borderFilePath: assets/images/border/2.png,
+		x: 25,
+		scale: 0.5,
+		y: 600,
+		fighterFilePath: assets/images/fighter/2.png
+	},
+	{
+		borderFilePath: assets/images/border/3.png,
+		x: 350,
+		scale: 0.5,
+		y: 600,
+		fighterFilePath: assets/images/fighter/2.png
+	},
+	{
+		borderFilePath: assets/images/border/4.png,
+		x: 32,
+		scale: 0.5,
+		y: 420,
+		fighterFilePath: assets/images/fighter/2.png
+	},
+	{
+		borderFilePath: assets/images/border/2.png,
+		x: 343,
+		scale: 0.5,
+		y: 420,
+		fighterFilePath: assets/images/fighter/2.png
+	},
+	{
+		borderFilePath: assets/images/border/3.png,
+		x: 190,
+		scale: 0.5,
+		y: 380,
+		fighterFilePath: assets/images/fighter/1.png
+	}
+]
+}

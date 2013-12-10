@@ -6,7 +6,7 @@ import com.badlogic.gdx.utils.Array;
 /**
  * 负责记录所有关卡的坐标、任务的进度。
  * 任务进度以关卡的索引号来标识。
- * 例如：任务进度为1，则只显示第一个关卡；任务进度为2，则显示前两个关卡。
+ * 例如：任务进度为0，则只显示第一个关卡，关卡索引为0；任务进度为1，则显示前两个关卡，关卡索引为0、1。
  * @author zman
  *
  */
@@ -14,7 +14,7 @@ public class BarrierManager {
 
 	private Array<Vector2> barrierCoordinateArray;
 	
-	private int taskProgress = 17;
+	private int taskProgress = 16;
 	
 	/**
 	 * 当前正选中关卡的索引号。

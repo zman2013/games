@@ -1,5 +1,6 @@
 package mt.map;
 
+import mt.screens.FightScreen;
 import mt.screens.MapScreen;
 
 import com.badlogic.gdx.math.Vector2;
@@ -33,7 +34,7 @@ public class BarrierActor extends Image{
 					screen.setFocusPosition( position.x+5, position.y+70 );
 				}else{
 					//切换到关卡战斗页面
-					System.out.println( "barrier "+barrierIndex );
+					screen.getGame().setScreen( FightScreen.class );
 				}
 			}
 		});

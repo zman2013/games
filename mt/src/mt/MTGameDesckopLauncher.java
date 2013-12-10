@@ -20,7 +20,7 @@ public class MTGameDesckopLauncher {
 
 	        // whether to use OpenGL ES 2.0
 	        boolean useOpenGLES2 = true;
-
+	        
 	        // create the game
 	        new LwjglApplication( listener, title, width, height, useOpenGLES2 );
 	    }

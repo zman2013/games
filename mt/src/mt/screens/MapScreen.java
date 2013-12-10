@@ -42,7 +42,7 @@ public class MapScreen extends AbstractScreen{
 	
 	private void initBarriers() {
 		Array<Vector2> barrierCoordinateArray = barrierManager.getBarrierCoordinateArray();
-		for( int i = 0; i < barrierManager.getTaskProgress(); i ++ ){
+		for( int i = 0; i <= barrierManager.getTaskProgress(); i ++ ){
 			BarrierActor barrier = new BarrierActor( i, this );
 			Vector2 coordinate = barrierCoordinateArray.get( i );
 			barrier.setPosition( coordinate.x, coordinate.y );

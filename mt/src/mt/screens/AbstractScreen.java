@@ -23,10 +23,6 @@ public class AbstractScreen extends ScreenAdapter{
 		batch = stage.getSpriteBatch();
 	}
 	
-	public void setGame(MTGame game) {
-		this.game = game;
-	}
-	
 	@Override
 	public void resize(int width, int height) {
 		super.resize(width, height);
@@ -50,6 +46,14 @@ public class AbstractScreen extends ScreenAdapter{
 	@Override
 	public void dispose() {
 		stage.dispose();
+	}
+
+	public MTGame getGame() {
+		return game;
+	}
+
+	public void setGame(MTGame game) {
+		this.game = game;
 	}
 	
 }

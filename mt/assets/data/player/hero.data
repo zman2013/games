@@ -1,0 +1,42 @@
+[
+{
+	class: mt.actors.domain.FighterInfo,
+	borderFilePath: assets/images/border/5.png,
+	x: 30,
+	scale: 0.5,
+	y: 30,
+	fighterFilePath: assets/images/fighter/2.png
+},
+{
+	class: mt.actors.domain.FighterInfo,
+	borderFilePath: assets/images/border/2.png,
+	x: 345,
+	scale: 0.5,
+	y: 30,
+	fighterFilePath: assets/images/fighter/2.png
+},
+{
+	class: mt.actors.domain.FighterInfo,
+	borderFilePath: assets/images/border/3.png,
+	x: 70,
+	scale: 0.5,
+	y: 160,
+	fighterFilePath: assets/images/fighter/2.png
+},
+{
+	class: mt.actors.domain.FighterInfo,
+	borderFilePath: assets/images/border/4.png,
+	x: 305,
+	scale: 0.5,
+	y: 160,
+	fighterFilePath: assets/images/fighter/2.png
+},
+{
+	class: mt.actors.domain.FighterInfo,
+	borderFilePath: assets/images/border/2.png,
+	x: 190,
+	scale: 0.5,
+	y: 210,
+	fighterFilePath: assets/images/fighter/1.png
+}
+]

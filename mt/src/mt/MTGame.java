@@ -1,9 +1,11 @@
 package mt;
 
 import mt.screens.AbstractScreen;
-import mt.screens.MapScreen;
+import mt.screens.FightScreen;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ObjectMap;
 
@@ -13,9 +15,16 @@ public class MTGame extends Game{
 	
 	@Override
 	public void create() {
-		setScreen( getScreen( MapScreen.class ) );
+		Gdx.app.setLogLevel( Application.LOG_DEBUG );
+		setScreen( FightScreen.class );
 	}
 	
+	public void setScreen(  Class<? extends AbstractScreen> screenClass  ) {
+		FightScreen fightScreen = (FightScreen) getScreen( screenClass );
+		fightScreen.init( 0 );
+		super.setScreen( fightScreen );
+	}
+
 	/**
 	 * Check if the specific screen is stored in the screenCache,
 	 * if true, return it. else create new instance then return it.
