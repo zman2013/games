@@ -1,4 +1,4 @@
-package mt.actors;
+package mt.fight;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveBy;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.repeat;
@@ -10,17 +10,21 @@ import mt.actors.domain.FighterInfo;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Array;
 
 public class Fighter extends Image{
 	
-	private FighterInfo fighterInfo;
+	protected FighterInfo fighterInfo;
 	
-	private Fighter enemy;
+	@SuppressWarnings("unused")
+	private Array<Fighter> heros, enemies;
 	
 	//resources
 	//最下石板
@@ -29,21 +33,9 @@ public class Fighter extends Image{
 	private TextureRegion borderTextureRegion;
 	//英雄
 	private TextureRegion fighterTextureRegion;
+	//是否正在被攻击, 0: 表示没有被攻击，1:表示正被一个敌人攻击，2:表示正被两个敌人攻击
+	private byte beingAttacked;
 	
-	private float originX, originY;
-//	public Fighter( int borderIndex, int heroIndex, byte camp, float scale, float x, float y ){
-//		fighterInfo = new FighterInfo( borderIndex, heroIndex );
-//		setScale( scale );
-//		initResource( borderIndex, heroIndex );
-//		setPosition( x, y );
-//		originX = x;
-//		originY = y;
-//		this.camp = camp;
-//		
-//		setWidth( heroWidth );
-//		setHeight( heroHeight );
-//	}
-
 	public Fighter(TextureRegion bottomSlateRegion, TextureRegion borderRegion,
 			TextureRegion fighterRegion, FighterInfo info) {
 		this.fighterInfo = info;
@@ -85,12 +77,12 @@ public class Fighter extends Image{
 			});
 		}
 		
-		if( fighterInfo.getHp() < 0 ){
+		if( fighterInfo.getHp() < 0 && beingAttacked == 0 ){
 			remove();
 		}
 	}
 	
-	private Vector2 borderOffset = new Vector2( 11, 18 );
+	private Vector2 borderOffset = new Vector2( 10, 18 );
 	private Vector2 heroOffset = new Vector2( -11, 35 );
 	private float previousRotation = 0;
 	@Override
@@ -122,10 +114,27 @@ public class Fighter extends Image{
 		
 	}
 	
-	public void attack(){
-		//1 find target
-		findTarget();
-		//2 attack
+	private float delay;
+	private boolean fighting = false;
+	public void attack( float delta ){
+		//1正在攻击中
+		if( fighting ){
+			return;
+		}
+		//2 寻找有效目标
+		Fighter enemy = findTarget();
+		if( enemy == null ){
+			return;
+		}
+		//3 等待攻击事件间隔
+		delay += delta;
+		if( delay < fighterInfo.getAttackInterval() )
+			return;
+		//4 检查是否已经死亡
+		if( fighterInfo.getHp() <= 0 ){
+			return;
+		}
+		fighting = true;
 		attackAction();
 		MeleeAttack attack = SkillPool.getMeleeAttack();
 		attack.setFighter( this );
@@ -134,49 +143,88 @@ public class Fighter extends Image{
 		enemy.beingAttacked( attack );
 	}
 	
-	private void findTarget() {
+	private Fighter findTarget() {
 		//todo
+		for( Fighter fighter : enemies ){
+			if( fighter.fighterInfo.getHp() > 0 ){
+				return fighter;
+			}
+		}
+		return null;
 	}
 	
 	public void beingAttacked( MeleeAttack attack ){
+		beingAttacked ++;
+		int damage = attack.getFighter().getFighterInfo().randomMeleeAttach();
+		fighterInfo.bleeding( damage );
+		attack.setDamage( damage );
 		addAction( 
 				sequence( 
 						Actions.moveTo( getX()-10, getY()+5, 0.2f, Interpolation.swingIn )
-						,Actions.moveTo( originX, originY, 0.2f, Interpolation.swingOut )
+						,Actions.moveTo( fighterInfo.getX(), fighterInfo.getY(), 0.2f, Interpolation.swingOut )
+						,new Action(){
+							public boolean act(float delta) {
+								beingAttacked--;
+								return true;
+							}
+						}
 				)
 		);
-		int damage = fighterInfo.randomMeleeAttach();
-		fighterInfo.bleeding( damage );
-		attack.setDamage( damage );
-//		System.out.println( damage+":"+fighterInfo.getHp() );
 	}
 
 	private void attackAction(){
 		addAction( 
 				sequence( 
 						Actions.moveTo( getX(), getY()+20*fighterInfo.getCamp(), 1, Interpolation.elasticOut)
-						,Actions.moveTo( originX, originY, 0.5f )
+						,Actions.moveTo( fighterInfo.getX(), fighterInfo.getY(), 0.5f )
+						, new Action(){
+							public boolean act(float delta) {
+								fighting = false;
+								delay = 0;
+								return true;
+							}
+						}
 				)
 		);
 	}
 	
+	private boolean walking = false;
 	public void walk(){
+		if( walking ){
+			return;
+		}
+		walking = true;
 		addAction(
-				repeat( 10,
-					sequence(
-							repeat( 40, moveBy( 0, 1 ) )
-							,repeat( 40, moveBy( 0, -1 ) )
-					)
+				sequence(
+						repeat( MathUtils.random( 10 ), moveBy( 0, -1 ) )
+						,repeat( 
+								5, sequence(
+										repeat( 38, moveBy( 0, 1 ) )
+										,repeat( 37, moveBy( 0, -1 ) )
+									)
+						)
+						,Actions.moveTo( fighterInfo.getX(), fighterInfo.getY(), 0.1f )
+						,new Action(){
+							public boolean act(float delta) {
+								walking = false;
+								return true;
+							}
+						}
 				)
 		);
 	}
 
-	public Fighter getEnemy() {
-		return enemy;
+	public void setEnemies(Array<Fighter> enemies) {
+		this.enemies = enemies;
+	}
+	
+	public void setHeros( Array<Fighter> heros ){
+		this.heros = heros;
 	}
 
-	public void setEnemy(Fighter enemy) {
-		this.enemy = enemy;
+	public FighterInfo getFighterInfo() {
+		return fighterInfo;
 	}
 
+	
 }

@@ -3,7 +3,7 @@ package mt.actor.skill;
 import java.util.HashMap;
 import java.util.Map;
 
-import mt.actors.Fighter;
+import mt.fight.Fighter;
 import mt.resources.ResourceUtil;
 
 import com.badlogic.gdx.assets.AssetManager;
@@ -88,6 +88,7 @@ public class MeleeAttack extends Image{
 		batch.draw( bleedingRegion, x-60*scaleX, y+20*scaleY, 0, 0, width, height, scaleX, scaleY, rotation );
 		
 		font.draw( batch, String.valueOf(damage), x+100*scaleX, y+100*scaleY );
+		
 	}
 
 	private void initResources() {
@@ -147,6 +148,10 @@ public class MeleeAttack extends Image{
 	private int damage;
 	public void setDamage(int damage) {
 		this.damage = damage;
+	}
+
+	public Fighter getFighter() {
+		return fighter;
 	}
 
 }

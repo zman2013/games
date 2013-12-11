@@ -6,6 +6,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 
@@ -20,12 +21,12 @@ public class BarrierDataGenerator extends ApplicationAdapter{
 	
 	public void create() {
 		Array<FighterInfo> enemyInfos = new Array<FighterInfo>();
-		enemyInfos.add( new FighterInfo( "assets/images/border/5.png", "assets/images/fighter/1.png", 135, 500, 1 ) );
-		enemyInfos.add( new FighterInfo( "assets/images/border/2.png", "assets/images/fighter/2.png", 25, 600, 0.5f ) );
-		enemyInfos.add( new FighterInfo( "assets/images/border/3.png", "assets/images/fighter/2.png", 350, 600, 0.5f ) );
-		enemyInfos.add( new FighterInfo( "assets/images/border/4.png", "assets/images/fighter/2.png", 32, 420, 0.5f ) );
-		enemyInfos.add( new FighterInfo( "assets/images/border/2.png", "assets/images/fighter/2.png", 343, 420, 0.5f ) );
-		enemyInfos.add( new FighterInfo( "assets/images/border/3.png", "assets/images/fighter/1.png", 190, 380, 0.5f ) );
+		enemyInfos.add( new FighterInfo( "assets/images/border/5.png", "assets/images/fighter/1.png", (byte)-1, MathUtils.random(1.7f, 4), 135, 500, 1 ) );
+		enemyInfos.add( new FighterInfo( "assets/images/border/2.png", "assets/images/fighter/2.png", (byte)-1, MathUtils.random(1.7f, 4), 25, 600, 0.5f ) );
+		enemyInfos.add( new FighterInfo( "assets/images/border/3.png", "assets/images/fighter/2.png", (byte)-1, MathUtils.random(1.7f, 4), 350, 600, 0.5f ) );
+		enemyInfos.add( new FighterInfo( "assets/images/border/4.png", "assets/images/fighter/2.png", (byte)-1, MathUtils.random(1.7f, 4), 32, 420, 0.5f ) );
+		enemyInfos.add( new FighterInfo( "assets/images/border/2.png", "assets/images/fighter/2.png", (byte)-1, MathUtils.random(1.7f, 4), 343, 420, 0.5f ) );
+		enemyInfos.add( new FighterInfo( "assets/images/border/3.png", "assets/images/fighter/1.png", (byte)-1, MathUtils.random(1.7f, 4), 190, 380, 0.5f ) );
 		
 		BarrierInfo barrierInfo = new BarrierInfo();
 		barrierInfo.setBackgroundFilePath( "assets/images/fight_background/data.dat_000017.jpg" );

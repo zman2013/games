@@ -1,6 +1,8 @@
 [
 {
 	class: mt.actors.domain.FighterInfo,
+	camp: 1,
+	attackInterval: 2.9806812,
 	borderFilePath: assets/images/border/5.png,
 	x: 30,
 	scale: 0.5,
@@ -9,6 +11,8 @@
 },
 {
 	class: mt.actors.domain.FighterInfo,
+	camp: 1,
+	attackInterval: 3.4093485,
 	borderFilePath: assets/images/border/2.png,
 	x: 345,
 	scale: 0.5,
@@ -17,6 +21,8 @@
 },
 {
 	class: mt.actors.domain.FighterInfo,
+	camp: 1,
+	attackInterval: 2.4170256,
 	borderFilePath: assets/images/border/3.png,
 	x: 70,
 	scale: 0.5,
@@ -25,6 +31,8 @@
 },
 {
 	class: mt.actors.domain.FighterInfo,
+	camp: 1,
+	attackInterval: 1.7344465,
 	borderFilePath: assets/images/border/4.png,
 	x: 305,
 	scale: 0.5,
@@ -33,6 +41,8 @@
 },
 {
 	class: mt.actors.domain.FighterInfo,
+	camp: 1,
+	attackInterval: 2.0351224,
 	borderFilePath: assets/images/border/2.png,
 	x: 190,
 	scale: 0.5,

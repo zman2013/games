@@ -2,6 +2,8 @@
 backgroundFilePath: assets/images/fight_background/data.dat_000017.jpg,
 enemyInfos: [
 	{
+		camp: -1,
+		attackInterval: 2.5869763,
 		borderFilePath: assets/images/border/5.png,
 		x: 135,
 		scale: 1,
@@ -9,6 +11,8 @@ enemyInfos: [
 		fighterFilePath: assets/images/fighter/1.png
 	},
 	{
+		camp: -1,
+		attackInterval: 2.7555513,
 		borderFilePath: assets/images/border/2.png,
 		x: 25,
 		scale: 0.5,
@@ -16,6 +20,8 @@ enemyInfos: [
 		fighterFilePath: assets/images/fighter/2.png
 	},
 	{
+		camp: -1,
+		attackInterval: 3.6118078,
 		borderFilePath: assets/images/border/3.png,
 		x: 350,
 		scale: 0.5,
@@ -23,6 +29,8 @@ enemyInfos: [
 		fighterFilePath: assets/images/fighter/2.png
 	},
 	{
+		camp: -1,
+		attackInterval: 2.1671648,
 		borderFilePath: assets/images/border/4.png,
 		x: 32,
 		scale: 0.5,
@@ -30,6 +38,8 @@ enemyInfos: [
 		fighterFilePath: assets/images/fighter/2.png
 	},
 	{
+		camp: -1,
+		attackInterval: 2.010386,
 		borderFilePath: assets/images/border/2.png,
 		x: 343,
 		scale: 0.5,
@@ -37,6 +47,8 @@ enemyInfos: [
 		fighterFilePath: assets/images/fighter/2.png
 	},
 	{
+		camp: -1,
+		attackInterval: 3.9256897,
 		borderFilePath: assets/images/border/3.png,
 		x: 190,
 		scale: 0.5,
