@@ -1,8 +1,7 @@
-package mt.actors;
+package mt.deprecated;
 
 import mt.MTGame;
 import mt.resources.ResourcesLoader;
-import mt.screens.HomeScreen;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -58,7 +57,7 @@ public class MenuBox extends WidgetGroup{
 			public void touchUp(InputEvent event, float x, float y,
 					int pointer, int button) {
 				homeButton.setDrawable( homeButtonDrawable );
-				game.setScreen( game.getScreen( HomeScreen.class ) );
+				game.setScreen( game.getScreen( HomeScreen_backup.class ) );
 			}
 		});
 		

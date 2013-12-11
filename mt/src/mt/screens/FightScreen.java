@@ -14,7 +14,6 @@ import com.badlogic.gdx.utils.Array;
 
 public class FightScreen extends AbstractScreen{
 	
-	@SuppressWarnings("unused")
 	private int barrierIndex;
 	
 	private FightResourceLoader fightResourceLoader;
@@ -26,10 +25,8 @@ public class FightScreen extends AbstractScreen{
 	
 	public FightScreen(){
 		super();
-	}
-	
-	public void init( int barrierIndex ){
-		this.barrierIndex = barrierIndex;
+		//to do, should read from file or somewhere
+		this.barrierIndex = 0;
 		
 		initResources( barrierIndex );
 		
@@ -40,7 +37,7 @@ public class FightScreen extends AbstractScreen{
 		
 		initListeners();
 	}
-
+	
 	private void initListeners() {
 		stage.addListener( new InputListener(){
 			public boolean keyUp(InputEvent event, int keycode) {

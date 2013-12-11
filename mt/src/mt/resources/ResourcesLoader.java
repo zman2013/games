@@ -188,7 +188,7 @@ public class ResourcesLoader {
 		if( heroIconCache.containsKey(index) ){
 			return heroIconCache.get( index );
 		}
-		heroIconTexture = new Texture( Gdx.files.internal("assets/images/heros/data.dat_000"+index+".png") );
+		heroIconTexture = new Texture( Gdx.files.internal("assets/images/fighter/data.dat_000"+index+".png") );
 		heroIconTextureRegion = new TextureRegion( heroIconTexture );
 		heroIconDrawable = new TextureRegionDrawable( heroIconTextureRegion );
 		heroIconCache.put( index, heroIconDrawable );

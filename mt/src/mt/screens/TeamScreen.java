@@ -1,8 +1,8 @@
 package mt.screens;
 
-import mt.actors.HeaderBox;
-import mt.actors.MenuBox;
 import mt.actors.TeamListBox;
+import mt.deprecated.HeaderBox;
+import mt.deprecated.MenuBox;
 import mt.resources.ResourcesLoader;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;

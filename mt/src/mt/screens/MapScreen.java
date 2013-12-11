@@ -40,7 +40,7 @@ public class MapScreen extends AbstractScreen{
 		
 		initBarriers();
 		
-		stage.addActor( new ReturnActor( resourceLoader.getReturnDrawable(), stage.getWidth() ) );
+		stage.addActor( new ReturnActor( resourceLoader.getReturnDrawable(), stage.getWidth(), this, HomeScreen.class ) );
 	}
 	
 	private void initBarriers() {

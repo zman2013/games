@@ -23,6 +23,8 @@ public class AbstractScreen extends ScreenAdapter{
 		batch = stage.getSpriteBatch();
 	}
 	
+	public void init(){}
+	
 	@Override
 	public void resize(int width, int height) {
 		super.resize(width, height);
