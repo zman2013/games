@@ -2,6 +2,7 @@ package mt;
 
 import mt.screens.AbstractScreen;
 import mt.screens.FightScreen;
+import mt.screens.MapScreen;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
@@ -20,9 +21,9 @@ public class MTGame extends Game{
 	}
 	
 	public void setScreen(  Class<? extends AbstractScreen> screenClass  ) {
-		FightScreen fightScreen = (FightScreen) getScreen( screenClass );
-		fightScreen.init( 0 );
-		super.setScreen( fightScreen );
+//		FightScreen fightScreen = (FightScreen) getScreen( screenClass );
+//		fightScreen.init( 0 );
+		super.setScreen( getScreen( MapScreen.class ) );
 	}
 
 	/**

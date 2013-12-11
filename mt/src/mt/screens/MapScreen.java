@@ -1,5 +1,6 @@
 package mt.screens;
 
+import mt.actor.shared.ReturnActor;
 import mt.map.BarrierActor;
 import mt.map.BarrierManager;
 import mt.map.MapResourceLoader;
@@ -34,10 +35,12 @@ public class MapScreen extends AbstractScreen{
 		mapDrawable = resourceLoader.getMapDrawable();
 		focusDrawable = resourceLoader.getFocusDrawable();
 		
+		
 		initListener();
 		
 		initBarriers();
 		
+		stage.addActor( new ReturnActor( resourceLoader.getReturnDrawable(), stage.getWidth() ) );
 	}
 	
 	private void initBarriers() {
