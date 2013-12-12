@@ -48,7 +48,7 @@ public class HomeScreen extends AbstractScreen{
 	private void initButtons(HomeResourceLoader resourceLoader) {
 		Vector2 coordinate;
 		//shop button
-		Actor actor = new ButtonActor( this, null, "’Û–Õ", resourceLoader );
+		Actor actor = new ButtonActor( this, FormationScreen.class, "’Û–Õ", resourceLoader );
 		coordinate = homeManager.getShopButtonCoordinate();
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );		

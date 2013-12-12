@@ -5,19 +5,19 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.IntMap;
 
-public class FormationManager {
+public class FighterFormationManager {
 
 	private Array<Vector2> placeHolderCoordinates;
 	
 	private IntMap<HeroActor> fighterMap = new IntMap<HeroActor>( 5 );
 	
-	public FormationManager() {
+	public FighterFormationManager() {
 		placeHolderCoordinates = new Array<Vector2>();
-		placeHolderCoordinates.add( new Vector2(190, 510) );
+		placeHolderCoordinates.add( new Vector2(192.5f, 510) );
 		placeHolderCoordinates.add( new Vector2(70, 460) );
-		placeHolderCoordinates.add( new Vector2(305, 460) );
+		placeHolderCoordinates.add( new Vector2(314.5f, 460) );
 		placeHolderCoordinates.add( new Vector2(30, 330) );
-		placeHolderCoordinates.add( new Vector2(345, 330) );
+		placeHolderCoordinates.add( new Vector2(354.5f, 330) );
 	}
 	
 	public void putFight( int index, HeroActor fighter ){
@@ -57,7 +57,7 @@ public class FormationManager {
 	}
 	
 	//设置fighter为最上层显示。
-	public void setFront( HeroActor fighter ){
+	public void setFrontFighter( HeroActor fighter ){
 		for( HeroActor actor : fighterMap.values() ){
 			actor.setZIndex( 10 );
 		}

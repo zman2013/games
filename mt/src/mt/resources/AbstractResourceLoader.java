@@ -2,6 +2,7 @@ package mt.resources;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -51,4 +52,6 @@ public abstract class AbstractResourceLoader {
 	public TextureRegion getTextureRegion( String key ){ return skin.getRegion( key ); }
 
 	public Drawable getReturnDrawable(){ return skin.getDrawable( returnFilePath ); }
+	
+	public BitmapFont getFont( String key ){ return skin.getFont( key ); }
 }

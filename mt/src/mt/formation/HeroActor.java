@@ -21,10 +21,10 @@ public class HeroActor extends Image{
 	private float fighterWidth, fighterHeight;
 	private float fighterOffsetX, fighterOffsetY;
 	
-	private FormationManager manager;
+	private FighterFormationManager manager;
 	private HeroActor fighter;
 
-	public HeroActor( FighterInfo fighterInfo, FormationResourceLoader resourceLoader, FormationManager manager ){
+	public HeroActor( FighterInfo fighterInfo, FormationResourceLoader resourceLoader, FighterFormationManager manager ){
 		fighter = this;
 		this.fighterInfo = fighterInfo;
 		this.manager = manager;
@@ -45,7 +45,7 @@ public class HeroActor extends Image{
 		addListener( new ClickListener(){
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
-				manager.setFront( fighter );
+				manager.setFrontFighter( fighter );
 				startDragPosition.set( x, y );
 				localToStageCoordinates( startDragPosition );
 				return true;
