@@ -1,6 +1,5 @@
 package mt.deprecated;
 
-import mt.actors.TeamBox;
 import mt.resources.ResourcesLoader;
 import mt.screens.AbstractScreen;
 

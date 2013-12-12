@@ -1,4 +1,4 @@
-package mt.actors.sub;
+package mt.deprecated;
 
 import mt.resources.FontLoader;
 import mt.resources.ResourcesLoader;

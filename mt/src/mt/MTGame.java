@@ -1,8 +1,8 @@
 package mt;
 
+import mt.deprecated.TeamScreen;
 import mt.screens.AbstractScreen;
 import mt.screens.FighterListScreen;
-import mt.screens.TeamScreen;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;

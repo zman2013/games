@@ -1,6 +1,5 @@
-package mt.actors;
+package mt.deprecated;
 
-import mt.actors.sub.HeroSelectBar;
 import mt.resources.FontLoader;
 import mt.resources.ResourcesLoader;
 
