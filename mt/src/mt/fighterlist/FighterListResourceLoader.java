@@ -27,7 +27,7 @@ public class FighterListResourceLoader extends AbstractResourceLoader{
 	private String fighterFilePath = "assets/data/player/hero.data";
 	private String candidateFilePath = "assets/data/player/candidate.data";
 	
-	private String fontFilePath = "assets/font/home_screen.fnt";
+	private String fontFilePath = "assets/font/font.fnt";
 	
 	private Array<FighterInfo> fighterInfos;
 	

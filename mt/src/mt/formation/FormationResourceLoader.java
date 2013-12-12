@@ -25,7 +25,7 @@ public class FormationResourceLoader extends AbstractResourceLoader {
 	private String fighterFilePath = "assets/data/player/hero.data";
 	private String skillFilePath = "assets/data/player/skill.data";
 	
-	private String fontFilePath = "assets/font/home_screen.fnt";
+	private String fontFilePath = "assets/font/font.fnt";
 	
 	private Array<FighterInfo> fighterInfos;
 	private Array<SkillInfo> skillInfos;

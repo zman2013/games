@@ -22,7 +22,7 @@ public class HomeResourceLoader{
 		String bgFilePath = "assets/images/home_images/bg.jpg";
 		String buttonFilePath = "assets/images/home_images/home_button.png";
 		String activeButtonFilePath = "assets/images/home_images/home_button_active.png";
-		String fontFilePath = "assets/font/home_screen.fnt";
+		String fontFilePath = "assets/font/font.fnt";
 		String returnFilePath = "assets/images/shared/return_button.png";
 		
 		AssetManager assetManager = ResourceUtil.getAssetManager();

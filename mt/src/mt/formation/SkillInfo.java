@@ -3,7 +3,7 @@ package mt.formation;
 public class SkillInfo {
 
 	/**
-	 * 默认为-1：未出征。
+	 * 默认为-1：未装备。
 	 * 0：左上; 1：右上；2：左中；3：右中；4：左下；5：右下。
 	 */
 	private int formationIndex;

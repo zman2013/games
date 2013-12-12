@@ -1,6 +1,8 @@
 package mt.formation;
 
+import mt.actor.CoordinateActor;
 import mt.actors.domain.FighterInfo;
+import mt.resources.AbstractResourceLoader;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -11,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
-public class HeroActor extends Image{
+public class HeroActor extends Image implements CoordinateActor{
 	
 	private FighterInfo fighterInfo;
 	
@@ -24,7 +26,7 @@ public class HeroActor extends Image{
 	private FighterFormationManager manager;
 	private HeroActor fighter;
 
-	public HeroActor( FighterInfo fighterInfo, FormationResourceLoader resourceLoader, FighterFormationManager manager ){
+	public HeroActor( FighterInfo fighterInfo, AbstractResourceLoader resourceLoader, FighterFormationManager manager ){
 		fighter = this;
 		this.fighterInfo = fighterInfo;
 		this.manager = manager;
@@ -45,7 +47,9 @@ public class HeroActor extends Image{
 		addListener( new ClickListener(){
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
-				manager.setFrontFighter( fighter );
+				if( manager != null ){
+					manager.setFront( fighter );
+				}
 				startDragPosition.set( x, y );
 				localToStageCoordinates( startDragPosition );
 				return true;
@@ -61,7 +65,9 @@ public class HeroActor extends Image{
 			@Override
 			public void touchUp(InputEvent event, float x, float y,
 					int pointer, int button) {
-				manager.updateFighterFormation( fighter );
+				if( manager != null ){
+					manager.updateCoordinate( fighter );
+				}
 			}
 		});
 	}
@@ -80,7 +86,7 @@ public class HeroActor extends Image{
 		batch.draw( fighterRegion, x, y, 0, 0, fighterWidth, fighterHeight, scaleX, scaleY, 0 );
 	}
 	
-	private void initResource( FormationResourceLoader resourceLoader ) {
+	private void initResource( AbstractResourceLoader resourceLoader ) {
 		borderDrawable = resourceLoader.getDrawable( fighterInfo.getBorderFilePath() );
 		borderWidth = borderDrawable.getMinWidth();
 		borderHeight = borderDrawable.getMinHeight();
@@ -108,6 +114,20 @@ public class HeroActor extends Image{
 
 	public FighterInfo getFighterInfo() {
 		return fighterInfo;
+	}
+
+
+
+	@Override
+	public int getCoordinateIndex() {
+		return fighterInfo.getFormationIndex();
+	}
+
+
+
+	@Override
+	public void setCoordinateIndex(int index) {
+		fighterInfo.setFormationIndex( index );
 	}
 	
 	

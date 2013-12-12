@@ -1,20 +1,24 @@
 package mt.formation;
 
+import mt.actor.CoordinateActor;
+import mt.resources.AbstractCoordinateManager;
+import mt.resources.AbstractResourceLoader;
+
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class SkillActor extends Image{
+public class SkillActor extends Image implements CoordinateActor{
 
 	private SkillActor skillActor;
 	
 	private SkillInfo info;
 	
-	private SkillFormationManager manager;
+	private AbstractCoordinateManager manager;
 	
-	public SkillActor( SkillInfo info, FormationResourceLoader loader, SkillFormationManager manager ){
+	public SkillActor( SkillInfo info, AbstractResourceLoader loader, AbstractCoordinateManager manager ){
 		super( loader.getDrawable( info.getIconFilePath() ) );
 		this.skillActor = this;
 		this.info = info;
@@ -31,7 +35,7 @@ public class SkillActor extends Image{
 		addListener( new ClickListener(){
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
-				manager.setFrontSkill( skillActor );
+				manager.setFront( skillActor );
 				startDragPosition.set( x, y );
 				localToStageCoordinates( startDragPosition );
 				return true;
@@ -47,7 +51,7 @@ public class SkillActor extends Image{
 			@Override
 			public void touchUp(InputEvent event, float x, float y,
 					int pointer, int button) {
-				manager.updateSkillFormation( skillActor );
+				manager.updateCoordinate( skillActor );
 			}
 		});
 	}
@@ -64,6 +68,14 @@ public class SkillActor extends Image{
 		rectangle.setWidth( getWidth() * getScaleX() );
 		rectangle.setHeight( getHeight() * getScaleY() );
 		return rectangle;
+	}
+	@Override
+	public int getCoordinateIndex() {
+		return info.getFormationIndex();
+	}
+	@Override
+	public void setCoordinateIndex(int index) {
+		info.setFormationIndex( index );
 	}
 	
 }

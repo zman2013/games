@@ -47,29 +47,27 @@ public class FormationScreen extends AbstractScreen{
 		//add place holders
 		FighterFormationManager manager = new FighterFormationManager();
 		Drawable plusDrawable = resourceLoader.getPlusDrawable();
-		fighterPlaceHolderCoordinates = manager.getPlaceHolderCoordinates();
+		fighterPlaceHolderCoordinates = manager.getCoordinates();
 		for( Vector2 coor : fighterPlaceHolderCoordinates ){
 			PlusActor actor = new PlusActor( plusDrawable, coor.x, coor.y );
 			stage.addActor( actor );
 		}
 		//add fighters
 		Array<FighterInfo> fighterInfos = resourceLoader.getFighterInfos();
-		for( int i = 0; i < fighterInfos.size; i ++ ){
-			FighterInfo info = fighterInfos.get( i );
+		for( FighterInfo info : fighterInfos  ){
 			HeroActor fighter = new HeroActor( info, resourceLoader, manager );
-			manager.putFight( info.getFormationIndex(), fighter );
+			manager.add( info.getFormationIndex(), fighter );
 			Vector2 coor = fighterPlaceHolderCoordinates.get( info.getFormationIndex() );
 			fighter.setPosition( coor.x, coor.y );
 			stage.addActor( fighter );
 		}
 		//add skills
 		SkillFormationManager skillFormationManager = new SkillFormationManager();
-		skillPlaceHolderCoordinates = skillFormationManager.getPlaceHolderCoordinates();
+		skillPlaceHolderCoordinates = skillFormationManager.getCoordinates();
 		Array<SkillInfo> skillInfos = resourceLoader.getSkillInfos();
-		for( int i = 0; i < skillInfos.size; i ++ ){
-			SkillInfo info = skillInfos.get( i );
+		for( SkillInfo info : skillInfos ){
 			SkillActor skill = new SkillActor( info, resourceLoader, skillFormationManager );
-			skillFormationManager.putFight( info.getFormationIndex(), skill );
+			skillFormationManager.add( info.getFormationIndex(), skill );
 			Vector2 coor = skillPlaceHolderCoordinates.get( info.getFormationIndex() );
 			skill.setPosition( coor.x, coor.y );
 			stage.addActor( skill );

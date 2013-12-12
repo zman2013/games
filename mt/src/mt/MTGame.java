@@ -4,6 +4,7 @@ import mt.screens.AbstractScreen;
 import mt.screens.FightScreen;
 import mt.screens.FormationScreen;
 import mt.screens.HomeScreen;
+import mt.screens.PropertyScreen;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;

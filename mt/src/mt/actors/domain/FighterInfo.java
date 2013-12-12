@@ -1,5 +1,9 @@
 package mt.actors.domain;
 
+import mt.formation.SkillInfo;
+
+import com.badlogic.gdx.utils.Array;
+
 
 public class FighterInfo {
 	/**
@@ -11,14 +15,23 @@ public class FighterInfo {
 	private String borderFilePath, smallBorderFilePath;
 	
 	private String fighterFilePath, smallFighterFilePath;
+	//血量
+	private int hp = 1000;
+	//法力
+	private int magic = 1000;
 	//物理攻击
 	private int minMeleeAttack=10, maxMeleeAttack=100;
 	//法术攻击
 	private int minSpellAttack=10, maxSpellAttack=100;
+	
+	//物防 魔防
+	private int melleDefense=100, spellDefense=100;
+	//命中 暴击 闪避 运气
+	private int hitScore=20, crit=20, doage=20, luck=20;
+	
 	//攻击间隔，最小为为1.7s，目前攻击一次用时1.5s。
 	private float attackInterval = 2;
-	//血量
-	private int hp = 1000;
+	
 	
 	//英雄所属势力：-1：上，1：下
 	private byte camp;
@@ -26,6 +39,9 @@ public class FighterInfo {
 	private float x, y;
 	
 	private float scale;
+	
+	//拥有技能
+	private Array<SkillInfo> skillInfos;
 	
 	public FighterInfo(){}
 	
@@ -170,5 +186,70 @@ public class FighterInfo {
 	public void setFormationIndex(int formationIndex) {
 		this.formationIndex = formationIndex;
 	}
+
+	public int getMagic() {
+		return magic;
+	}
+
+	public void setMagic(int magic) {
+		this.magic = magic;
+	}
+
+	public int getMelleDefense() {
+		return melleDefense;
+	}
+
+	public void setMelleDefense(int melleDefense) {
+		this.melleDefense = melleDefense;
+	}
+
+	public int getSpellDefense() {
+		return spellDefense;
+	}
+
+	public void setSpellDefense(int spellDefense) {
+		this.spellDefense = spellDefense;
+	}
+
+	public int getHitScore() {
+		return hitScore;
+	}
+
+	public void setHitScore(int hitScore) {
+		this.hitScore = hitScore;
+	}
+
+	public int getCrit() {
+		return crit;
+	}
+
+	public void setCrit(int crit) {
+		this.crit = crit;
+	}
+
+	public int getDoage() {
+		return doage;
+	}
+
+	public void setDoage(int doage) {
+		this.doage = doage;
+	}
+
+	public int getLuck() {
+		return luck;
+	}
+
+	public void setLuck(int luck) {
+		this.luck = luck;
+	}
+
+	public Array<SkillInfo> getSkillInfos() {
+		return skillInfos;
+	}
+
+	public void setSkillInfos(Array<SkillInfo> skillInfos) {
+		this.skillInfos = skillInfos;
+	}
+
 
 }

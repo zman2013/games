@@ -95,7 +95,7 @@ public class MeleeAttack extends Image{
 		AssetManager assetManager = ResourceUtil.getAssetManager();
 		String meleeAttackAtlasPath = "assets/images/skills/melee_attack/melee_attack.atlas";
 		String bleedingFilePath = "assets/images/skills/melee_attack/data.dat_000480.png";
-		String fontFilePath = "assets/font/home_screen.fnt";
+		String fontFilePath = "assets/font/font.fnt";
 		assetManager.load( meleeAttackAtlasPath, TextureAtlas.class );
 		assetManager.load( bleedingFilePath, Texture.class );
 		assetManager.load( fontFilePath, BitmapFont.class );
