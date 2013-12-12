@@ -1,8 +1,6 @@
 package mt.deprecated;
 
 import mt.MTGame;
-import mt.resources.FontLoader;
-import mt.resources.ResourcesLoader;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;

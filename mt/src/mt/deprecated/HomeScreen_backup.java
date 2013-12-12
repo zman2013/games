@@ -1,6 +1,5 @@
 package mt.deprecated;
 
-import mt.resources.ResourcesLoader;
 import mt.screens.AbstractScreen;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;

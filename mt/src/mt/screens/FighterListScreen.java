@@ -4,7 +4,6 @@ import mt.actor.shared.ReturnActor;
 import mt.actors.domain.FighterInfo;
 import mt.fighterlist.FighterBar;
 import mt.fighterlist.FighterListResourceLoader;
-import mt.resources.FontLoader;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -42,7 +41,7 @@ public class FighterListScreen extends AbstractScreen{
 		listHeader = new Image( resourceLoader.getHeaderDrawable() );
 		listHeader.setY( 640 );
 		
-		font = FontLoader.getBitmapFont();
+		font = resourceLoader.getFont();
 		
 		Table table = new Table();
 		for( FighterInfo info : resourceLoader.getHeroInfos() ){

@@ -1,7 +1,6 @@
 package mt.deprecated;
 
 import mt.MTGame;
-import mt.resources.ResourcesLoader;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;

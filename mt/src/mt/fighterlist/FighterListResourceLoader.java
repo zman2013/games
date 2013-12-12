@@ -5,6 +5,7 @@ import mt.resources.AbstractResourceLoader;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
@@ -26,6 +27,8 @@ public class FighterListResourceLoader extends AbstractResourceLoader{
 	private String fighterFilePath = "assets/data/player/hero.data";
 	private String candidateFilePath = "assets/data/player/candidate.data";
 	
+	private String fontFilePath = "assets/font/home_screen.fnt";
+	
 	private Array<FighterInfo> fighterInfos;
 	
 	public FighterListResourceLoader(){ init(); }
@@ -42,6 +45,7 @@ public class FighterListResourceLoader extends AbstractResourceLoader{
 		resourceFilePathMap.put( checkBoxFilePath, Texture.class );
 		resourceFilePathMap.put( checkedBoxFilePath, Texture.class );
 		resourceFilePathMap.put( borderBgFilePath, Texture.class );
+		resourceFilePathMap.put( fontFilePath, BitmapFont.class );
 		
 		for( FighterInfo info : fighterInfos ){
 			resourceFilePathMap.put( info.getSmallBorderFilePath(), Texture.class );
@@ -69,6 +73,7 @@ public class FighterListResourceLoader extends AbstractResourceLoader{
 	public Drawable getCheckBoxDrawable(){ return getDrawable(checkBoxFilePath); }
 	public Drawable getCheckedBoxDrawable(){ return getDrawable(checkedBoxFilePath); }
 	public Drawable getBgDrawable(){ return getDrawable(bgFilePath); }
+	public BitmapFont getFont(){ return getFont(fontFilePath); }
 	
 	public TextureRegion getBorderBgTextureRegion() {
 		return getTextureRegion( borderBgFilePath );
