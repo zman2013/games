@@ -20,15 +20,15 @@ public class HeroDataGenerator extends ApplicationAdapter{
 
 	public void create() {
 		Array<FighterInfo> fighterInfos = new Array<FighterInfo>();
-		fighterInfos.add( new FighterInfo( "assets/images/border/5.png", "assets/images/fighter/156.png",
+		fighterInfos.add( new FighterInfo( 0, "assets/images/border/5.png", "assets/images/fighter/156.png",
 				"assets/images/border/101.png", "assets/images/fighter/data.dat_000156.png",(byte)1, MathUtils.random(1.7f, 4), 30, 30, 0.5f ) );
-		fighterInfos.add( new FighterInfo( "assets/images/border/2.png", "assets/images/fighter/157.png",
+		fighterInfos.add( new FighterInfo( 1, "assets/images/border/2.png", "assets/images/fighter/157.png",
 				"assets/images/border/102.png", "assets/images/fighter/data.dat_000157.png",(byte)1, MathUtils.random(1.7f, 4), 345, 30, 0.5f ) );
-		fighterInfos.add( new FighterInfo( "assets/images/border/3.png", "assets/images/fighter/158.png",
+		fighterInfos.add( new FighterInfo( 2, "assets/images/border/3.png", "assets/images/fighter/158.png",
 				"assets/images/border/104.png", "assets/images/fighter/data.dat_000158.png",(byte)1, MathUtils.random(1.7f, 4), 70, 160, 0.5f ) );
-		fighterInfos.add( new FighterInfo( "assets/images/border/4.png", "assets/images/fighter/159.png",
+		fighterInfos.add( new FighterInfo( 3, "assets/images/border/4.png", "assets/images/fighter/159.png",
 				"assets/images/border/101.png", "assets/images/fighter/data.dat_000159.png",(byte)1, MathUtils.random(1.7f, 4), 305, 160, 0.5f ) );
-		fighterInfos.add( new FighterInfo( "assets/images/border/2.png", "assets/images/fighter/161.png",
+		fighterInfos.add( new FighterInfo( 4, "assets/images/border/2.png", "assets/images/fighter/161.png",
 				"assets/images/border/104.png", "assets/images/fighter/data.dat_000161.png",(byte)1, MathUtils.random(1.7f, 4), 190, 210, 0.5f ) );
 		
 		Json json = new Json();

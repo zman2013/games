@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class AbstractScreen extends ScreenAdapter{
@@ -14,13 +15,12 @@ public class AbstractScreen extends ScreenAdapter{
 	
 	protected Stage stage;
 	
-	protected Batch batch;
+	protected Batch batch = new SpriteBatch();
 	
 	protected static float SCALE = 0.8f;
 	
 	public AbstractScreen( ){
 		this.stage = new Stage();
-		batch = stage.getSpriteBatch();
 	}
 	
 	public void init(){}

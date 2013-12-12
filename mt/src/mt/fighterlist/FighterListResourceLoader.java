@@ -23,33 +23,32 @@ public class FighterListResourceLoader extends AbstractResourceLoader{
 	//激活的复选框（打上勾的复选框）
 	private String checkedBoxFilePath = "assets/images/list_page/box_checked.png";
 
-	private String heroFilePath = "assets/data/player/hero.data";
+	private String fighterFilePath = "assets/data/player/hero.data";
 	private String candidateFilePath = "assets/data/player/candidate.data";
 	
 	private Array<FighterInfo> fighterInfos;
 	
 	public FighterListResourceLoader(){ init(); }
 	
-	@SuppressWarnings("rawtypes")
 	@Override
-	protected ObjectMap<String, Class> initResourceMap() {
-		fighterInfos = loadHeroInfos( heroFilePath, candidateFilePath );
+	protected ObjectMap<String, Class<?>> initResourceMap() {
+		fighterInfos = loadHeroInfos( fighterFilePath, candidateFilePath );
 		
-		ObjectMap<String, Class> resourceFilePathSet = new ObjectMap<String, Class>();
-		resourceFilePathSet.put( bgFilePath, Texture.class );
-		resourceFilePathSet.put( headerFilePath, Texture.class );
-		resourceFilePathSet.put( defaultBarFilePath, Texture.class );
-		resourceFilePathSet.put( activeBarFilePath, Texture.class );
-		resourceFilePathSet.put( checkBoxFilePath, Texture.class );
-		resourceFilePathSet.put( checkedBoxFilePath, Texture.class );
-		resourceFilePathSet.put( borderBgFilePath, Texture.class );
+		ObjectMap<String, Class<?>> resourceFilePathMap = new ObjectMap<String, Class<?>>();
+		resourceFilePathMap.put( bgFilePath, Texture.class );
+		resourceFilePathMap.put( headerFilePath, Texture.class );
+		resourceFilePathMap.put( defaultBarFilePath, Texture.class );
+		resourceFilePathMap.put( activeBarFilePath, Texture.class );
+		resourceFilePathMap.put( checkBoxFilePath, Texture.class );
+		resourceFilePathMap.put( checkedBoxFilePath, Texture.class );
+		resourceFilePathMap.put( borderBgFilePath, Texture.class );
 		
 		for( FighterInfo info : fighterInfos ){
-			resourceFilePathSet.put( info.getSmallBorderFilePath(), Texture.class );
-			resourceFilePathSet.put( info.getSmallFighterFilePath(), Texture.class );
+			resourceFilePathMap.put( info.getSmallBorderFilePath(), Texture.class );
+			resourceFilePathMap.put( info.getSmallFighterFilePath(), Texture.class );
 		}
 		
-		return resourceFilePathSet;
+		return resourceFilePathMap;
 	}
 
 	@SuppressWarnings("unchecked")

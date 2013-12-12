@@ -2,6 +2,11 @@ package mt.actors.domain;
 
 
 public class FighterInfo {
+	/**
+	 * 默认为-1：未出征。
+	 * 0：上; 1：左中；2：右中；3：左下；4：右下。
+	 */
+	private int formationIndex;
 
 	private String borderFilePath, smallBorderFilePath;
 	
@@ -24,7 +29,8 @@ public class FighterInfo {
 	
 	public FighterInfo(){}
 	
-	public FighterInfo( String borderFilePath, String fighterFilePath, String smallBorderFilePath, String smallFighterFilePath, byte camp, float attackInterval, float x, float y, float scale ){
+	public FighterInfo( int formationIndex, String borderFilePath, String fighterFilePath, String smallBorderFilePath, String smallFighterFilePath, byte camp, float attackInterval, float x, float y, float scale ){
+		this.formationIndex = formationIndex;
 		this.borderFilePath = borderFilePath;
 		this.fighterFilePath = fighterFilePath;
 		this.smallBorderFilePath = smallBorderFilePath;
@@ -155,6 +161,14 @@ public class FighterInfo {
 
 	public void setSmallFighterFilePath(String smallFighterFilePath) {
 		this.smallFighterFilePath = smallFighterFilePath;
+	}
+
+	public int getFormationIndex() {
+		return formationIndex;
+	}
+
+	public void setFormationIndex(int formationIndex) {
+		this.formationIndex = formationIndex;
 	}
 
 }

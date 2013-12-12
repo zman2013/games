@@ -20,27 +20,25 @@ public abstract class AbstractResourceLoader {
 
 	private Skin skin = ResourceUtil.getSkin();
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void init(){
 		
-		ObjectMap<String, Class> resourceMap = initResourceMap();
+		ObjectMap<String, Class<?>> resourceMap = initResourceMap();
 		resourceMap.put( returnFilePath, Texture.class );
 		
 		AssetManager manager = ResourceUtil.getAssetManager();
-		for( Entry<String, Class> entry : resourceMap.entries() ){
+		for( Entry<String, Class<?>> entry : resourceMap.entries() ){
 			manager.load( entry.key, entry.value );
 		}
 		manager.finishLoading();
 		
-		for( Entry<String, Class> entry : resourceMap.entries() ){
+		for( Entry<String, Class<?>> entry : resourceMap.entries() ){
 			Object object = manager.get( entry.key, entry.value );
 			skin.add( entry.key, object );
 		}
 		
 	}
 
-	@SuppressWarnings("rawtypes")
-	protected abstract ObjectMap<String, Class> initResourceMap();
+	protected abstract ObjectMap<String, Class<?>> initResourceMap();
 	
 	public Drawable getDrawable( String key ){
 		Texture texture = skin.get( key, Texture.class );
