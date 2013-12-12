@@ -1,7 +1,8 @@
 package mt;
 
 import mt.screens.AbstractScreen;
-import mt.screens.HomeScreen;
+import mt.screens.FighterListScreen;
+import mt.screens.TeamScreen;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
@@ -16,7 +17,7 @@ public class MTGame extends Game{
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel( Application.LOG_DEBUG );
-		setScreen( HomeScreen.class );
+		setScreen( FighterListScreen.class );
 	}
 	
 	public void setScreen(  Class<? extends AbstractScreen> screenClass  ) {

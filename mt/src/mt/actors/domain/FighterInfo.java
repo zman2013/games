@@ -3,9 +3,9 @@ package mt.actors.domain;
 
 public class FighterInfo {
 
-	private String borderFilePath;
+	private String borderFilePath, smallBorderFilePath;
 	
-	private String fighterFilePath;
+	private String fighterFilePath, smallFighterFilePath;
 	//物理攻击
 	private int minMeleeAttack=10, maxMeleeAttack=100;
 	//法术攻击
@@ -24,9 +24,11 @@ public class FighterInfo {
 	
 	public FighterInfo(){}
 	
-	public FighterInfo( String borderFilePath, String fighterFilePath, byte camp, float attackInterval, float x, float y, float scale ){
+	public FighterInfo( String borderFilePath, String fighterFilePath, String smallBorderFilePath, String smallFighterFilePath, byte camp, float attackInterval, float x, float y, float scale ){
 		this.borderFilePath = borderFilePath;
 		this.fighterFilePath = fighterFilePath;
+		this.smallBorderFilePath = smallBorderFilePath;
+		this.smallFighterFilePath = smallFighterFilePath;
 		this.camp = camp;
 		this.attackInterval = attackInterval;
 		this.x = x;
@@ -139,5 +141,20 @@ public class FighterInfo {
 		this.attackInterval = attackInterval;
 	}
 
+	public String getSmallBorderFilePath() {
+		return smallBorderFilePath;
+	}
+
+	public void setSmallBorderFilePath(String smallBorderFilePath) {
+		this.smallBorderFilePath = smallBorderFilePath;
+	}
+
+	public String getSmallFighterFilePath() {
+		return smallFighterFilePath;
+	}
+
+	public void setSmallFighterFilePath(String smallFighterFilePath) {
+		this.smallFighterFilePath = smallFighterFilePath;
+	}
 
 }

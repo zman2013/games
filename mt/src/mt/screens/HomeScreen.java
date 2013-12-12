@@ -58,7 +58,7 @@ public class HomeScreen extends AbstractScreen{
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );
 		//fighter button
-		actor = new ButtonActor( this, null, "Õ½³è", resourceLoader );
+		actor = new ButtonActor( this, FighterListScreen.class, "Õ½³è", resourceLoader );
 		coordinate = homeManager.getFighterButtonCoordinate();
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );

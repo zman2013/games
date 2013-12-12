@@ -3,57 +3,69 @@ backgroundFilePath: assets/images/fight_background/data.dat_000017.jpg,
 enemyInfos: [
 	{
 		camp: -1,
-		attackInterval: 2.5869763,
+		attackInterval: 3.9600964,
 		borderFilePath: assets/images/border/5.png,
-		x: 135,
 		scale: 1,
+		smallBorderFilePath: assets/images/border/101.png,
+		x: 135,
+		smallFighterFilePath: assets/images/fighter/data.dat_000302.png,
 		y: 500,
-		fighterFilePath: assets/images/fighter/1.png
+		fighterFilePath: assets/images/fighter/301.png
 	},
 	{
 		camp: -1,
-		attackInterval: 2.7555513,
+		attackInterval: 2.055337,
 		borderFilePath: assets/images/border/2.png,
+		scale: 0.5,
+		smallBorderFilePath: assets/images/border/102.png,
 		x: 25,
-		scale: 0.5,
+		smallFighterFilePath: assets/images/fighter/data.dat_000303.png,
 		y: 600,
-		fighterFilePath: assets/images/fighter/2.png
+		fighterFilePath: assets/images/fighter/302.png
 	},
 	{
 		camp: -1,
-		attackInterval: 3.6118078,
+		attackInterval: 1.9178325,
 		borderFilePath: assets/images/border/3.png,
+		scale: 0.5,
+		smallBorderFilePath: assets/images/border/103.png,
 		x: 350,
-		scale: 0.5,
+		smallFighterFilePath: assets/images/fighter/data.dat_000304.png,
 		y: 600,
-		fighterFilePath: assets/images/fighter/2.png
+		fighterFilePath: assets/images/fighter/303.png
 	},
 	{
 		camp: -1,
-		attackInterval: 2.1671648,
+		attackInterval: 3.503592,
 		borderFilePath: assets/images/border/4.png,
+		scale: 0.5,
+		smallBorderFilePath: assets/images/border/104.png,
 		x: 32,
-		scale: 0.5,
+		smallFighterFilePath: assets/images/fighter/data.dat_000305.png,
 		y: 420,
-		fighterFilePath: assets/images/fighter/2.png
+		fighterFilePath: assets/images/fighter/304.png
 	},
 	{
 		camp: -1,
-		attackInterval: 2.010386,
+		attackInterval: 3.1341553,
 		borderFilePath: assets/images/border/2.png,
-		x: 343,
 		scale: 0.5,
+		smallBorderFilePath: assets/images/border/105.png,
+		x: 343,
+		smallFighterFilePath: assets/images/fighter/data.dat_000306.png,
 		y: 420,
-		fighterFilePath: assets/images/fighter/2.png
+		fighterFilePath: assets/images/fighter/305.png
 	},
 	{
 		camp: -1,
-		attackInterval: 3.9256897,
+		attackInterval: 3.7322874,
 		borderFilePath: assets/images/border/3.png,
-		x: 190,
 		scale: 0.5,
+		smallBorderFilePath: assets/images/border/106.png,
+		x: 190,
+		smallFighterFilePath: assets/images/fighter/data.dat_000307.png,
 		y: 380,
-		fighterFilePath: assets/images/fighter/1.png
+		fighterFilePath: assets/images/fighter/306.png
 	}
 ]
 }

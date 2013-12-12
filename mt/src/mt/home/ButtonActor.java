@@ -34,7 +34,6 @@ public class ButtonActor extends Image{
 		font = resourceLoader.getFont();
 		
 		initListener();
-		
 	}
 	
 	@Override
