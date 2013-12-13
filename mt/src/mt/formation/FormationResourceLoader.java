@@ -6,28 +6,35 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.IntMap.Entry;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.ObjectMap;
 
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
+import mt.domain.FighterStatus;
 import mt.resources.AbstractResourceLoader;
 
 public class FormationResourceLoader extends AbstractResourceLoader {
 
 	private String bgFilePath = "assets/images/home_images/bg.jpg";
 	private String headerFilePath = "assets/images/list_page/list_header.png";
-	//ø’ŒªÕº∆¨
+	//Á©∫‰ΩçÂõæÁâá
 	private String fighterPlaceHolderFilePath = "assets/images/border/fighter_place_holder.png";
 	private String skillPlaceHolderFilePath = "assets/images/skills/icon/0.png";
-	//º”∫≈Õº∆¨
+	//Âä†Âè∑ÂõæÁâá
 	private String plusFilePath = "assets/images/border/plus.png";
 	
-	private String fighterFilePath = "assets/data/player/hero.data";
-	private String skillFilePath = "assets/data/player/skill.data";
+	public static String playerFilePath = "assets/data/fighter/0";
+	public static String filghterStatusFilePath = "assets/data/player/fighter_status.data";
 	
 	private String fontFilePath = "assets/font/font.fnt";
 	
+	private FighterStatus fighterStatus;
 	private Array<FighterInfo> fighterInfos;
+	/**
+	 * ‰∏ªËßí‰ø°ÊÅØ
+	 */
+	private FighterInfo playerInfo;
 	private Array<SkillInfo> skillInfos;
 	
 	public FormationResourceLoader(){ init(); }
@@ -42,13 +49,13 @@ public class FormationResourceLoader extends AbstractResourceLoader {
 		resourceMap.put( plusFilePath, Texture.class );
 		resourceMap.put( fontFilePath, BitmapFont.class );
 		
-		fighterInfos = loadFighterInfos( fighterFilePath );
+		fighterInfos = loadFighterInfos( filghterStatusFilePath );
 		for( FighterInfo info : fighterInfos ){
 			resourceMap.put( info.getBorderFilePath(), Texture.class );
 			resourceMap.put( info.getFighterFilePath(), Texture.class );
 		}
 		
-		skillInfos = loadSkillInfos( skillFilePath );
+		skillInfos = loadSkillInfos( playerFilePath );
 		for( SkillInfo info : skillInfos ){
 			resourceMap.put( info.getIconFilePath(), Texture.class );
 		}
@@ -57,16 +64,21 @@ public class FormationResourceLoader extends AbstractResourceLoader {
 	}
 
 	private Json json = new Json();
-	@SuppressWarnings("unchecked")
-	private Array<SkillInfo> loadSkillInfos(String skillFilePath) {
-		//º”‘ÿ◊∞±∏ººƒ‹µƒ–≈œ¢
-		return json.fromJson( Array.class, SkillInfo.class, Gdx.files.internal( skillFilePath ) );
+	private Array<SkillInfo> loadSkillInfos(String playerFilePath) {
+		playerInfo = json.fromJson( FighterInfo.class, Gdx.files.internal( playerFilePath ) );
+		return playerInfo.getSkillInfos();
 	}
 
-	@SuppressWarnings("unchecked")
-	private Array<FighterInfo> loadFighterInfos(String fighterFilePath) {
-		//º”‘ÿ≥ˆ’˜’Ω≥Ëµƒ–≈œ¢
-		return json.fromJson( Array.class, FighterInfo.class, Gdx.files.internal( fighterFilePath ) );
+	private Array<FighterInfo> loadFighterInfos(String fighterStatusFilePath) {
+		Array<FighterInfo> infos = new Array<FighterInfo>(5);
+		fighterStatus = json.fromJson( FighterStatus.class, Gdx.files.internal( fighterStatusFilePath ) );
+		//Âä†ËΩΩÂá∫ÂæÅÊàòÂÆ†ÁöÑ‰ø°ÊÅØ
+		for( Entry<Integer> entry : fighterStatus.getFighters().entries() ){
+			FighterInfo fighterInfo = json.fromJson( FighterInfo.class, Gdx.files.internal( "assets/data/fighter/"+entry.value ) );
+			fighterInfo.setFormationIndex( entry.key );
+			infos.add( fighterInfo );
+		}
+		return infos;
 	}
 
 	public Array<FighterInfo> getFighterInfos() { return fighterInfos; }
@@ -77,4 +89,13 @@ public class FormationResourceLoader extends AbstractResourceLoader {
 	public TextureRegion getSkillPlaceHolderRegion(){ return getTextureRegion(skillPlaceHolderFilePath); }
 	public Drawable getPlusDrawable(){ return getDrawable(plusFilePath); }
 	public BitmapFont getFont(){ return getFont(fontFilePath); }
+
+	public FighterStatus getFighterStatus() {
+		return fighterStatus;
+	}
+
+	public FighterInfo getPlayerInfo() {
+		return playerInfo;
+	}
+	
 }

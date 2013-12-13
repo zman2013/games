@@ -1,23 +1,25 @@
 package mt.screens;
 
+import mt.actor.shared.ReturnActor;
+import mt.domain.Commodity;
+import mt.domain.FighterInfo;
+import mt.formation.HeroActor;
+import mt.formation.SkillActor;
+import mt.formation.SkillInfo;
+import mt.property.EquipmentActor;
+import mt.property.EquipmentDetailActor;
+import mt.property.PropertyEquipmentManager;
+import mt.property.PropertyResourceLoader;
+import mt.property.PropertySkillManager;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
-
-import mt.actor.shared.ReturnActor;
-import mt.actors.domain.FighterInfo;
-import mt.formation.HeroActor;
-import mt.formation.SkillActor;
-import mt.formation.SkillInfo;
-import mt.property.PropertyResourceLoader;
-import mt.property.PropertySkillManager;
 
 public class PropertyScreen extends AbstractScreen{
 
@@ -29,19 +31,11 @@ public class PropertyScreen extends AbstractScreen{
 	
 	private FighterInfo fighterInfo;
 	
-	private Array<Vector2> skillCoors;
+	private Array<Vector2> skillCoors, equipmentCoors;
 	
 	public PropertyScreen(){
 		super();
-		//test begin
-		@SuppressWarnings("unchecked")
-		Array<FighterInfo> fighterInfos = new Json().fromJson( Array.class, FighterInfo.class, Gdx.files.internal("assets/data/player/hero.data") );
-		fighterInfo = fighterInfos.get( 0 );
-		stage.addListener( new ClickListener(){
-			public void clicked(InputEvent event, float x2, float y2) {
-			}
-		});
-		//test end
+		fighterInfo = new Json().fromJson(FighterInfo.class, Gdx.files.internal("assets/data/fighter/0") );
 		
 		PropertyResourceLoader loader = new PropertyResourceLoader( fighterInfo );
 		bgDrawable = loader.getBgDrawable();
@@ -52,18 +46,33 @@ public class PropertyScreen extends AbstractScreen{
 		fighter.setPosition( 50, 590 );
 		stage.addActor( fighter );
 		
-		ReturnActor returnActor = new ReturnActor( loader.getReturnDrawable(), stage.getWidth(), this, HomeScreen.class );
-		stage.addActor( returnActor );
-		
 		PropertySkillManager skillManager = new PropertySkillManager();
+		skillManager.setFighterInfo( fighterInfo );
 		//add skills
 		skillCoors = skillManager.getCoordinates();
-		Array<SkillInfo> skillInfos = fighterInfo.getSkillInfos();
-		for( SkillInfo info : skillInfos ){
+		for( SkillInfo info : fighterInfo.getSkillInfos() ){
 			SkillActor skill = new SkillActor( info, loader, skillManager);
 			skillManager.add( info.getFormationIndex(), skill );
 			stage.addActor( skill );
 		}
+		//add equipment
+		PropertyEquipmentManager equipManager = new PropertyEquipmentManager();
+		equipManager.setFighterInfo( fighterInfo );
+		equipmentCoors = equipManager.getCoordinates();
+		for( Commodity equip : fighterInfo.getEquipments() ){
+			EquipmentActor actor = new EquipmentActor( equip, loader, equipManager );
+			equipManager.add( equip.getCoordinateIndex(), actor );
+			stage.addActor( actor );
+		}
+		//add detail actor
+		EquipmentDetailActor detailActor = new EquipmentDetailActor( loader, equipManager );
+		detailActor.setVisible( false );
+		equipManager.setDetailActor( detailActor );
+		stage.addActor( detailActor );
+		
+		//return actor
+		ReturnActor returnActor = new ReturnActor( loader.getReturnDrawable(), stage.getWidth(), this, HomeScreen.class, skillManager );
+		stage.addActor( returnActor );
 	}
 
 	@Override
@@ -73,43 +82,36 @@ public class PropertyScreen extends AbstractScreen{
 		
 		batch.begin();
 		bgDrawable.draw( batch, 0, 0, stage.getWidth(), stage.getHeight() );
-		//ÊôĞÔ×ó
-		font.draw( batch, "ÉúÃü:"+fighterInfo.getHp(), 170, 700 );
-		font.draw( batch, "·¨Á¦:"+fighterInfo.getMagic(), 170, 682 );
-		font.draw( batch, "×îĞ¡Îï¹¥:"+fighterInfo.getMinMeleeAttack(), 170, 664 );
-		font.draw( batch, "×î´óÎï¹¥:"+fighterInfo.getMaxMeleeAttack(), 170, 646 );
-		font.draw( batch, "×îĞ¡Ä§¹¥:"+fighterInfo.getMinSpellAttack(), 170, 628 );
-		font.draw( batch, "×î´óÄ§¹¥:"+fighterInfo.getMaxSpellAttack(), 170, 610 );
-		//ÊôĞÔÓÒ
-		font.draw( batch, "Îï·À:"+fighterInfo.getMelleDefense(), 310, 700 );
-		font.draw( batch, "Ä§·À:"+fighterInfo.getSpellDefense(), 310, 682 );
-		font.draw( batch, "ÃüÖĞ:"+fighterInfo.getHitScore(), 310, 664 );
-		font.draw( batch, "±©»÷:"+fighterInfo.getCrit(), 310, 646 );
-		font.draw( batch, "ÉÁ±Ü:"+fighterInfo.getDoage(), 310, 628 );
-		font.draw( batch, "ÔËÆø:"+fighterInfo.getLuck(), 310, 610 );
-		//ÊôĞÔÉÏ
-		font.draw( batch, "°§Ä¾Ìé", 75, 730 );
-		font.draw( batch, "µÈ¼¶:", 175, 730 );
-		font.draw( batch, "¾­Ñé:", 275, 730 );
-		//¼¼ÄÜ
-		font.draw( batch, "¼¼ÄÜ", 40, 550 );
+		//å±æ€§å·¦
+		font.draw( batch, "ç”Ÿå‘½:"+fighterInfo.getHp(), 170, 700 );
+		font.draw( batch, "æ³•åŠ›:"+fighterInfo.getMagic(), 170, 682 );
+		font.draw( batch, "æœ€å°ç‰©æ”»:"+fighterInfo.getMinMeleeAttack(), 170, 664 );
+		font.draw( batch, "æœ€å¤§ç‰©æ”»:"+fighterInfo.getMaxMeleeAttack(), 170, 646 );
+		font.draw( batch, "æœ€å°é­”æ”»:"+fighterInfo.getMinSpellAttack(), 170, 628 );
+		font.draw( batch, "æœ€å¤§é­”æ”»:"+fighterInfo.getMaxSpellAttack(), 170, 610 );
+		//å±æ€§å³
+		font.draw( batch, "ç‰©é˜²:"+fighterInfo.getMelleDefense(), 310, 700 );
+		font.draw( batch, "é­”é˜²:"+fighterInfo.getSpellDefense(), 310, 682 );
+		font.draw( batch, "å‘½ä¸­:"+fighterInfo.getHitScore(), 310, 664 );
+		font.draw( batch, "æš´å‡»:"+fighterInfo.getCrit(), 310, 646 );
+		font.draw( batch, "é—ªé¿:"+fighterInfo.getDoage(), 310, 628 );
+		font.draw( batch, "è¿æ°”:"+fighterInfo.getLuck(), 310, 610 );
+		//å±æ€§ä¸Š
+		font.draw( batch, "å“€æœ¨æ¶•", 75, 730 );
+		font.draw( batch, "ç­‰çº§:", 175, 730 );
+		font.draw( batch, "ç»éªŒ:", 275, 730 );
+		//æŠ€èƒ½
+		font.draw( batch, "æŠ€èƒ½", 40, 550 );
 		
-		//¼¼ÄÜÉÏ
+		//æŠ€èƒ½ä¸Š
 		for( Vector2 coor : skillCoors ){
 			batch.draw( skillPlaceHolderRegion, coor.x, coor.y, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
 		}
-		//×°±¸
-		font.draw( batch, "×°±¸", 40, 300 );
-		//×°±¸ÉÏ
-		batch.draw( skillPlaceHolderRegion, 50, 200, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
-		batch.draw( skillPlaceHolderRegion, 150, 200, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
-		batch.draw( skillPlaceHolderRegion, 250, 200, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
-		batch.draw( skillPlaceHolderRegion, 350, 200, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
-		//×°±¸ÏÂ
-		batch.draw( skillPlaceHolderRegion, 50, 100, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
-		batch.draw( skillPlaceHolderRegion, 150, 100, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
-		batch.draw( skillPlaceHolderRegion, 250, 100, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
-		batch.draw( skillPlaceHolderRegion, 350, 100, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
+		//è£…å¤‡
+		font.draw( batch, "è£…å¤‡", 40, 300 );
+		for( Vector2 coor : equipmentCoors ){
+			batch.draw( skillPlaceHolderRegion, coor.x, coor.y, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight() );
+		}
 		batch.end();
 
 		stage.act( delta );

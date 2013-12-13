@@ -1,6 +1,6 @@
 package mt.fight;
 
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
 
 import com.badlogic.gdx.utils.Array;
 

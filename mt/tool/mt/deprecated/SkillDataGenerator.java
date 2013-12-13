@@ -1,4 +1,4 @@
-package mt;
+package mt.deprecated;
 import mt.formation.SkillInfo;
 
 import com.badlogic.gdx.ApplicationAdapter;
@@ -8,7 +8,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 
-
+@Deprecated
 public class SkillDataGenerator extends ApplicationAdapter{
 
 	public static void main(

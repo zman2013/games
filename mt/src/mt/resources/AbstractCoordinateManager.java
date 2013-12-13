@@ -14,7 +14,7 @@ public abstract class AbstractCoordinateManager {
 	protected IntMap<CoordinateActor> actorMap;
 	
 	/**
-	 * actorµÄÖĞĞÄ£¬¼´£ºÖĞĞÄÏà¶ÔÓÚ×óÏÂ½ÇµÄÆ«ÒÆ×ø±ê¡£
+	 * actorçš„ä¸­å¿ƒï¼Œå³ï¼šä¸­å¿ƒç›¸å¯¹äºå·¦ä¸‹è§’çš„åç§»åæ ‡ã€‚
 	 */
 	protected Vector2 origin;
 	
@@ -26,7 +26,7 @@ public abstract class AbstractCoordinateManager {
 	abstract protected void init();
 	
 	/**
-	 * ÔÚÖ¸¶¨Ë÷ÒıÎ»ÖÃÌí¼Óactor
+	 * åœ¨æŒ‡å®šç´¢å¼•ä½ç½®æ·»åŠ actor
 	 * @param index
 	 * @param actor
 	 */
@@ -44,14 +44,14 @@ public abstract class AbstractCoordinateManager {
 					target.setPosition( coor.x, coor.y );
 					
 					CoordinateActor actor = actorMap.get( i );
-					//Èç¹ûÄ¿±êÎ»ÖÃ´æÔÚÕ½³è£¬½»»»Á½ÕßÎ»ÖÃ
+					//å¦‚æœç›®æ ‡ä½ç½®å­˜åœ¨æˆ˜å® ï¼Œäº¤æ¢ä¸¤è€…ä½ç½®
 					if( actor != null ){
 						coor = coordinates.get( formationIndex );
 						actor.setPosition( coor.x, coor.y );
 						actorMap.put( formationIndex, actor );
 						actor.setCoordinateIndex( formationIndex );
 					}else{
-						//Ä¿±êÎ»ÖÃ²»´æÔÚÕ½³èÄØ£¬Ö±½ÓÒÆ¶¯
+						//ç›®æ ‡ä½ç½®ä¸å­˜åœ¨æˆ˜å® å‘¢ï¼Œç›´æ¥ç§»åŠ¨
 						actorMap.remove( formationIndex );
 					}
 					actorMap.put( i, target );
@@ -61,14 +61,14 @@ public abstract class AbstractCoordinateManager {
 				}
 			}
 		}
-		//ÒÆ¶¯²»³É¹¦£¬·µ»ØÔ­À´Î»ÖÃ
+		//ç§»åŠ¨ä¸æˆåŠŸï¼Œè¿”å›åŸæ¥ä½ç½®
 		Vector2 coor = coordinates.get( formationIndex );
 		target.setPosition( coor.x, coor.y );
 	}
 	
-	//ÉèÖÃfighterÎª×îÉÏ²ãÏÔÊ¾¡£
+	//è®¾ç½®fighterä¸ºæœ€ä¸Šå±‚æ˜¾ç¤ºã€‚
 	public void setFront( CoordinateActor target ){
-		//-2ÒòÎªÓĞreturnActor£¬returnActorĞèÒªÊ¼ÖÕÏÔÊ¾ÔÚ×îÉÏ²ã
+		//-2å› ä¸ºæœ‰returnActorï¼ŒreturnActoréœ€è¦å§‹ç»ˆæ˜¾ç¤ºåœ¨æœ€ä¸Šå±‚
 		target.setZIndex( target.getStage().getActors().size-2 );
 	}
 	

@@ -1,6 +1,6 @@
 package mt.fight;
 
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
 import mt.resources.ResourceUtil;
 
 import com.badlogic.gdx.Gdx;
@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.ObjectSet;
 
 /**
- * ¼ÓÔØËùÓĞ×ÊÔ´
+ * åŠ è½½æ‰€æœ‰èµ„æº
  * @author zman
  *
  */

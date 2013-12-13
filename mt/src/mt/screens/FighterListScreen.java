@@ -1,7 +1,7 @@
 package mt.screens;
 
 import mt.actor.shared.ReturnActor;
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
 import mt.fighterlist.FighterBar;
 import mt.fighterlist.FighterListResourceLoader;
 
@@ -20,7 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 public class FighterListScreen extends AbstractScreen{
 
 	private Drawable bgDrawable;
-	//ĞÂ½¨spriteBatch,²»Ê¹ÓÃstage batchµÄÔ­Òò£ºstage batchÓëscrollpane¹²´æÊ±ÓĞĞ©ÎÊÌâ¡£
+	//æ–°å»ºspriteBatch,ä¸ä½¿ç”¨stage batchçš„åŸå› ï¼šstage batchä¸scrollpaneå…±å­˜æ—¶æœ‰äº›é—®é¢˜ã€‚
 	private SpriteBatch spriteBatch = new SpriteBatch();
 	
 	private Image listHeader;
@@ -79,7 +79,7 @@ public class FighterListScreen extends AbstractScreen{
 		stage.draw();
 		
 		batch.begin();
-		font.draw( batch, "Ó¢ĞÛ", listHeader.getX()+212, listHeader.getY()+48 );
+		font.draw( batch, "è‹±é›„", listHeader.getX()+212, listHeader.getY()+48 );
 		batch.end();
 	}
 	

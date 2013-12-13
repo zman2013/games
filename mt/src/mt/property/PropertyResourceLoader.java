@@ -1,6 +1,7 @@
 package mt.property;
 
-import mt.actors.domain.FighterInfo;
+import mt.domain.Commodity;
+import mt.domain.FighterInfo;
 import mt.formation.SkillInfo;
 import mt.resources.AbstractResourceLoader;
 
@@ -8,12 +9,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 
 public class PropertyResourceLoader extends AbstractResourceLoader{
 
 	private String bgFilePath = "assets/images/home_images/bg.jpg";
+	private String detailBgFilePath = "assets/images/commodity/data.dat_000456.png";
+	
+	private String buttonFilePath = "assets/images/shared/data.dat_000454.png";
+	private String activeButtonFilePath = "assets/images/shared/data.dat_000455.png";
 	
 	private String fontFilePath = "assets/font/font.fnt";
 	
@@ -32,19 +36,28 @@ public class PropertyResourceLoader extends AbstractResourceLoader{
 		resourceMap.put( bgFilePath, Texture.class );
 		resourceMap.put( fontFilePath, BitmapFont.class );
 		resourceMap.put( skillPlaceHolderFilePath, Texture.class );
+		resourceMap.put( detailBgFilePath, Texture.class );
+		resourceMap.put( buttonFilePath, Texture.class );
+		resourceMap.put( activeButtonFilePath, Texture.class );
 		
 		resourceMap.put( fighterInfo.getBorderFilePath(), Texture.class );
 		resourceMap.put( fighterInfo.getFighterFilePath(), Texture.class );
 		
-		Array<SkillInfo> skillInfos = fighterInfo.getSkillInfos();
-		for( SkillInfo info : skillInfos ){
+		for( SkillInfo info : fighterInfo.getSkillInfos() ){
 			resourceMap.put( info.getIconFilePath(), Texture.class );
 		}
 		
+		//装备
+		for( Commodity equipment : fighterInfo.getEquipments() ){
+			resourceMap.put( equipment.getIconFilePath(), Texture.class );
+		}
 		return resourceMap;
 	}
 	
 	public Drawable getBgDrawable(){ return getDrawable( bgFilePath ); }
+	public Drawable getDetailBgDrawable(){ return getDrawable( detailBgFilePath ); }
 	public BitmapFont getFont(){ return getFont( fontFilePath ); }
 	public TextureRegion getSkillPlaceHolderRegion(){ return getTextureRegion(skillPlaceHolderFilePath); }
+	public Drawable getButtonDrawable(){ return getDrawable( buttonFilePath ); }
+	public Drawable getActiveButtonDrawable(){ return getDrawable( activeButtonFilePath ); }
 }

@@ -1,6 +1,7 @@
 package mt.fighterlist;
 
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
+import mt.domain.FighterStatus;
 import mt.resources.AbstractResourceLoader;
 
 import com.badlogic.gdx.Gdx;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.ObjectMap;
+import com.badlogic.gdx.utils.IntMap.Entry;
 
 public class FighterListResourceLoader extends AbstractResourceLoader{
 	
@@ -19,13 +21,12 @@ public class FighterListResourceLoader extends AbstractResourceLoader{
 	private String defaultBarFilePath = "assets/images/list_page/hero_bar.png";
 	private String activeBarFilePath = "assets/images/list_page/hero_bar_active.png";
 	private String borderBgFilePath = "assets/images/border/100.png";
-	//¸´Ñ¡¿ò
+	//å¤é€‰æ¡†
 	private String checkBoxFilePath = "assets/images/list_page/check_box.png";
-	//¼¤»îµÄ¸´Ñ¡¿ò£¨´òÉÏ¹´µÄ¸´Ñ¡¿ò£©
+	//æ¿€æ´»çš„å¤é€‰æ¡†ï¼ˆæ‰“ä¸Šå‹¾çš„å¤é€‰æ¡†ï¼‰
 	private String checkedBoxFilePath = "assets/images/list_page/box_checked.png";
 
-	private String fighterFilePath = "assets/data/player/hero.data";
-	private String candidateFilePath = "assets/data/player/candidate.data";
+	private String fighterStatusFilePath = "assets/data/player/fighter_status.data";
 	
 	private String fontFilePath = "assets/font/font.fnt";
 	
@@ -35,7 +36,7 @@ public class FighterListResourceLoader extends AbstractResourceLoader{
 	
 	@Override
 	protected ObjectMap<String, Class<?>> initResourceMap() {
-		fighterInfos = loadHeroInfos( fighterFilePath, candidateFilePath );
+		fighterInfos = loadHeroInfos( fighterStatusFilePath );
 		
 		ObjectMap<String, Class<?>> resourceFilePathMap = new ObjectMap<String, Class<?>>();
 		resourceFilePathMap.put( bgFilePath, Texture.class );
@@ -55,15 +56,23 @@ public class FighterListResourceLoader extends AbstractResourceLoader{
 		return resourceFilePathMap;
 	}
 
-	@SuppressWarnings("unchecked")
-	private Array<FighterInfo> loadHeroInfos(String heroFilePath, String candidateFilePath) {
+	private Array<FighterInfo> loadHeroInfos(String fighterStatusFilePath) {
+		Array<FighterInfo> infos = new Array<FighterInfo>(5);
 		Json json = new Json();
-		//¼ÓÔØ³öÕ÷Õ½³èµÄĞÅÏ¢
-		Array<FighterInfo> heroInfos = json.fromJson( Array.class, FighterInfo.class, Gdx.files.internal( heroFilePath ) );
-		//¼ÓÔØÎ´³öÕ÷Ó¢ĞÛµÄĞÅÏ¢
-		Array<FighterInfo> candidateInfos =  json.fromJson( Array.class, FighterInfo.class, Gdx.files.internal( candidateFilePath ) );
-		heroInfos.addAll( candidateInfos );
-		return heroInfos;
+		FighterStatus fighterStatus = json.fromJson( FighterStatus.class, Gdx.files.internal( fighterStatusFilePath ) );
+		//åŠ è½½å‡ºå¾æˆ˜å® çš„ä¿¡æ¯
+		for( Entry<Integer> entry : fighterStatus.getFighters().entries() ){
+			FighterInfo fighterInfo = json.fromJson( FighterInfo.class, Gdx.files.internal( "assets/data/fighter/"+entry.value ) );
+			fighterInfo.setFormationIndex( entry.key );
+			infos.add( fighterInfo );
+		}
+		//åŠ è½½æœªå‡ºå¾çš„æˆ˜å® ä¿¡æ¯
+		for( Integer id : fighterStatus.getCandidates() ){
+			FighterInfo fighterInfo = json.fromJson( FighterInfo.class, Gdx.files.internal( "assets/data/fighter/"+id ) );
+			fighterInfo.setFormationIndex( -1 );
+			infos.add( fighterInfo );
+		}
+		return infos;
 	}
 
 	public Array<FighterInfo> getHeroInfos() { return fighterInfos; }

@@ -1,4 +1,4 @@
-package mt.bag;
+package mt.property;
 
 import mt.domain.Commodity;
 
@@ -12,11 +12,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.ObjectMap.Entry;
 
-public class CommodityDetailActor extends Image{
+public class EquipmentDetailActor extends Image{
 	
 	private Commodity commodity;
-	private BagResourceLoader loader;
-	private BagManager manager;
+	private PropertyResourceLoader loader;
+	private PropertyEquipmentManager manager;
 	
 	private Drawable commodityDrawable;
 	
@@ -26,9 +26,9 @@ public class CommodityDetailActor extends Image{
 	
 	private BitmapFont font;
 	
-	private CommodityDetailActor self;
+	private EquipmentDetailActor self;
 
-	public CommodityDetailActor( BagResourceLoader loader, BagManager manager ){
+	public EquipmentDetailActor( PropertyResourceLoader loader, PropertyEquipmentManager manager ){
 		super( loader.getDetailBgDrawable() );
 		self = this;
 		this.manager = manager;
@@ -63,7 +63,7 @@ public class CommodityDetailActor extends Image{
 					int pointer, int button) {
 				buttonDrawable = defaultButtonDrawable;
 				if( buttonRectangle.contains( x, y ) ){
-					manager.abandon( commodity );
+					manager.disboard( commodity );
 				}
 				self.setVisible( false );
 			}
@@ -76,7 +76,7 @@ public class CommodityDetailActor extends Image{
 		}
 		this.commodity = commodity;
 		commodityDrawable = loader.getDrawable( commodity.getIconFilePath() );
-		if( commodity.getCoordinateIndex() % 6 < 3 ){
+		if( commodity.getCoordinateIndex() % 4 < 2 ){
 			setX( 240 );
 		}else{
 			setX( 0 );
@@ -103,7 +103,7 @@ public class CommodityDetailActor extends Image{
 		x = x + (getWidth()-buttonDrawable.getMinWidth())/2;
 		float y = getY()-20;
 		buttonDrawable.draw( batch, x, y, buttonDrawable.getMinWidth(), buttonDrawable.getMinHeight() );
-		font.draw( batch, "丢弃", x+58, y+74 );
+		font.draw( batch, "卸下", x+58, y+74 );
 	}
 	
 	

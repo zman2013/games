@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.ObjectMap;
 
-import mt.actors.domain.Commodity;
+import mt.domain.Commodity;
 import mt.resources.AbstractResourceLoader;
 
 public class BagResourceLoader extends AbstractResourceLoader{

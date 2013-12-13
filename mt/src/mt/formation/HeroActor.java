@@ -1,7 +1,7 @@
 package mt.formation;
 
 import mt.actor.CoordinateActor;
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
 import mt.resources.AbstractResourceLoader;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -94,7 +94,7 @@ public class HeroActor extends Image implements CoordinateActor{
 		fighterRegion = resourceLoader.getTextureRegion( fighterInfo.getFighterFilePath() );
 		fighterWidth = fighterRegion.getRegionWidth();
 		fighterHeight = fighterRegion.getRegionHeight();
-		//根据战宠的图片大小调整战宠的相对位置
+		//鏍规嵁鎴樺疇鐨勫浘鐗囧ぇ灏忚皟鏁存垬瀹犵殑鐩稿浣嶇疆
 		fighterOffsetX = (borderWidth - fighterWidth)/2;
 		fighterOffsetY = (borderHeight - fighterHeight)/2;
 	}

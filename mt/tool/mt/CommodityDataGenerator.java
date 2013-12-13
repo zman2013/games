@@ -1,14 +1,14 @@
 package mt;
 
-import mt.actors.domain.Commodity;
+import mt.domain.Commodity;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.IntMap;
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.ObjectMap;
 
 public class CommodityDataGenerator extends ApplicationAdapter {
 
@@ -20,9 +20,9 @@ public class CommodityDataGenerator extends ApplicationAdapter {
 	
 	public void create() {
 		Array<Commodity> commodities = new Array<Commodity>();
-		IntMap<Integer> properties = new IntMap<Integer>( 5 );
-		properties.put( 0, 100 );
-		properties.put( 1, 100 );
+		ObjectMap<String, Integer> properties = new ObjectMap<String, Integer>( 5 );
+		properties.put( "0", 100 );
+		properties.put( "1", 100 );
 		for( int i = 0; i < 20; i ++ ){
 			Commodity commodity = new Commodity();
 			commodity.setCoordinateIndex( i );

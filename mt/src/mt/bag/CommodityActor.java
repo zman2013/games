@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import mt.actor.CoordinateActor;
-import mt.actors.domain.Commodity;
+import mt.domain.Commodity;
 import mt.resources.AbstractCoordinateManager;
 import mt.resources.AbstractResourceLoader;
 
@@ -76,6 +76,9 @@ public class CommodityActor extends Image implements CoordinateActor{
 	@Override
 	public void setCoordinateIndex(int index) {
 		commodity.setCoordinateIndex( index );
+	}
+	public Commodity getCommodity() {
+		return commodity;
 	}
 
 }

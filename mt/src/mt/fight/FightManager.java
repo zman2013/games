@@ -4,7 +4,7 @@ import com.badlogic.gdx.utils.Array;
 
 
 /**
- * ¹ÜÀíÕû¸öÕ½¶·¹ı³Ì
+ * ç®¡ç†æ•´ä¸ªæˆ˜æ–—è¿‡ç¨‹
  * @author zman
  *
  */
@@ -20,7 +20,7 @@ public class FightManager {
 	}
 	
 	/**
-	 * ¸üĞÂËùÓĞfighterµÄÕ½¶·×´Ì¬
+	 * æ›´æ–°æ‰€æœ‰fighterçš„æˆ˜æ–—çŠ¶æ€
 	 * @param delta  
 	 */
 	public void updateFighting( float delta ) {

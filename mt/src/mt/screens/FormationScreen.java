@@ -1,7 +1,7 @@
 package mt.screens;
 
 import mt.actor.shared.ReturnActor;
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
 import mt.formation.FighterFormationManager;
 import mt.formation.FormationResourceLoader;
 import mt.formation.HeroActor;
@@ -40,14 +40,11 @@ public class FormationScreen extends AbstractScreen{
 		fighterPlaceHolderRegion = resourceLoader.getFighterPlaceHolderRegion();
 		skillPlaceHolderRegion = resourceLoader.getSkillPlaceHolderRegion();
 		font = resourceLoader.getFont();
-		//add return actor
-		returnDrawable = resourceLoader.getReturnDrawable();
-		ReturnActor returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class );
-		stage.addActor( returnActor );
 		//add place holders
-		FighterFormationManager manager = new FighterFormationManager();
+		FighterFormationManager fighterFormationManager = new FighterFormationManager();
+		fighterFormationManager.setFighterStatus( resourceLoader.getFighterStatus() );
 		Drawable plusDrawable = resourceLoader.getPlusDrawable();
-		fighterPlaceHolderCoordinates = manager.getCoordinates();
+		fighterPlaceHolderCoordinates = fighterFormationManager.getCoordinates();
 		for( Vector2 coor : fighterPlaceHolderCoordinates ){
 			PlusActor actor = new PlusActor( plusDrawable, coor.x, coor.y );
 			stage.addActor( actor );
@@ -55,14 +52,15 @@ public class FormationScreen extends AbstractScreen{
 		//add fighters
 		Array<FighterInfo> fighterInfos = resourceLoader.getFighterInfos();
 		for( FighterInfo info : fighterInfos  ){
-			HeroActor fighter = new HeroActor( info, resourceLoader, manager );
-			manager.add( info.getFormationIndex(), fighter );
+			HeroActor fighter = new HeroActor( info, resourceLoader, fighterFormationManager );
+			fighterFormationManager.add( info.getFormationIndex(), fighter );
 			Vector2 coor = fighterPlaceHolderCoordinates.get( info.getFormationIndex() );
 			fighter.setPosition( coor.x, coor.y );
 			stage.addActor( fighter );
 		}
 		//add skills
 		SkillFormationManager skillFormationManager = new SkillFormationManager();
+		skillFormationManager.setPlayerInfo( resourceLoader.getPlayerInfo() );
 		skillPlaceHolderCoordinates = skillFormationManager.getCoordinates();
 		Array<SkillInfo> skillInfos = resourceLoader.getSkillInfos();
 		for( SkillInfo info : skillInfos ){
@@ -71,6 +69,10 @@ public class FormationScreen extends AbstractScreen{
 			skill.setScale( 0.8f );
 			stage.addActor( skill );
 		}
+		//add return actor
+		returnDrawable = resourceLoader.getReturnDrawable();
+		ReturnActor returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class,  fighterFormationManager, skillFormationManager );
+		stage.addActor( returnActor );
 	}
 
 	
@@ -89,7 +91,7 @@ public class FormationScreen extends AbstractScreen{
 		for( Vector2 coor : skillPlaceHolderCoordinates ){
 			batch.draw( skillPlaceHolderRegion, coor.x, coor.y, 0, 0, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight(), 0.8f, 0.8f, 0);
 		}
-		font.draw( batch, "ÕóÐÍ", 212, 698 );
+		font.draw( batch, "é˜µåž‹", 212, 698 );
 		batch.end();
 		
 		stage.act( delta );

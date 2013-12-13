@@ -2,7 +2,796 @@
 backgroundFilePath: assets/images/fight_background/data.dat_000017.jpg,
 enemyInfos: [
 	{
-		x: 135,
+		equipments: [
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪0",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				}
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪1",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 1
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪2",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 2
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪3",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 3
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪4",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 4
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪5",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 5
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪6",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 6
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪7",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 7
+			}
+		],
+		scale: 1,
+		attackInterval: 3.7962234,
+		borderFilePath: assets/images/border/5.png,
+		camp: -1,
+		smallBorderFilePath: assets/images/border/101.png,
 		skillInfos: [
 			{
 				iconFilePath: assets/images/skills/icon/1.png
@@ -28,18 +817,804 @@ enemyInfos: [
 				iconFilePath: assets/images/skills/icon/6.png
 			}
 		],
-		borderFilePath: assets/images/border/5.png,
-		camp: -1,
-		smallBorderFilePath: assets/images/border/101.png,
-		attackInterval: 1.7871656,
-		scale: 1,
+		x: 135,
 		y: 500,
+		id: 302,
 		smallFighterFilePath: assets/images/fighter/data.dat_000302.png,
 		fighterFilePath: assets/images/fighter/301.png
 	},
 	{
 		formationIndex: 1,
-		x: 25,
+		equipments: [
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪0",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				}
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪1",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 1
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪2",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 2
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪3",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 3
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪4",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 4
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪5",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 5
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪6",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 6
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪7",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 7
+			}
+		],
+		scale: 0.5,
+		attackInterval: 3.5353513,
+		borderFilePath: assets/images/border/2.png,
+		camp: -1,
+		smallBorderFilePath: assets/images/border/102.png,
 		skillInfos: [
 			{
 				iconFilePath: assets/images/skills/icon/1.png
@@ -65,18 +1640,804 @@ enemyInfos: [
 				iconFilePath: assets/images/skills/icon/6.png
 			}
 		],
-		borderFilePath: assets/images/border/2.png,
-		camp: -1,
-		smallBorderFilePath: assets/images/border/102.png,
-		attackInterval: 1.7097912,
-		scale: 0.5,
+		x: 25,
 		y: 600,
+		id: 303,
 		smallFighterFilePath: assets/images/fighter/data.dat_000303.png,
 		fighterFilePath: assets/images/fighter/302.png
 	},
 	{
 		formationIndex: 2,
-		x: 350,
+		equipments: [
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪0",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				}
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪1",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 1
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪2",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 2
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪3",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 3
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪4",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 4
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪5",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 5
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪6",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 6
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪7",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 7
+			}
+		],
+		scale: 0.5,
+		attackInterval: 1.9335136,
+		borderFilePath: assets/images/border/3.png,
+		camp: -1,
+		smallBorderFilePath: assets/images/border/103.png,
 		skillInfos: [
 			{
 				iconFilePath: assets/images/skills/icon/1.png
@@ -102,18 +2463,804 @@ enemyInfos: [
 				iconFilePath: assets/images/skills/icon/6.png
 			}
 		],
-		borderFilePath: assets/images/border/3.png,
-		camp: -1,
-		smallBorderFilePath: assets/images/border/103.png,
-		attackInterval: 2.15759,
-		scale: 0.5,
+		x: 350,
 		y: 600,
+		id: 304,
 		smallFighterFilePath: assets/images/fighter/data.dat_000304.png,
 		fighterFilePath: assets/images/fighter/303.png
 	},
 	{
 		formationIndex: 3,
-		x: 32,
+		equipments: [
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪0",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				}
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪1",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 1
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪2",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 2
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪3",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 3
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪4",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 4
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪5",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 5
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪6",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 6
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪7",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 7
+			}
+		],
+		scale: 0.5,
+		attackInterval: 1.9341114,
+		borderFilePath: assets/images/border/4.png,
+		camp: -1,
+		smallBorderFilePath: assets/images/border/104.png,
 		skillInfos: [
 			{
 				iconFilePath: assets/images/skills/icon/1.png
@@ -139,18 +3286,804 @@ enemyInfos: [
 				iconFilePath: assets/images/skills/icon/6.png
 			}
 		],
-		borderFilePath: assets/images/border/4.png,
-		camp: -1,
-		smallBorderFilePath: assets/images/border/104.png,
-		attackInterval: 2.9525943,
-		scale: 0.5,
+		x: 32,
 		y: 420,
+		id: 305,
 		smallFighterFilePath: assets/images/fighter/data.dat_000305.png,
 		fighterFilePath: assets/images/fighter/304.png
 	},
 	{
 		formationIndex: 4,
-		x: 343,
+		equipments: [
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪0",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				}
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪1",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 1
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪2",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 2
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪3",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 3
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪4",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 4
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪5",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 5
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪6",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 6
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪7",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 7
+			}
+		],
+		scale: 0.5,
+		attackInterval: 2.2280474,
+		borderFilePath: assets/images/border/2.png,
+		camp: -1,
+		smallBorderFilePath: assets/images/border/105.png,
 		skillInfos: [
 			{
 				iconFilePath: assets/images/skills/icon/1.png
@@ -176,18 +4109,804 @@ enemyInfos: [
 				iconFilePath: assets/images/skills/icon/6.png
 			}
 		],
-		borderFilePath: assets/images/border/2.png,
-		camp: -1,
-		smallBorderFilePath: assets/images/border/105.png,
-		attackInterval: 3.423065,
-		scale: 0.5,
+		x: 343,
 		y: 420,
+		id: 306,
 		smallFighterFilePath: assets/images/fighter/data.dat_000306.png,
 		fighterFilePath: assets/images/fighter/305.png
 	},
 	{
 		formationIndex: 5,
-		x: 190,
+		equipments: [
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪0",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				}
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪1",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 1
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪2",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 2
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪3",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 3
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪4",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 4
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪5",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 5
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪6",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 6
+			},
+			{
+				propertyName: {
+					size: 10,
+					stashCapacity: 6,
+					capacity: 16,
+					zeroValue: {
+						class: java.lang.String,
+						value: "生命"
+					},
+					mask: 15,
+					keyTable: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					threshold: 12,
+					hashShift: 27,
+					valueTable: [
+						null,
+						{
+							class: java.lang.String,
+							value: "法力"
+						},
+						{
+							class: java.lang.String,
+							value: "最小物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大物攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最小魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "最大魔攻"
+						},
+						{
+							class: java.lang.String,
+							value: "命中"
+						},
+						{
+							class: java.lang.String,
+							value: "暴击"
+						},
+						{
+							class: java.lang.String,
+							value: "闪避"
+						},
+						{
+							class: java.lang.String,
+							value: "幸运"
+						},
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null
+					],
+					hasZeroValue: true
+				},
+				iconFilePath: assets/images/commodity/equipment/1.png,
+				name: "猎龙枪7",
+				type: 1,
+				properties: {
+					0: 100,
+					1: 100
+				},
+				coordinateIndex: 7
+			}
+		],
+		scale: 0.5,
+		attackInterval: 3.554078,
+		borderFilePath: assets/images/border/3.png,
+		camp: -1,
+		smallBorderFilePath: assets/images/border/106.png,
 		skillInfos: [
 			{
 				iconFilePath: assets/images/skills/icon/1.png
@@ -213,12 +4932,9 @@ enemyInfos: [
 				iconFilePath: assets/images/skills/icon/6.png
 			}
 		],
-		borderFilePath: assets/images/border/3.png,
-		camp: -1,
-		smallBorderFilePath: assets/images/border/106.png,
-		attackInterval: 3.8211648,
-		scale: 0.5,
+		x: 190,
 		y: 380,
+		id: 30,
 		smallFighterFilePath: assets/images/fighter/data.dat_000307.png,
 		fighterFilePath: assets/images/fighter/306.png
 	}

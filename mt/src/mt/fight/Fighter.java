@@ -5,7 +5,7 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.repeat;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 import mt.actor.skill.MeleeAttack;
 import mt.actor.skill.SkillPool;
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -27,13 +27,13 @@ public class Fighter extends Image{
 	private Array<Fighter> heros, enemies;
 	
 	//resources
-	//×îÏÂÊ¯°å
+	//æœ€ä¸‹çŸ³æ¿
 	private TextureRegion bottomSlateTextureRegion;
-	//±ß¿ò
+	//è¾¹æ¡†
 	private TextureRegion borderTextureRegion;
-	//Ó¢ĞÛ
+	//è‹±é›„
 	private TextureRegion fighterTextureRegion;
-	//ÊÇ·ñÕıÔÚ±»¹¥»÷, 0: ±íÊ¾Ã»ÓĞ±»¹¥»÷£¬1:±íÊ¾Õı±»Ò»¸öµĞÈË¹¥»÷£¬2:±íÊ¾Õı±»Á½¸öµĞÈË¹¥»÷
+	//æ˜¯å¦æ­£åœ¨è¢«æ”»å‡», 0: è¡¨ç¤ºæ²¡æœ‰è¢«æ”»å‡»ï¼Œ1:è¡¨ç¤ºæ­£è¢«ä¸€ä¸ªæ•Œäººæ”»å‡»ï¼Œ2:è¡¨ç¤ºæ­£è¢«ä¸¤ä¸ªæ•Œäººæ”»å‡»
 	private byte beingAttacked;
 	
 	public Fighter(TextureRegion bottomSlateRegion, TextureRegion borderRegion,
@@ -106,7 +106,7 @@ public class Fighter extends Image{
 				borderOffset.rotate( deltaRotation );
 				heroOffset.rotate( deltaRotation );
 			}
-			//draw, ÒÔoriginX, originY×÷ÎªÔ­µã½øĞĞĞı×ª
+			//draw, ä»¥originX, originYä½œä¸ºåŸç‚¹è¿›è¡Œæ—‹è½¬
 			batch.draw(bottomSlateTextureRegion, x, y, 0, 0, bottomSlateTextureRegion.getRegionWidth(), bottomSlateTextureRegion.getRegionHeight(), scaleX, scaleY, rotation);
 			batch.draw(borderTextureRegion, x+borderOffset.x*scaleX, y+borderOffset.y*scaleY, 0, 0, borderTextureRegion.getRegionWidth(), borderTextureRegion.getRegionHeight(), scaleX, scaleY, rotation);
 			batch.draw(fighterTextureRegion, x+heroOffset.x*scaleX, y+heroOffset.y*scaleY, 0, 0, fighterTextureRegion.getRegionWidth(), fighterTextureRegion.getRegionHeight(), scaleX, scaleY, rotation);
@@ -117,20 +117,20 @@ public class Fighter extends Image{
 	private float delay;
 	private boolean fighting = false;
 	public void attack( float delta ){
-		//1ÕıÔÚ¹¥»÷ÖĞ
+		//1æ­£åœ¨æ”»å‡»ä¸­
 		if( fighting ){
 			return;
 		}
-		//2 Ñ°ÕÒÓĞĞ§Ä¿±ê
+		//2 å¯»æ‰¾æœ‰æ•ˆç›®æ ‡
 		Fighter enemy = findTarget();
 		if( enemy == null ){
 			return;
 		}
-		//3 µÈ´ı¹¥»÷ÊÂ¼ş¼ä¸ô
+		//3 ç­‰å¾…æ”»å‡»äº‹ä»¶é—´éš”
 		delay += delta;
 		if( delay < fighterInfo.getAttackInterval() )
 			return;
-		//4 ¼ì²éÊÇ·ñÒÑ¾­ËÀÍö
+		//4 æ£€æŸ¥æ˜¯å¦å·²ç»æ­»äº¡
 		if( fighterInfo.getHp() <= 0 ){
 			return;
 		}

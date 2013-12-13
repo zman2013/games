@@ -1,4 +1,4 @@
-package mt.actors.domain;
+package mt.domain;
 
 import mt.formation.SkillInfo;
 
@@ -7,45 +7,56 @@ import com.badlogic.gdx.utils.Array;
 
 public class FighterInfo {
 	/**
-	 * Ä¬ÈÏÎª-1£ºÎ´³öÕ÷¡£
-	 * 0£ºÉÏ; 1£º×óÖĞ£»2£ºÓÒÖĞ£»3£º×óÏÂ£»4£ºÓÒÏÂ¡£
+	 * æˆ˜å® ç¼–å·ï¼Œ0è¡¨ç¤ºplayer
+	 */
+	private int id;
+	/**
+	 * é»˜è®¤ä¸º-1ï¼šæœªå‡ºå¾ã€‚
+	 * 0ï¼šä¸Š; 1ï¼šå·¦ä¸­ï¼›2ï¼šå³ä¸­ï¼›3ï¼šå·¦ä¸‹ï¼›4ï¼šå³ä¸‹ã€‚
 	 */
 	private int formationIndex;
 
 	private String borderFilePath, smallBorderFilePath;
 	
 	private String fighterFilePath, smallFighterFilePath;
-	//ÑªÁ¿
+	//è¡€é‡
 	private int hp = 1000;
-	//·¨Á¦
+	//æ³•åŠ›
 	private int magic = 1000;
-	//ÎïÀí¹¥»÷
+	//ç‰©ç†æ”»å‡»
 	private int minMeleeAttack=10, maxMeleeAttack=100;
-	//·¨Êõ¹¥»÷
+	//æ³•æœ¯æ”»å‡»
 	private int minSpellAttack=10, maxSpellAttack=100;
 	
-	//Îï·À Ä§·À
+	//ç‰©é˜² é­”é˜²
 	private int melleDefense=100, spellDefense=100;
-	//ÃüÖĞ ±©»÷ ÉÁ±Ü ÔËÆø
+	//å‘½ä¸­ æš´å‡» é—ªé¿ è¿æ°”
 	private int hitScore=20, crit=20, doage=20, luck=20;
 	
-	//¹¥»÷¼ä¸ô£¬×îĞ¡ÎªÎª1.7s£¬Ä¿Ç°¹¥»÷Ò»´ÎÓÃÊ±1.5s¡£
+	//æ”»å‡»é—´éš”ï¼Œæœ€å°ä¸ºä¸º1.7sï¼Œç›®å‰æ”»å‡»ä¸€æ¬¡ç”¨æ—¶1.5sã€‚
 	private float attackInterval = 2;
 	
 	
-	//Ó¢ĞÛËùÊôÊÆÁ¦£º-1£ºÉÏ£¬1£ºÏÂ
+	//è‹±é›„æ‰€å±åŠ¿åŠ›ï¼š-1ï¼šä¸Šï¼Œ1ï¼šä¸‹
 	private byte camp;
-	//Î»ÖÃ: (²»¿É¸Ä±ä)
+	
+	//ä½ç½®: (ä¸å¯æ”¹å˜)
 	private float x, y;
 	
 	private float scale;
 	
-	//ÓµÓĞ¼¼ÄÜ
+	//æ‹¥æœ‰æŠ€èƒ½
 	private Array<SkillInfo> skillInfos;
+	
+	//è£…å¤‡
+	private Array<Commodity> equipments;
 	
 	public FighterInfo(){}
 	
-	public FighterInfo( int formationIndex, String borderFilePath, String fighterFilePath, String smallBorderFilePath, String smallFighterFilePath, byte camp, float attackInterval, float x, float y, float scale, Array<SkillInfo> skillInfos ){
+	public FighterInfo( int id, int formationIndex, String borderFilePath, String fighterFilePath, 
+			String smallBorderFilePath, String smallFighterFilePath, byte camp, float attackInterval, 
+			float x, float y, float scale, Array<SkillInfo> skillInfos, Array<Commodity> equipments ){
+		this.id = id;
 		this.formationIndex = formationIndex;
 		this.borderFilePath = borderFilePath;
 		this.fighterFilePath = fighterFilePath;
@@ -57,6 +68,7 @@ public class FighterInfo {
 		this.y = y;
 		this.scale = scale;
 		this.skillInfos = skillInfos;
+		this.equipments = equipments;
 	}
 	
 	public String getBorderFilePath() {
@@ -250,6 +262,22 @@ public class FighterInfo {
 
 	public void setSkillInfos(Array<SkillInfo> skillInfos) {
 		this.skillInfos = skillInfos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Array<Commodity> getEquipments() {
+		return equipments;
+	}
+
+	public void setEquipments(Array<Commodity> equipments) {
+		this.equipments = equipments;
 	}
 
 

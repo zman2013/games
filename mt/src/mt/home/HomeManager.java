@@ -1,8 +1,10 @@
 package mt.home;
 
+import mt.manager.Manager;
+
 import com.badlogic.gdx.math.Vector2;
 
-public class HomeManager {
+public class HomeManager implements Manager{
 
 	private Vector2 playerButtonCoordinate;
 	
@@ -33,6 +35,12 @@ public class HomeManager {
 
 	public Vector2 getFormationButtonCoordinate() {
 		return formationButtonCoordinate;
+	}
+
+	@Override
+	public void flushData() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

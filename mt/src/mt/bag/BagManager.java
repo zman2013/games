@@ -1,13 +1,18 @@
 package mt.bag;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.IntMap;
+import com.badlogic.gdx.utils.Json;
 
-import mt.actors.domain.Commodity;
+import mt.actor.CoordinateActor;
+import mt.domain.Commodity;
+import mt.manager.Manager;
 import mt.resources.AbstractCoordinateManager;
 
-public class BagManager extends AbstractCoordinateManager{
+public class BagManager extends AbstractCoordinateManager implements Manager{
 
 	private CommodityDetailActor detailActor;
 	
@@ -17,7 +22,7 @@ public class BagManager extends AbstractCoordinateManager{
 		origin = new Vector2( 32, 32 );
 		
 		coordinates = new Array<Vector2>();
-		//°ËĞĞÁùÁĞ£¬48¸ö¸ñ×Ó
+		//å…«è¡Œå…­åˆ—ï¼Œ48ä¸ªæ ¼å­
 		for( int i = 0; i < 8; i ++ ){
 			for( int j = 0; j < 6; j ++ ){
 				coordinates.add( new Vector2( 45+j*65, 600-65*i ) );
@@ -30,7 +35,7 @@ public class BagManager extends AbstractCoordinateManager{
 	}
 
 	public void showDetail(Commodity commodity) {
-		//-2ÒòÎªÓĞreturnActor£¬returnActorĞèÒªÊ¼ÖÕÏÔÊ¾ÔÚ×îÉÏ²ã
+		//-2å› ä¸ºæœ‰returnActorï¼ŒreturnActoréœ€è¦å§‹ç»ˆæ˜¾ç¤ºåœ¨æœ€ä¸Šå±‚
 		detailActor.setCommodity( commodity );
 		detailActor.setZIndex( detailActor.getStage().getActors().size-2 );
 		detailActor.setVisible( true );
@@ -40,4 +45,28 @@ public class BagManager extends AbstractCoordinateManager{
 		detailActor.setVisible( false );
 	}
 	
+	/**
+	 * ä¸¢å¼ƒç‰©å“
+	 * @param commodity
+	 */
+	public void abandon( Commodity commodity ) {
+		int coordinateIndex = commodity.getCoordinateIndex();
+		CommodityActor actor = (CommodityActor) actorMap.get( coordinateIndex );
+		actor.remove();
+		actorMap.remove( coordinateIndex );
+	}
+	
+	/**
+	 * æŠŠæ•°æ®è¾“å‡ºåˆ°æ–‡ä»¶ä¸­ã€‚
+	 * åœ¨è¿”å›ä¸Šä¸€æ¬¡èœå•æ—¶ï¼Œä¼šè¢«è°ƒç”¨ã€‚
+	 */
+	public void flushData(){
+		Array<Commodity> commodities = new Array<Commodity>();
+		for( CoordinateActor actor : actorMap.values() ){
+			commodities.add( ((CommodityActor)actor).getCommodity() );
+		}
+		FileHandle fileHandle = Gdx.files.local("assets/data/player/bag.data");
+		String jsonString = new Json().prettyPrint( commodities  );
+		fileHandle.writeString( jsonString, false );
+	}
 }

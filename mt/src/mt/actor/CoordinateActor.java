@@ -4,11 +4,11 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 /**
- * ĞèÒªÍÏ¶¯²¢ÒÀ¸½ÓÚ¹Ì¶¨×ø±êµÄactorĞèÒªÊµÏÖ´Ë½Ó¿Ú£¬¸Ä½Ó¿ÚÓëAbstractCoordinateManagerÅäºÏÊ¹ÓÃ¡£
+ * éœ€è¦æ‹–åŠ¨å¹¶ä¾é™„äºå›ºå®šåæ ‡çš„actoréœ€è¦å®ç°æ­¤æ¥å£ï¼Œæ”¹æ¥å£ä¸AbstractCoordinateManageré…åˆä½¿ç”¨ã€‚
  * @author zman
  *
  */
-public interface CoordinateActor {
+public interface CoordinateActor{
 	
 	int getCoordinateIndex();
 	

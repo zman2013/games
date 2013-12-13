@@ -1,11 +1,11 @@
 package mt.screens;
 
 import mt.actor.shared.ReturnActor;
-import mt.actors.domain.Commodity;
 import mt.bag.BagManager;
 import mt.bag.BagResourceLoader;
 import mt.bag.CommodityActor;
 import mt.bag.CommodityDetailActor;
+import mt.domain.Commodity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -16,7 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
 
 /**
- * ±³°ü
+ * èƒŒåŒ…
  * @author zman
  *
  */
@@ -52,12 +52,12 @@ public class BagScreen extends AbstractScreen{
 			manager.add( commodity.getCoordinateIndex(), actor );
 		}
 		//init commodity detail actor
-		CommodityDetailActor detailActor = new CommodityDetailActor( loader );
+		CommodityDetailActor detailActor = new CommodityDetailActor( loader, manager );
 		detailActor.setVisible( false );
 		manager.setDetailActor( detailActor );
 		stage.addActor( detailActor );
 		//add returnActor
-		ReturnActor returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class );
+		ReturnActor returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class, manager );
 		stage.addActor( returnActor );
 		returnActor.setZIndex( 100 );
 	}
@@ -72,7 +72,7 @@ public class BagScreen extends AbstractScreen{
 		for( Vector2 coor : coordinates ){
 			batch.draw( cellTexture, coor.x, coor.y );
 		}
-		font.draw( batch, "±³°ü", 225, 700 );
+		font.draw( batch, "èƒŒåŒ…", 225, 700 );
 		batch.end();
 		
 		stage.act( delta );

@@ -48,22 +48,22 @@ public class HomeScreen extends AbstractScreen{
 	private void initButtons(HomeResourceLoader resourceLoader) {
 		Vector2 coordinate;
 		//shop button
-		Actor actor = new ButtonActor( this, FormationScreen.class, "ÕóÐÍ", resourceLoader );
+		Actor actor = new ButtonActor( this, FormationScreen.class, "é˜µåž‹", resourceLoader );
 		coordinate = homeManager.getShopButtonCoordinate();
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );		
 		//formation button
-		actor = new ButtonActor( this, BagScreen.class, "±³°ü", resourceLoader );
+		actor = new ButtonActor( this, BagScreen.class, "èƒŒåŒ…", resourceLoader );
 		coordinate = homeManager.getFormationButtonCoordinate();
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );
 		//fighter button
-		actor = new ButtonActor( this, FighterListScreen.class, "Õ½³è", resourceLoader );
+		actor = new ButtonActor( this, FighterListScreen.class, "æˆ˜å® ", resourceLoader );
 		coordinate = homeManager.getFighterButtonCoordinate();
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );
 		//player button
-		actor = new ButtonActor( this, PropertyScreen.class, "Ó¢ÐÛ", resourceLoader );
+		actor = new ButtonActor( this, PropertyScreen.class, "è‹±é›„", resourceLoader );
 		coordinate = homeManager.getPlayerButtonCoordinate();
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );

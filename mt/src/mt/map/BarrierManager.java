@@ -4,9 +4,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 /**
- * ¸ºÔð¼ÇÂ¼ËùÓÐ¹Ø¿¨µÄ×ø±ê¡¢ÈÎÎñµÄ½ø¶È¡£
- * ÈÎÎñ½ø¶ÈÒÔ¹Ø¿¨µÄË÷ÒýºÅÀ´±êÊ¶¡£
- * ÀýÈç£ºÈÎÎñ½ø¶ÈÎª0£¬ÔòÖ»ÏÔÊ¾µÚÒ»¸ö¹Ø¿¨£¬¹Ø¿¨Ë÷ÒýÎª0£»ÈÎÎñ½ø¶ÈÎª1£¬ÔòÏÔÊ¾Ç°Á½¸ö¹Ø¿¨£¬¹Ø¿¨Ë÷ÒýÎª0¡¢1¡£
+ * è´Ÿè´£è®°å½•æ‰€æœ‰å…³å¡çš„åæ ‡ã€ä»»åŠ¡çš„è¿›åº¦ã€‚
+ * ä»»åŠ¡è¿›åº¦ä»¥å…³å¡çš„ç´¢å¼•å·æ¥æ ‡è¯†ã€‚
+ * ä¾‹å¦‚ï¼šä»»åŠ¡è¿›åº¦ä¸º0ï¼Œåˆ™åªæ˜¾ç¤ºç¬¬ä¸€ä¸ªå…³å¡ï¼Œå…³å¡ç´¢å¼•ä¸º0ï¼›ä»»åŠ¡è¿›åº¦ä¸º1ï¼Œåˆ™æ˜¾ç¤ºå‰ä¸¤ä¸ªå…³å¡ï¼Œå…³å¡ç´¢å¼•ä¸º0ã€1ã€‚
  * @author zman
  *
  */
@@ -17,7 +17,7 @@ public class BarrierManager {
 	private int taskProgress = 16;
 	
 	/**
-	 * µ±Ç°ÕýÑ¡ÖÐ¹Ø¿¨µÄË÷ÒýºÅ¡£
+	 * å½“å‰æ­£é€‰ä¸­å…³å¡çš„ç´¢å¼•å·ã€‚
 	 */
 	private int focusIndex;
 	

@@ -5,7 +5,7 @@ import com.badlogic.gdx.tools.imagepacker.TexturePacker2;
 public class TexturePackerLauncher {
 
 	public static void main(String[] args){
-		//生成物理攻击的图片集
+		//鐢熸垚鐗╃悊鏀诲嚮鐨勫浘鐗囬泦
 		TexturePacker2.processIfModified("assets/images/skills/melee_attack_src", "assets/images/skills/melee_attack", "melee_attack");
 	}
 }

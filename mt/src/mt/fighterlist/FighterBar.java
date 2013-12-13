@@ -1,6 +1,6 @@
 package mt.fighterlist;
 
-import mt.actors.domain.FighterInfo;
+import mt.domain.FighterInfo;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;

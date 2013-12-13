@@ -33,7 +33,7 @@ public class BarrierActor extends Image{
 					Vector2 position = barrierManager.getCoordinate( barrierIndex );
 					screen.setFocusPosition( position.x+5, position.y+70 );
 				}else{
-					//ÇĞ»»µ½¹Ø¿¨Õ½¶·Ò³Ãæ
+					//åˆ‡æ¢åˆ°å…³å¡æˆ˜æ–—é¡µé¢
 					screen.getGame().setScreen( FightScreen.class );
 				}
 			}
@@ -41,8 +41,8 @@ public class BarrierActor extends Image{
 	}
 
 	
-/*//²âÊÔÓÃ
-   //Õâ¶Î´úÂëÓÃÀ´Îª¹Ø¿¨Ìí¼ÓÍÏ¶¯ÊÂ¼ş£¬²¢ÏÔÊ¾ÍÏ¶¯µÄ×îÖÕ×ø±ê¡£
+/*//æµ‹è¯•ç”¨
+   //è¿™æ®µä»£ç ç”¨æ¥ä¸ºå…³å¡æ·»åŠ æ‹–åŠ¨äº‹ä»¶ï¼Œå¹¶æ˜¾ç¤ºæ‹–åŠ¨çš„æœ€ç»ˆåæ ‡ã€‚
 	private Vector2 previousDragPoint = new Vector2();
 	private Vector2 currectDragPoint = new Vector2();
 	private void initListener() {

@@ -73,9 +73,9 @@ public class MapScreen extends AbstractScreen{
 				Vector2 origin = new Vector2( 0, 0 );
 				stage.stageToScreenCoordinates( origin );
 				Vector3 cameraPosition = camera.position;
-				//”““∆
+				//Âè≥Áßª
 				if( origin.x < 0 &&  delta < 0 ){
-					//±ﬂΩÁœﬁ∂®£¨≤ªø…“Á≥ˆ±ﬂΩÁ
+					//ËæπÁïåÈôêÂÆöÔºå‰∏çÂèØÊ∫¢Âá∫ËæπÁïå
 					if( cameraPosition.x + delta < 240 ){
 						cameraPosition.x = 240;
 					}else{
@@ -84,9 +84,9 @@ public class MapScreen extends AbstractScreen{
 				}else{
 					origin.x = 800;
 					stage.stageToScreenCoordinates( origin );
-					//◊Û“∆
+					//Â∑¶Áßª
 					if( origin.x > 480 && delta > 0 ){
-						//±ﬂΩÁœﬁ∂®£¨≤ªø…“Á≥ˆ±ﬂΩÁ
+						//ËæπÁïåÈôêÂÆöÔºå‰∏çÂèØÊ∫¢Âá∫ËæπÁïå
 						if( cameraPosition.x + delta > 560 ){
 							cameraPosition.x = 560;
 						}else{
