@@ -53,7 +53,7 @@ public class HomeScreen extends AbstractScreen{
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );		
 		//formation button
-		actor = new ButtonActor( this, null, "ÉÌµê", resourceLoader );
+		actor = new ButtonActor( this, BagScreen.class, "±³°ü", resourceLoader );
 		coordinate = homeManager.getFormationButtonCoordinate();
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );

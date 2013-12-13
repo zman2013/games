@@ -68,10 +68,8 @@ public abstract class AbstractCoordinateManager {
 	
 	//设置fighter为最上层显示。
 	public void setFront( CoordinateActor target ){
-		for( CoordinateActor actor : actorMap.values() ){
-			actor.setZIndex( 200 );
-		}
-		target.setZIndex( 201 );
+		//-2因为有returnActor，returnActor需要始终显示在最上层
+		target.setZIndex( target.getStage().getActors().size-2 );
 	}
 	
 	public Array<Vector2> getCoordinates() {
@@ -81,5 +79,5 @@ public abstract class AbstractCoordinateManager {
 	public Vector2 getCoordinate( int index ){
 		return coordinates.get( index );
 	}
-	
+
 }

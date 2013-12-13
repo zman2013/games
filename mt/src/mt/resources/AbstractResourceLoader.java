@@ -54,4 +54,6 @@ public abstract class AbstractResourceLoader {
 	public Drawable getReturnDrawable(){ return skin.getDrawable( returnFilePath ); }
 	
 	public BitmapFont getFont( String key ){ return skin.getFont( key ); }
+	
+	public Texture getTexture( String key ){ return skin.get( key, Texture.class ); }
 }

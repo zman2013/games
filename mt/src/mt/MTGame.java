@@ -1,6 +1,7 @@
 package mt;
 
 import mt.screens.AbstractScreen;
+import mt.screens.BagScreen;
 import mt.screens.FightScreen;
 import mt.screens.FormationScreen;
 import mt.screens.HomeScreen;
@@ -19,7 +20,7 @@ public class MTGame extends Game{
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel( Application.LOG_DEBUG );
-		setScreen( PropertyScreen.class );
+		setScreen( BagScreen.class );
 	}
 	
 	public void setScreen(  Class<? extends AbstractScreen> screenClass  ) {

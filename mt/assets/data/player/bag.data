@@ -1,0 +1,1101 @@
+[
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪0",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	}
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪1",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 1
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪2",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 2
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪3",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 3
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪4",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 4
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪5",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 5
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪6",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 6
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪7",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 7
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪8",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 8
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪9",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 9
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪10",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 10
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪11",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 11
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪12",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 12
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪13",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 13
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪14",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 14
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪15",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 15
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪16",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 16
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪17",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 17
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪18",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 18
+},
+{
+	class: mt.actors.domain.Commodity,
+	iconFilePath: assets/images/commodity/equipment/1.png,
+	name: "猎龙枪19",
+	type: 1,
+	properties: {
+		size: 2,
+		stashCapacity: 6,
+		capacity: 8,
+		zeroValue: {
+			class: java.lang.Integer,
+			value: 100
+		},
+		threshold: 6,
+		mask: 7,
+		keyTable: [
+			0,
+			1,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		hashShift: 28,
+		valueTable: [
+			null,
+			{
+				class: java.lang.Integer,
+				value: 100
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		hasZeroValue: true
+	},
+	coordinateIndex: 19
+}
+]
