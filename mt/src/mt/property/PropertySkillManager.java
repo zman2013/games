@@ -11,7 +11,7 @@ public class PropertySkillManager extends AbstractCoordinateManager{
 	
 	protected void init() {
 		actorMap = new IntMap<CoordinateActor>( 8 );
-		origin = new Vector2(25, 25);
+		origin = new Vector2(32, 32);
 		
 		coordinates = new Array<Vector2>();
 		coordinates.add( new Vector2(50, 450) );

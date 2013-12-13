@@ -19,7 +19,7 @@ public class MTGame extends Game{
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel( Application.LOG_DEBUG );
-		setScreen( FormationScreen.class );
+		setScreen( PropertyScreen.class );
 	}
 	
 	public void setScreen(  Class<? extends AbstractScreen> screenClass  ) {

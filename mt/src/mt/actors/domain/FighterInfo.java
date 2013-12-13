@@ -45,7 +45,7 @@ public class FighterInfo {
 	
 	public FighterInfo(){}
 	
-	public FighterInfo( int formationIndex, String borderFilePath, String fighterFilePath, String smallBorderFilePath, String smallFighterFilePath, byte camp, float attackInterval, float x, float y, float scale ){
+	public FighterInfo( int formationIndex, String borderFilePath, String fighterFilePath, String smallBorderFilePath, String smallFighterFilePath, byte camp, float attackInterval, float x, float y, float scale, Array<SkillInfo> skillInfos ){
 		this.formationIndex = formationIndex;
 		this.borderFilePath = borderFilePath;
 		this.fighterFilePath = fighterFilePath;
@@ -56,6 +56,7 @@ public class FighterInfo {
 		this.x = x;
 		this.y = y;
 		this.scale = scale;
+		this.skillInfos = skillInfos;
 	}
 	
 	public String getBorderFilePath() {

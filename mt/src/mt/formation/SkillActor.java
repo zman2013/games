@@ -24,7 +24,8 @@ public class SkillActor extends Image implements CoordinateActor{
 		this.info = info;
 		this.manager = manager;
 		
-		setScale( 0.8f );
+		Vector2 coor = manager.getCoordinate( info.getFormationIndex() );
+		setPosition( coor.x, coor.y );
 		
 		initListener();
 	}

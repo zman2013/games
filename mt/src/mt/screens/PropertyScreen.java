@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Json;
 
 import mt.actor.shared.ReturnActor;
 import mt.actors.domain.FighterInfo;
@@ -33,9 +34,9 @@ public class PropertyScreen extends AbstractScreen{
 	public PropertyScreen(){
 		super();
 		//test begin
-		fighterInfo = new FighterInfo();
-		fighterInfo.setBorderFilePath( "assets/images/border/5.png" );
-		fighterInfo.setFighterFilePath( "assets/images/fighter/156.png" );
+		@SuppressWarnings("unchecked")
+		Array<FighterInfo> fighterInfos = new Json().fromJson( Array.class, FighterInfo.class, Gdx.files.internal("assets/data/player/hero.data") );
+		fighterInfo = fighterInfos.get( 0 );
 		stage.addListener( new ClickListener(){
 			public void clicked(InputEvent event, float x2, float y2) {
 			}
@@ -60,6 +61,8 @@ public class PropertyScreen extends AbstractScreen{
 		Array<SkillInfo> skillInfos = fighterInfo.getSkillInfos();
 		for( SkillInfo info : skillInfos ){
 			SkillActor skill = new SkillActor( info, loader, skillManager);
+			skillManager.add( info.getFormationIndex(), skill );
+			stage.addActor( skill );
 		}
 	}
 

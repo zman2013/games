@@ -68,8 +68,7 @@ public class FormationScreen extends AbstractScreen{
 		for( SkillInfo info : skillInfos ){
 			SkillActor skill = new SkillActor( info, resourceLoader, skillFormationManager );
 			skillFormationManager.add( info.getFormationIndex(), skill );
-			Vector2 coor = skillPlaceHolderCoordinates.get( info.getFormationIndex() );
-			skill.setPosition( coor.x, coor.y );
+			skill.setScale( 0.8f );
 			stage.addActor( skill );
 		}
 	}

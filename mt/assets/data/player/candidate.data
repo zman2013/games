@@ -2,12 +2,37 @@
 {
 	class: mt.actors.domain.FighterInfo,
 	formationIndex: -1,
+	x: 30,
 	scale: 0.5,
-	attackInterval: 3.7830877,
+	skillInfos: [
+		{
+			iconFilePath: assets/images/skills/icon/1.png
+		},
+		{
+			formationIndex: 1,
+			iconFilePath: assets/images/skills/icon/2.png
+		},
+		{
+			formationIndex: 2,
+			iconFilePath: assets/images/skills/icon/3.png
+		},
+		{
+			formationIndex: 3,
+			iconFilePath: assets/images/skills/icon/4.png
+		},
+		{
+			formationIndex: 4,
+			iconFilePath: assets/images/skills/icon/5.png
+		},
+		{
+			formationIndex: 5,
+			iconFilePath: assets/images/skills/icon/6.png
+		}
+	],
 	borderFilePath: assets/images/border/5.png,
 	camp: 1,
 	smallBorderFilePath: assets/images/border/101.png,
-	x: 30,
+	attackInterval: 2.9311008,
 	smallFighterFilePath: assets/images/fighter/data.dat_000156.png,
 	y: 30,
 	fighterFilePath: assets/images/fighter/156.png
@@ -15,12 +40,37 @@
 {
 	class: mt.actors.domain.FighterInfo,
 	formationIndex: -1,
+	x: 345,
 	scale: 0.5,
-	attackInterval: 1.9196401,
+	skillInfos: [
+		{
+			iconFilePath: assets/images/skills/icon/1.png
+		},
+		{
+			formationIndex: 1,
+			iconFilePath: assets/images/skills/icon/2.png
+		},
+		{
+			formationIndex: 2,
+			iconFilePath: assets/images/skills/icon/3.png
+		},
+		{
+			formationIndex: 3,
+			iconFilePath: assets/images/skills/icon/4.png
+		},
+		{
+			formationIndex: 4,
+			iconFilePath: assets/images/skills/icon/5.png
+		},
+		{
+			formationIndex: 5,
+			iconFilePath: assets/images/skills/icon/6.png
+		}
+	],
 	borderFilePath: assets/images/border/2.png,
 	camp: 1,
 	smallBorderFilePath: assets/images/border/102.png,
-	x: 345,
+	attackInterval: 2.9202223,
 	smallFighterFilePath: assets/images/fighter/data.dat_000157.png,
 	y: 30,
 	fighterFilePath: assets/images/fighter/157.png
@@ -28,12 +78,37 @@
 {
 	class: mt.actors.domain.FighterInfo,
 	formationIndex: -1,
+	x: 70,
 	scale: 0.5,
-	attackInterval: 1.9825796,
+	skillInfos: [
+		{
+			iconFilePath: assets/images/skills/icon/1.png
+		},
+		{
+			formationIndex: 1,
+			iconFilePath: assets/images/skills/icon/2.png
+		},
+		{
+			formationIndex: 2,
+			iconFilePath: assets/images/skills/icon/3.png
+		},
+		{
+			formationIndex: 3,
+			iconFilePath: assets/images/skills/icon/4.png
+		},
+		{
+			formationIndex: 4,
+			iconFilePath: assets/images/skills/icon/5.png
+		},
+		{
+			formationIndex: 5,
+			iconFilePath: assets/images/skills/icon/6.png
+		}
+	],
 	borderFilePath: assets/images/border/3.png,
 	camp: 1,
 	smallBorderFilePath: assets/images/border/104.png,
-	x: 70,
+	attackInterval: 2.7338104,
 	smallFighterFilePath: assets/images/fighter/data.dat_000158.png,
 	y: 160,
 	fighterFilePath: assets/images/fighter/158.png
@@ -41,12 +116,37 @@
 {
 	class: mt.actors.domain.FighterInfo,
 	formationIndex: -1,
+	x: 305,
 	scale: 0.5,
-	attackInterval: 2.688386,
+	skillInfos: [
+		{
+			iconFilePath: assets/images/skills/icon/1.png
+		},
+		{
+			formationIndex: 1,
+			iconFilePath: assets/images/skills/icon/2.png
+		},
+		{
+			formationIndex: 2,
+			iconFilePath: assets/images/skills/icon/3.png
+		},
+		{
+			formationIndex: 3,
+			iconFilePath: assets/images/skills/icon/4.png
+		},
+		{
+			formationIndex: 4,
+			iconFilePath: assets/images/skills/icon/5.png
+		},
+		{
+			formationIndex: 5,
+			iconFilePath: assets/images/skills/icon/6.png
+		}
+	],
 	borderFilePath: assets/images/border/4.png,
 	camp: 1,
 	smallBorderFilePath: assets/images/border/101.png,
-	x: 305,
+	attackInterval: 2.7523062,
 	smallFighterFilePath: assets/images/fighter/data.dat_000159.png,
 	y: 160,
 	fighterFilePath: assets/images/fighter/159.png
@@ -54,12 +154,37 @@
 {
 	class: mt.actors.domain.FighterInfo,
 	formationIndex: -1,
+	x: 190,
 	scale: 0.5,
-	attackInterval: 2.2451696,
+	skillInfos: [
+		{
+			iconFilePath: assets/images/skills/icon/1.png
+		},
+		{
+			formationIndex: 1,
+			iconFilePath: assets/images/skills/icon/2.png
+		},
+		{
+			formationIndex: 2,
+			iconFilePath: assets/images/skills/icon/3.png
+		},
+		{
+			formationIndex: 3,
+			iconFilePath: assets/images/skills/icon/4.png
+		},
+		{
+			formationIndex: 4,
+			iconFilePath: assets/images/skills/icon/5.png
+		},
+		{
+			formationIndex: 5,
+			iconFilePath: assets/images/skills/icon/6.png
+		}
+	],
 	borderFilePath: assets/images/border/2.png,
 	camp: 1,
 	smallBorderFilePath: assets/images/border/104.png,
-	x: 190,
+	attackInterval: 1.9652355,
 	smallFighterFilePath: assets/images/fighter/data.dat_000161.png,
 	y: 210,
 	fighterFilePath: assets/images/fighter/161.png

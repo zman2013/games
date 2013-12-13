@@ -63,7 +63,7 @@ public class HomeScreen extends AbstractScreen{
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );
 		//player button
-		actor = new ButtonActor( this, null, "гЂал", resourceLoader );
+		actor = new ButtonActor( this, PropertyScreen.class, "гЂал", resourceLoader );
 		coordinate = homeManager.getPlayerButtonCoordinate();
 		actor.setPosition( coordinate.x, coordinate.y );
 		stage.addActor( actor );
