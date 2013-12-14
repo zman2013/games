@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.IntMap;
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.ObjectMap;
 
 public class FighterFormationManager extends AbstractCoordinateManager implements Manager{
 
@@ -30,10 +31,10 @@ public class FighterFormationManager extends AbstractCoordinateManager implement
 
 	@Override
 	public void flushData() {
-		IntMap<Integer> formation = new IntMap<Integer>();
+		ObjectMap<String, Integer> formation = new ObjectMap<String, Integer>();
 		for( CoordinateActor actor : actorMap.values() ){
 			FighterInfo info = ((HeroActor) actor).getFighterInfo();
-			formation.put( info.getFormationIndex(), info.getId() );
+			formation.put( String.valueOf(info.getFormationIndex()), info.getId() );
 		}
 		fighterStatus.setFighters( formation );
 		new Json().toJson( fighterStatus, Gdx.files.local( FormationResourceLoader.filghterStatusFilePath ) );

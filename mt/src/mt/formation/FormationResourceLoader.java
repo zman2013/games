@@ -6,9 +6,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.IntMap.Entry;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.ObjectMap;
+import com.badlogic.gdx.utils.ObjectMap.Entry;
 
 import mt.domain.FighterInfo;
 import mt.domain.FighterStatus;
@@ -73,9 +73,9 @@ public class FormationResourceLoader extends AbstractResourceLoader {
 		Array<FighterInfo> infos = new Array<FighterInfo>(5);
 		fighterStatus = json.fromJson( FighterStatus.class, Gdx.files.internal( fighterStatusFilePath ) );
 		//加载出征战宠的信息
-		for( Entry<Integer> entry : fighterStatus.getFighters().entries() ){
+		for( Entry<String, Integer> entry : fighterStatus.getFighters().entries() ){
 			FighterInfo fighterInfo = json.fromJson( FighterInfo.class, Gdx.files.internal( "assets/data/fighter/"+entry.value ) );
-			fighterInfo.setFormationIndex( entry.key );
+			fighterInfo.setFormationIndex( Integer.parseInt(entry.key) );
 			infos.add( fighterInfo );
 		}
 		return infos;

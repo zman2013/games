@@ -1,16 +1,42 @@
 {
-smallBorderFilePath: assets/images/border/101.png,
 x: 30,
 equipments: [
 	{
 		propertyName: {
 			size: 10,
 			stashCapacity: 6,
+			capacity: 16,
 			zeroValue: {
 				class: java.lang.String,
 				value: "生命"
 			},
+			threshold: 12,
 			mask: 15,
+			keyTable: [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			hashShift: 27,
 			valueTable: [
 				null,
 				{
@@ -62,33 +88,6 @@ equipments: [
 				null,
 				null
 			],
-			keyTable: [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			threshold: 12,
-			hashShift: 27,
-			capacity: 16,
 			hasZeroValue: true
 		},
 		iconFilePath: assets/images/commodity/equipment/1.png,
@@ -104,11 +103,38 @@ equipments: [
 		propertyName: {
 			size: 10,
 			stashCapacity: 6,
+			capacity: 16,
 			zeroValue: {
 				class: java.lang.String,
 				value: "生命"
 			},
+			threshold: 12,
 			mask: 15,
+			keyTable: [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			hashShift: 27,
 			valueTable: [
 				null,
 				{
@@ -160,33 +186,6 @@ equipments: [
 				null,
 				null
 			],
-			keyTable: [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			threshold: 12,
-			hashShift: 27,
-			capacity: 16,
 			hasZeroValue: true
 		},
 		iconFilePath: assets/images/commodity/equipment/1.png,
@@ -202,11 +201,38 @@ equipments: [
 		propertyName: {
 			size: 10,
 			stashCapacity: 6,
+			capacity: 16,
 			zeroValue: {
 				class: java.lang.String,
 				value: "生命"
 			},
+			threshold: 12,
 			mask: 15,
+			keyTable: [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			hashShift: 27,
 			valueTable: [
 				null,
 				{
@@ -258,33 +284,6 @@ equipments: [
 				null,
 				null
 			],
-			keyTable: [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			threshold: 12,
-			hashShift: 27,
-			capacity: 16,
 			hasZeroValue: true
 		},
 		iconFilePath: assets/images/commodity/equipment/1.png,
@@ -300,11 +299,38 @@ equipments: [
 		propertyName: {
 			size: 10,
 			stashCapacity: 6,
+			capacity: 16,
 			zeroValue: {
 				class: java.lang.String,
 				value: "生命"
 			},
+			threshold: 12,
 			mask: 15,
+			keyTable: [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			hashShift: 27,
 			valueTable: [
 				null,
 				{
@@ -356,33 +382,6 @@ equipments: [
 				null,
 				null
 			],
-			keyTable: [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			threshold: 12,
-			hashShift: 27,
-			capacity: 16,
 			hasZeroValue: true
 		},
 		iconFilePath: assets/images/commodity/equipment/1.png,
@@ -398,11 +397,38 @@ equipments: [
 		propertyName: {
 			size: 10,
 			stashCapacity: 6,
+			capacity: 16,
 			zeroValue: {
 				class: java.lang.String,
 				value: "生命"
 			},
+			threshold: 12,
 			mask: 15,
+			keyTable: [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			hashShift: 27,
 			valueTable: [
 				null,
 				{
@@ -454,33 +480,6 @@ equipments: [
 				null,
 				null
 			],
-			keyTable: [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			threshold: 12,
-			hashShift: 27,
-			capacity: 16,
 			hasZeroValue: true
 		},
 		iconFilePath: assets/images/commodity/equipment/1.png,
@@ -493,8 +492,13 @@ equipments: [
 		coordinateIndex: 7
 	}
 ],
-camp: 1,
+y: 30,
+scale: 0.5,
 borderFilePath: assets/images/border/5.png,
+camp: 1,
+smallBorderFilePath: assets/images/border/101.png,
+attackInterval: 3.5931196,
+smallFighterFilePath: assets/images/fighter/data.dat_000156.png,
 skillInfos: [
 	{
 		iconFilePath: assets/images/skills/icon/5.png
@@ -508,9 +512,5 @@ skillInfos: [
 		iconFilePath: assets/images/skills/icon/1.png
 	}
 ],
-attackInterval: 3.5931196,
-scale: 0.5,
-y: 30,
-smallFighterFilePath: assets/images/fighter/data.dat_000156.png,
 fighterFilePath: assets/images/fighter/156.png
 }

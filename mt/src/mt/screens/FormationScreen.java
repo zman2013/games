@@ -1,6 +1,5 @@
 package mt.screens;
 
-import mt.actor.shared.PlusActor;
 import mt.actor.shared.ReturnActor;
 import mt.domain.FighterInfo;
 import mt.formation.FighterFormationManager;
@@ -43,13 +42,14 @@ public class FormationScreen extends AbstractScreen{
 		//add place holders
 		FighterFormationManager fighterFormationManager = new FighterFormationManager();
 		fighterFormationManager.setFighterStatus( resourceLoader.getFighterStatus() );
-		Drawable plusDrawable = resourceLoader.getPlusDrawable();
 		fighterPlaceHolderCoordinates = fighterFormationManager.getCoordinates();
-		for( Vector2 coor : fighterPlaceHolderCoordinates ){
-			PlusActor actor = new PlusActor( plusDrawable, coor.x, coor.y );
-			actor.setPosition( coor.x+29, coor.y+42 );
-			stage.addActor( actor );
-		}
+		//暂时不支持在此处添加战宠
+//		Drawable plusDrawable = resourceLoader.getPlusDrawable();
+//		for( Vector2 coor : fighterPlaceHolderCoordinates ){
+//			PlusActor actor = new PlusActor( plusDrawable, coor.x, coor.y );
+//			actor.setPosition( coor.x+29, coor.y+42 );
+//			stage.addActor( actor );
+//		}
 		//add fighters
 		Array<FighterInfo> fighterInfos = resourceLoader.getFighterInfos();
 		for( FighterInfo info : fighterInfos  ){

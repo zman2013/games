@@ -1,6 +1,7 @@
 package mt.fighterlist;
 
 import mt.domain.FighterInfo;
+import mt.domain.FighterStatus;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -9,31 +10,50 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ObjectMap;
 
 public class FighterBar extends Image{
-	
-//	private FighterInfo fighterInfo;
 	
 	private Drawable defaultBarDrawable;
 	private Drawable activeBarDrawable;
 	private TextureRegion borderBgRegion;
 	private TextureRegion borderRegion;
 	private TextureRegion fighterRegion;
-//	private Drawable checkBoxDrawable;
-//	private Drawable checkedBoxDrawable;
+	private Drawable checkBoxDrawable;
+	private Drawable uncheckedBoxDrawable;
+	private Drawable checkedBoxDrawable;
 	
-	public FighterBar( FighterInfo fighterInfo, FighterListResourceLoader resourceLoader ){
-//		this.fighterInfo = fighterInfo;
+	private FighterInfo fighterInfo;
+	private boolean isFighter;
+	private FighterListDataAccessor dataAccessor;
+	
+	/**
+	 * 
+	 * @param fighterInfo
+	 * @param resourceLoader
+	 * @param isFighter: true: 出征，false：未出征
+	 */
+	public FighterBar( FighterInfo fighterInfo, FighterListDataAccessor dataAccessor, FighterListResourceLoader resourceLoader, boolean isFighter ){
+		this.fighterInfo = fighterInfo;
+		this.isFighter = isFighter;
+		this.dataAccessor = dataAccessor;
 		
 		defaultBarDrawable = resourceLoader.getDefaultBarDrawable();
 		activeBarDrawable = resourceLoader.getActiveBarDrawable();
-//		checkBoxDrawable= resourceLoader.getCheckBoxDrawable();
-//		checkedBoxDrawable = resourceLoader.getCheckedBoxDrawable();
+		uncheckedBoxDrawable= resourceLoader.getCheckBoxDrawable();
+		checkedBoxDrawable = resourceLoader.getCheckedBoxDrawable();
 		borderBgRegion = resourceLoader.getBorderBgTextureRegion();
 		borderRegion = resourceLoader.getTextureRegion( fighterInfo.getSmallBorderFilePath() );
 		fighterRegion = resourceLoader.getTextureRegion( fighterInfo.getSmallFighterFilePath() );
 		
 		setDrawable( defaultBarDrawable );
+		
+		if( isFighter ){
+			checkBoxDrawable = checkedBoxDrawable;
+		}else{
+			checkBoxDrawable = uncheckedBoxDrawable;
+		}
 		
 		initListener();
 	}
@@ -43,8 +63,6 @@ public class FighterBar extends Image{
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
-//		float scaleX = getScaleX();
-//		float scaleY = getScaleY();
 		float scaleX = 0.8f;
 		float scaleY = scaleX;
 		float x = getX() + fighterOffset.x*scaleX;
@@ -60,6 +78,8 @@ public class FighterBar extends Image{
 			batch.draw( fighterRegion, x, y, 0, 0, fighterRegion.getRegionWidth(), fighterRegion.getRegionHeight(), scaleX, scaleY, rotation );
 			batch.draw( borderRegion, x, y, 0, 0, borderRegion.getRegionWidth(), borderRegion.getRegionHeight(), scaleX, scaleY, rotation );
 		}
+		
+		checkBoxDrawable.draw( batch, x+400, y+20, checkBoxDrawable.getMinWidth(), checkBoxDrawable.getMinHeight() );
 	}
 	
 	private void initListener() {
@@ -74,10 +94,55 @@ public class FighterBar extends Image{
 			@Override
 			public void touchUp(InputEvent event, float x, float y,
 					int pointer, int button) {
-//				if( x>=500 & x<=540 & y>=30 & y<=70 ){
-//					checked = !checked;
-//				}
 				setDrawable( defaultBarDrawable );
+				
+				if( x>=400 & x<=440 & y>=20 & y<=60 ){
+					FighterStatus fighterStatus = dataAccessor.getFighterStatus();
+					isFighter = !isFighter;
+					if( isFighter ){
+						//出征战宠不可多余5个
+						if( dataAccessor.getFighterInfos().size >= 5 ){
+							return;
+						}
+						checkBoxDrawable = checkedBoxDrawable;
+						//从候选战宠列表中移除
+						Array<FighterInfo> candidateInfos = dataAccessor.getCandidateInfos();
+						for( int i = 0; i < candidateInfos.size; i ++ ){
+							FighterInfo info = candidateInfos.get( i );
+							if( info.getId() == fighterInfo.getId() ){
+								candidateInfos.removeIndex( i );
+								dataAccessor.getFighterStatus().getCandidates().removeIndex( i );
+								break;
+							}
+						}
+						//添加到出征战宠中
+						Array<FighterInfo> fighterInfos = dataAccessor.getFighterInfos();
+						fighterInfos.add( fighterInfo );
+						ObjectMap<String, Integer> fighterMap = fighterStatus.getFighters();
+						for( int i = 0; i < 5; i ++ ){
+							if( !fighterMap.containsKey( String.valueOf(i) ) ){
+								fighterMap.put( String.valueOf(i), fighterInfo.getId() );
+								break;
+							}
+						}
+					}else{
+						checkBoxDrawable = uncheckedBoxDrawable;
+						//从出征战宠列表中移除
+						fighterStatus.getFighters().remove( String.valueOf(fighterInfo.getFormationIndex()) );
+						Array<FighterInfo> fighterInfos = dataAccessor.getFighterInfos();
+						for( int i = 0; i < fighterInfos.size; i ++ ){
+							FighterInfo info = fighterInfos.get( i );
+							if( info.getId() == fighterInfo.getId() ){
+								fighterInfos.removeIndex( i );
+								break;
+							}
+						}
+						//添加到候选战宠中
+						fighterStatus.getCandidates().add( fighterInfo.getId() );
+						dataAccessor.getCandidateInfos().add( fighterInfo );
+					}
+					dataAccessor.flushFighterStatus( fighterStatus );
+				}
 			}
 		});
 	}

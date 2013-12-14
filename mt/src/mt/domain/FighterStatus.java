@@ -1,25 +1,27 @@
 package mt.domain;
 
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.IntMap;
+import com.badlogic.gdx.utils.ObjectMap;
 
 public class FighterStatus {
 
 	/**
 	 * 出征的战宠, 阵型ID:战宠ID
 	 */
-	private IntMap<Integer> fighters;
+	private ObjectMap<String, Integer> fighters;
 	
 	/**
 	 * 未出征的战宠, 战宠ID
 	 */
 	private Array<Integer> candidates;
 	
-	public IntMap<Integer> getFighters() {
+	
+
+	public ObjectMap<String, Integer> getFighters() {
 		return fighters;
 	}
 
-	public void setFighters(IntMap<Integer> fighters) {
+	public void setFighters(ObjectMap<String, Integer> fighters) {
 		this.fighters = fighters;
 	}
 

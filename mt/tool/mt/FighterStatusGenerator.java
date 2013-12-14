@@ -6,8 +6,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.IntMap;
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.ObjectMap;
 
 
 public class FighterStatusGenerator extends ApplicationAdapter{
@@ -22,11 +22,11 @@ public class FighterStatusGenerator extends ApplicationAdapter{
 		
 		FighterStatus status = new FighterStatus();
 		
-		IntMap<Integer> fighters = new IntMap<Integer>(4);
-		fighters.put( 0, 0 );
-		fighters.put( 1, 1 );
-		fighters.put( 2, 2 );
-		fighters.put( 3, 3 );
+		ObjectMap<String, Integer> fighters = new ObjectMap<String, Integer>(4);
+		fighters.put( "0", 0 );
+		fighters.put( "1", 1 );
+		fighters.put( "2", 2 );
+		fighters.put( "3", 3 );
 		
 		Array<Integer> candidates = new Array<Integer>(10);
 //		candidates.add( 0 ); candidates.add( 0 ); candidates.add( 0 );

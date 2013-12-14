@@ -1,8 +1,10 @@
 package mt.screens;
 
+
 import mt.actor.shared.ReturnActor;
 import mt.domain.FighterInfo;
 import mt.fighterlist.FighterBar;
+import mt.fighterlist.FighterListDataAccessor;
 import mt.fighterlist.FighterListResourceLoader;
 
 import com.badlogic.gdx.Gdx;
@@ -16,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.utils.Array;
 
 public class FighterListScreen extends AbstractScreen{
 
@@ -32,9 +35,16 @@ public class FighterListScreen extends AbstractScreen{
 	//font
 	private BitmapFont font;
 	
+	private FighterListResourceLoader resourceLoader;
+	private FighterListDataAccessor dataAccessor;
+	
+	private Table fighterBarList;
+	
 	public FighterListScreen(){
 		
-		FighterListResourceLoader resourceLoader = new FighterListResourceLoader();
+		dataAccessor = new FighterListDataAccessor();
+		
+		resourceLoader = new FighterListResourceLoader();
 		
 		bgDrawable = resourceLoader.getBgDrawable();
 		
@@ -43,14 +53,9 @@ public class FighterListScreen extends AbstractScreen{
 		
 		font = resourceLoader.getFont();
 		
-		Table table = new Table();
-		for( FighterInfo info : resourceLoader.getHeroInfos() ){
-			FighterBar bar = new FighterBar( info, resourceLoader );
-			table.add( bar );
-			table.row();
-		}
+		fighterBarList = new Table();
 
-		scrollPane = new ScrollPane( table );
+		scrollPane = new ScrollPane( fighterBarList );
 		scrollPane.setSize( stage.getWidth(), 560 );
 		scrollPane.setY( 80 );
 		
@@ -67,6 +72,32 @@ public class FighterListScreen extends AbstractScreen{
 	
 	
 	@Override
+	public void show() {
+		super.show();
+		
+		fighterBarList.clear();
+		dataAccessor.loadFighterStatus();
+		//load fighter infos
+		Array<FighterInfo> fighterInfos = dataAccessor.loadFighterInfos();
+		resourceLoader.loadFighterInfos( fighterInfos );
+		for( FighterInfo info : fighterInfos ){
+			FighterBar bar = new FighterBar( info, dataAccessor, resourceLoader, true );
+			fighterBarList.add( bar );
+			fighterBarList.row();
+		}
+		//load fighter infos
+		Array<FighterInfo> candidateInfos = dataAccessor.loadCandidateInfos();
+		resourceLoader.loadFighterInfos( candidateInfos );
+		for( FighterInfo info : candidateInfos ){
+			FighterBar bar = new FighterBar( info, dataAccessor, resourceLoader, false );
+			fighterBarList.add( bar );
+			fighterBarList.row();
+		}
+	}
+
+
+
+	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
 		Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
@@ -81,6 +112,7 @@ public class FighterListScreen extends AbstractScreen{
 		batch.begin();
 		font.draw( batch, "英雄", listHeader.getX()+212, listHeader.getY()+48 );
 		batch.end();
+		
 	}
 	
 	private void initListener() {

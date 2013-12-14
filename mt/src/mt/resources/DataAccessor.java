@@ -65,6 +65,6 @@ public class DataAccessor {
 			json = new Json();
 		}
 		FileHandle fh = Gdx.files.local( fighterStatusFilePath );
-		json.toJson( FighterStatus.class, fh );
+		json.toJson( fighterStatus, FighterStatus.class, fh );
 	}
 }
