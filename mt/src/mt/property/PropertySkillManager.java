@@ -2,7 +2,6 @@ package mt.property;
 
 import mt.actor.CoordinateActor;
 import mt.domain.FighterInfo;
-import mt.formation.SkillActor;
 import mt.formation.SkillInfo;
 import mt.manager.Manager;
 import mt.resources.AbstractCoordinateManager;
@@ -18,6 +17,12 @@ public class PropertySkillManager extends AbstractCoordinateManager implements M
 	
 	private FighterInfo fighterInfo;
 	
+	private SkillDetailActor detailActor;
+	
+	public PropertySkillManager(PropertyDataAccessor dataAccessor) {
+		super();
+	}
+
 	protected void init() {
 		actorMap = new IntMap<CoordinateActor>( 8 );
 		origin = new Vector2(32, 32);
@@ -37,7 +42,7 @@ public class PropertySkillManager extends AbstractCoordinateManager implements M
 	public void flushData() {
 		Array<SkillInfo> infos = new Array<SkillInfo>();
 		for( CoordinateActor actor : actorMap.values() ){
-			infos.add( ((SkillActor)actor).getInfo() );
+			infos.add( ((SkillActor)actor).getSkilInfo() );
 		}
 		fighterInfo.setSkillInfos( infos );
 		FileHandle fileHandle = Gdx.files.local( "assets/data/fighter/"+fighterInfo.getId() );
@@ -46,7 +51,31 @@ public class PropertySkillManager extends AbstractCoordinateManager implements M
 	}
 
 	public void setFighterInfo(FighterInfo fighterInfo) {
+		actorMap.clear();
 		this.fighterInfo = fighterInfo;
+	}
+
+	public void showDetail(SkillInfo info) {
+		detailActor.setZIndex( detailActor.getStage().getActors().size-2 );
+		detailActor.setSkillInfo( info );
+		detailActor.setVisible( true );
+	}
+
+	public void abandon(SkillInfo skillInfo) {
+		int index = skillInfo.getFormationIndex();
+		((SkillActor)actorMap.get( index )).remove();
+		actorMap.remove( index );
+		Array<SkillInfo> skillInfos = fighterInfo.getSkillInfos();
+		for( int i = 0; i < skillInfos.size; i ++ ){
+			if( skillInfos.get(i).getFormationIndex() == index ){
+				skillInfos.removeIndex( i );
+				return;
+			}
+		}
+	}
+
+	public void setDetailActor(SkillDetailActor skillDetailActor) {
+		this.detailActor = skillDetailActor;
 	}
 	
 }

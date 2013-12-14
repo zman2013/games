@@ -1,7 +1,7 @@
 package mt.property;
 
 import mt.actor.CoordinateActor;
-import mt.domain.Commodity;
+import mt.formation.SkillInfo;
 import mt.resources.AbstractResourceLoader;
 
 import com.badlogic.gdx.math.Rectangle;
@@ -10,21 +10,18 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class EquipmentActor extends Image implements CoordinateActor{
+public class SkillActor extends Image implements CoordinateActor{
 
-	private Commodity commodity;
+	private SkillInfo info;
 	
-	private PropertyEquipmentManager manager;
+	private PropertySkillManager manager;
 	
-	private AbstractResourceLoader loader;
-	
-	public EquipmentActor( Commodity info, AbstractResourceLoader loader, PropertyEquipmentManager manager ){
+	public SkillActor( SkillInfo info, AbstractResourceLoader loader, PropertySkillManager manager ){
 		super( loader.getDrawable( info.getIconFilePath() ) );
-		this.loader = loader;
-		this.commodity = info;
+		this.info = info;
 		this.manager = manager;
 		
-		Vector2 coor = manager.getCoordinate( info.getCoordinateIndex() );
+		Vector2 coor = manager.getCoordinate( info.getFormationIndex() );
 		setPosition( coor.x, coor.y );
 		
 		initListener();
@@ -34,14 +31,11 @@ public class EquipmentActor extends Image implements CoordinateActor{
 		addListener( new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				manager.showDetail( commodity );
+				manager.showDetail( info );
 			}
 		});
 	}
 	
-	public Commodity getCommodity() {
-		return commodity;
-	}
 
 	//following functions useless for this class
 	public int getCoordinateIndex() {return 0;}
@@ -49,9 +43,8 @@ public class EquipmentActor extends Image implements CoordinateActor{
 	public Rectangle getRectangle() {return null;}
 	//above functions useless for this class
 
-	public void setCommodity(Commodity commodity) {
-		this.commodity = commodity;
-		setDrawable( loader.getDrawable( commodity.getIconFilePath() ) );
+	public SkillInfo getSkilInfo() {
+		return info;
 	}
 
 }

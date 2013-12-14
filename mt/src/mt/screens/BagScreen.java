@@ -30,19 +30,27 @@ public class BagScreen extends AbstractScreen{
 	
 	private Array<Commodity> commodities;
 	
+	private BagManager manager;
+	
 	public BagScreen(){
 		super();
 		
-		BagManager manager = new BagManager();
+		manager = new BagManager();
+		//get coordinates
+		coordinates = manager.getCoordinates();
+	}
+	
+	@Override
+	public void show() {
+		super.show();
+		stage.clear();
 		
+		//load resource
 		BagResourceLoader loader = new BagResourceLoader();
 		bgDrawable = loader.getBgDrawable();
 		cellTexture = loader.getCellTexture();
 		font = loader.getFont();
 		Drawable returnDrawable = loader.getReturnDrawable();
-		
-		//get coordinates
-		coordinates = manager.getCoordinates();
 		
 		//add commodities
 		commodities = loader.getCommodities();
@@ -51,16 +59,20 @@ public class BagScreen extends AbstractScreen{
 			stage.addActor( actor );
 			manager.add( commodity.getCoordinateIndex(), actor );
 		}
+		
 		//init commodity detail actor
 		CommodityDetailActor detailActor = new CommodityDetailActor( loader, manager );
 		detailActor.setVisible( false );
 		manager.setDetailActor( detailActor );
 		stage.addActor( detailActor );
+		
 		//add returnActor
 		ReturnActor returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class, manager );
 		stage.addActor( returnActor );
 		returnActor.setZIndex( 100 );
 	}
+
+
 
 	@Override
 	public void render(float delta) {

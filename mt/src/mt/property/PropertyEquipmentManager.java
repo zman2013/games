@@ -3,21 +3,27 @@ package mt.property;
 import mt.actor.CoordinateActor;
 import mt.domain.Commodity;
 import mt.domain.FighterInfo;
+import mt.listener.EquipmentDetailActorClickListener;
 import mt.resources.AbstractCoordinateManager;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.IntMap;
-import com.badlogic.gdx.utils.Json;
 
-public class PropertyEquipmentManager extends AbstractCoordinateManager{
-	
-	private FighterInfo fighterInfo;
+public class PropertyEquipmentManager extends AbstractCoordinateManager implements EquipmentDetailActorClickListener{
 	
 	private EquipmentDetailActor detailActor;
 	
+	private BagWidget bagWidget;
+	
+	private PropertyDataAccessor dataAccessor;
+	
+	public PropertyEquipmentManager(PropertyDataAccessor dataAccessor) {
+		super();
+		
+		this.dataAccessor = dataAccessor;
+	}
+
 	protected void init() {
 		actorMap = new IntMap<CoordinateActor>( 8 );
 		origin = new Vector2(32, 32);
@@ -35,6 +41,7 @@ public class PropertyEquipmentManager extends AbstractCoordinateManager{
 
 	public void showDetail(Commodity commodity) {
 		//-2因为有returnActor，returnActor需要始终显示在最上层
+		detailActor.addClickListener( this, "卸下" );
 		detailActor.setCommodity( commodity );
 		detailActor.setZIndex( detailActor.getStage().getActors().size-2 );
 		detailActor.setVisible( true );
@@ -44,13 +51,11 @@ public class PropertyEquipmentManager extends AbstractCoordinateManager{
 	 * 卸下装备
 	 * @param commodity
 	 */
-	public void disboard(Commodity commodity) {
+	public void clickedEquipDetailButton(Commodity commodity) {
+		FighterInfo fighterInfo = dataAccessor.getFighterInfo();
 		int commodityCoordinateIndex = commodity.getCoordinateIndex();
 		//将卸下的物品放入背包
-		Json json = new Json();
-		FileHandle bagFileHandle = Gdx.files.local("assets/data/player/bag.data");
-		@SuppressWarnings("unchecked")
-		Array<Commodity> commodities = json.fromJson( Array.class, Commodity.class, bagFileHandle );
+		Array<Commodity> commodities = dataAccessor.getCommodities();
 		if( commodities.size < 48 ){
 			boolean[] cells =  new boolean[48];
 			//标识已被占用的格子为true
@@ -62,7 +67,9 @@ public class PropertyEquipmentManager extends AbstractCoordinateManager{
 				if( cells[i] == false ){
 					commodity.setCoordinateIndex( i );
 					commodities.add( commodity );
-					json.toJson( commodities, Array.class, Commodity.class, bagFileHandle );
+					//放入背包
+					bagWidget.refreshUI();
+					dataAccessor.flushCommodities(commodities);
 					break;
 				}
 			}
@@ -71,8 +78,7 @@ public class PropertyEquipmentManager extends AbstractCoordinateManager{
 			//todo
 		}
 		//将装备对应的actor从stage移走
-		EquipmentActor actor = (EquipmentActor) actorMap.remove( commodityCoordinateIndex );
-		actor.remove();
+		actorMap.remove( commodityCoordinateIndex ).remove();
 		//将装备从fighter身上卸下
 		Array<Commodity> equips = fighterInfo.getEquipments();
 		for( int i = 0; i < equips.size; i ++ ){
@@ -81,14 +87,27 @@ public class PropertyEquipmentManager extends AbstractCoordinateManager{
 				break;
 			}
 		}
+		dataAccessor.flushFighterInfo(fighterInfo);
 	}
 	
 	public void setDetailActor(EquipmentDetailActor detailActor) {
 		this.detailActor = detailActor;
 	}
 
-	public void setFighterInfo(FighterInfo fighterInfo) {
-		this.fighterInfo = fighterInfo;
+	public void put(int formationIndexInProperty, PropertyResourceLoader loader, Commodity commodity) {
+		EquipmentActor actor = (EquipmentActor) actorMap.get( formationIndexInProperty );
+		if( actor == null ){
+			actor = new EquipmentActor( commodity, loader, this );
+			detailActor.getStage().addActor( actor );
+		}
+		actor.setCommodity( commodity );
+		actorMap.put( commodity.getCoordinateIndex(), actor );
+	}
+
+	public void setBagWidget(BagWidget bagWidget) {
+		this.bagWidget = bagWidget;
 	}
 	
+	
+
 }

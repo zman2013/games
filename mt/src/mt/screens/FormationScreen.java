@@ -1,11 +1,11 @@
 package mt.screens;
 
+import mt.actor.shared.PlusActor;
 import mt.actor.shared.ReturnActor;
 import mt.domain.FighterInfo;
 import mt.formation.FighterFormationManager;
 import mt.formation.FormationResourceLoader;
 import mt.formation.HeroActor;
-import mt.formation.PlusActor;
 import mt.formation.SkillActor;
 import mt.formation.SkillFormationManager;
 import mt.formation.SkillInfo;
@@ -47,6 +47,7 @@ public class FormationScreen extends AbstractScreen{
 		fighterPlaceHolderCoordinates = fighterFormationManager.getCoordinates();
 		for( Vector2 coor : fighterPlaceHolderCoordinates ){
 			PlusActor actor = new PlusActor( plusDrawable, coor.x, coor.y );
+			actor.setPosition( coor.x+29, coor.y+42 );
 			stage.addActor( actor );
 		}
 		//add fighters

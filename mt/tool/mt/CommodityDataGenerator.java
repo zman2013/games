@@ -27,7 +27,7 @@ public class CommodityDataGenerator extends ApplicationAdapter {
 			Commodity commodity = new Commodity();
 			commodity.setCoordinateIndex( i );
 			commodity.setName( "猎龙枪"+i );
-			commodity.setType( 1 );
+			commodity.setType( 0 );
 			commodity.setProperties( properties );
 			commodity.setIconFilePath( "assets/images/commodity/equipment/1.png" );
 			commodities.add( commodity );

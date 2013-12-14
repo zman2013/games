@@ -14,7 +14,7 @@ public class FighterStatus {
 	 * 未出征的战宠, 战宠ID
 	 */
 	private Array<Integer> candidates;
-
+	
 	public IntMap<Integer> getFighters() {
 		return fighters;
 	}
@@ -31,4 +31,14 @@ public class FighterStatus {
 		this.candidates = candidates;
 	}
 
+	public Array<Integer> getAll(){
+		Array<Integer> all = new Array<Integer>();
+		//0：表示palyer
+		all.add( 0 );
+		for( Integer id : fighters.values() ){
+			all.add( id );
+		}
+		all.addAll( candidates );
+		return all;
+	}
 }

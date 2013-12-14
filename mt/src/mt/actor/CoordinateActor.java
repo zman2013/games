@@ -22,4 +22,5 @@ public interface CoordinateActor{
 	
 	Stage getStage();
 	
+	boolean remove();
 }

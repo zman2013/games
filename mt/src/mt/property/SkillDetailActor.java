@@ -1,7 +1,6 @@
 package mt.property;
 
-import mt.domain.Commodity;
-import mt.listener.EquipmentDetailActorClickListener;
+import mt.formation.SkillInfo;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -10,15 +9,10 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.utils.ObjectMap;
-import com.badlogic.gdx.utils.ObjectMap.Entry;
 
-public class EquipmentDetailActor extends Image{
+public class SkillDetailActor extends Image{
 	
-	private Commodity commodity;
-	private PropertyResourceLoader loader;
-	
-	private Drawable commodityDrawable;
+	private SkillInfo skillInfo;
 	
 	private Drawable buttonDrawable;
 	private Drawable defaultButtonDrawable;
@@ -26,16 +20,17 @@ public class EquipmentDetailActor extends Image{
 	
 	private BitmapFont font;
 	
-	private EquipmentDetailActor self;
+	private PropertySkillManager manager;
 	
-	private String buttonText;
+	private SkillDetailActor self;
 
-	public EquipmentDetailActor( PropertyResourceLoader loader ){
+	public SkillDetailActor( PropertyResourceLoader loader, PropertySkillManager manager ){
 		super( loader.getDetailBgDrawable() );
 		self = this;
+		this.manager = manager;
 		
-		setWidth( 240 );
-		setHeight( 520 );
+		setWidth( 200 );
+		setHeight( 250 );
 		setY( 145 );
 		
 		defaultButtonDrawable = loader.getButtonDrawable();
@@ -43,7 +38,6 @@ public class EquipmentDetailActor extends Image{
 		buttonDrawable = defaultButtonDrawable;
 		font = loader.getFont();
 		
-		this.loader = loader;
 		//95%的不透明度
 		setColor( 1, 1, 1, 0.95f );
 		//listener
@@ -64,20 +58,19 @@ public class EquipmentDetailActor extends Image{
 					int pointer, int button) {
 				buttonDrawable = defaultButtonDrawable;
 				if( buttonRectangle.contains( x, y ) ){
-					clickListener.clickedEquipDetailButton( commodity );
+					manager.abandon( skillInfo );
 				}
 				self.setVisible( false );
 			}
 		});
 	}
 
-	public void setCommodity( Commodity commodity ){
-		if( this.commodity == commodity ){
+	public void setSkillInfo( SkillInfo skillInfo ){
+		if( this.skillInfo == skillInfo ){
 			return;
 		}
-		this.commodity = commodity;
-		commodityDrawable = loader.getDrawable( commodity.getIconFilePath() );
-		if( commodity.getCoordinateIndex() % 4 < 2 ){
+		this.skillInfo = skillInfo;
+		if( skillInfo.getFormationIndex() % 4 < 2 ){
 			setX( 240 );
 		}else{
 			setX( 0 );
@@ -89,28 +82,22 @@ public class EquipmentDetailActor extends Image{
 		super.draw(batch, parentAlpha);
 		
 		float x = getX();
-		if( commodityDrawable != null ){
-			float y = 630;
-			font.draw( batch, commodity.getName()+" ("+Commodity.getTypeName(commodity.getType())+")", x+80, y );
-			ObjectMap<String, Integer> properties = commodity.getProperties();
-			y -= 20;
-			for( Entry<String, Integer> entry : properties.entries() ){
-				font.draw( batch, commodity.getPropertyName(Integer.parseInt(entry.key))+":"+entry.value, x+100, y );
-				y -= 18;
-			}
+		if( skillInfo != null ){
+//			float y = 630;
+//			font.draw( batch, commodity.getName()+" ("+Commodity.getTypeName(commodity.getType())+")", x+80, y );
+//			ObjectMap<String, Integer> properties = commodity.getProperties();
+//			y -= 20;
+//			for( Entry<String, Integer> entry : properties.entries() ){
+//				font.draw( batch, commodity.getPropertyName(Integer.parseInt(entry.key))+":"+entry.value, x+100, y );
+//				y -= 18;
+//			}
 		}
 		
 		//button
 		x = x + (getWidth()-buttonDrawable.getMinWidth())/2;
 		float y = getY()-20;
 		buttonDrawable.draw( batch, x, y, buttonDrawable.getMinWidth(), buttonDrawable.getMinHeight() );
-		font.draw( batch, buttonText, x+58, y+74 );
-	}
-	
-	private EquipmentDetailActorClickListener clickListener;
-	public void addClickListener( EquipmentDetailActorClickListener clickListener, String buttonText ){
-		this.clickListener = clickListener;
-		this.buttonText = buttonText;
+		font.draw( batch, "遗忘", x+58, y+74 );
 	}
 
 }

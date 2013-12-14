@@ -29,10 +29,10 @@ public class FighterStatusGenerator extends ApplicationAdapter{
 		fighters.put( 3, 3 );
 		
 		Array<Integer> candidates = new Array<Integer>(10);
-		candidates.add( 0 ); candidates.add( 0 ); candidates.add( 0 );
-		candidates.add( 1 ); candidates.add( 1 ); candidates.add( 1 );
-		candidates.add( 2 ); candidates.add( 2 ); candidates.add( 3 );
-		candidates.add( 4 );
+//		candidates.add( 0 ); candidates.add( 0 ); candidates.add( 0 );
+//		candidates.add( 1 ); candidates.add( 1 ); candidates.add( 1 );
+//		candidates.add( 2 ); candidates.add( 2 ); candidates.add( 3 );
+//		candidates.add( 4 );
 		
 		status.setFighters( fighters );
 		status.setCandidates( candidates );

@@ -24,6 +24,11 @@ public abstract class AbstractResourceLoader {
 	public void init(){
 		
 		ObjectMap<String, Class<?>> resourceMap = initResourceMap();
+		loadResource( resourceMap );
+		
+	}
+
+	public void loadResource(ObjectMap<String, Class<?>> resourceMap) {
 		resourceMap.put( returnFilePath, Texture.class );
 		
 		AssetManager manager = ResourceUtil.getAssetManager();
@@ -36,7 +41,6 @@ public abstract class AbstractResourceLoader {
 			Object object = manager.get( entry.key, entry.value );
 			skin.add( entry.key, object );
 		}
-		
 	}
 
 	protected abstract ObjectMap<String, Class<?>> initResourceMap();
