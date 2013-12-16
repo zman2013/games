@@ -57,17 +57,6 @@ public class DataAccessor {
 		return commodities;
 	}
 	
-	public static void flushBagData(Array<Commodity> commodities){
-		DataAccessor.commodities = commodities;
-		FileHandle fh = Gdx.files.local( bagFilePath );
-		json.toJson( commodities, Array.class, Commodity.class, fh );
-	}
-
-	public static void flushFighterInfo(FighterInfo fighterInfo) {
-		FileHandle fh = Gdx.files.local( fighterFilePathPrefix+fighterInfo.getId() );
-		json.toJson( fighterInfo, FighterInfo.class, fh );
-	}
-
 	public static FighterInfo loadFighterData(int id) {
 		FileHandle fh = Gdx.files.internal( fighterFilePathPrefix+id );
 		return  json.fromJson( FighterInfo.class, fh );
@@ -82,6 +71,17 @@ public class DataAccessor {
 	public static void flushFighterStatus(FighterStatus fighterStatus) {
 		DataAccessor.fighterStatus = fighterStatus;
 		FileHandle fh = Gdx.files.local( fighterStatusFilePath );
-		json.toJson( fighterStatus, FighterStatus.class, fh );
+		fh.writeString( json.prettyPrint(fighterStatus), false );
+	}
+	
+	public static void flushBagData(Array<Commodity> commodities){
+		DataAccessor.commodities = commodities;
+		FileHandle fh = Gdx.files.local( bagFilePath );
+		fh.writeString( json.prettyPrint(commodities), false );
+	}
+
+	public static void flushFighterInfo(FighterInfo fighterInfo) {
+		FileHandle fh = Gdx.files.local( fighterFilePathPrefix+fighterInfo.getId() );
+		fh.writeString( json.prettyPrint(fighterInfo), false );
 	}
 }

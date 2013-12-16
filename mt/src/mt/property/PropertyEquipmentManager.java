@@ -5,12 +5,15 @@ import mt.domain.Commodity;
 import mt.domain.FighterInfo;
 import mt.listener.EquipmentDetailActorClickListener;
 import mt.resources.AbstractCoordinateManager;
+import mt.screens.PropertyScreen;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.IntMap;
 
 public class PropertyEquipmentManager extends AbstractCoordinateManager implements EquipmentDetailActorClickListener{
+	
+	private PropertyScreen screen;
 	
 	private EquipmentDetailActor detailActor;
 	
@@ -40,10 +43,9 @@ public class PropertyEquipmentManager extends AbstractCoordinateManager implemen
 	}
 
 	public void showDetail(Commodity commodity) {
-		//-2因为有returnActor，returnActor需要始终显示在最上层
 		detailActor.addClickListener( this, "卸下" );
 		detailActor.setCommodity( commodity );
-		detailActor.setZIndex( detailActor.getStage().getActors().size-2 );
+		detailActor.setZIndex( detailActor.getStage().getActors().size-1 );
 		detailActor.setVisible( true );
 	}
 
@@ -88,6 +90,8 @@ public class PropertyEquipmentManager extends AbstractCoordinateManager implemen
 			}
 		}
 		dataAccessor.flushFighterInfo(fighterInfo);
+		//更新displaying fighter info的属性
+		screen.removeEquipment( commodity );
 	}
 	
 	public void setDetailActor(EquipmentDetailActor detailActor) {
@@ -108,6 +112,8 @@ public class PropertyEquipmentManager extends AbstractCoordinateManager implemen
 		this.bagWidget = bagWidget;
 	}
 	
-	
+	public void setScreen( PropertyScreen screen ){
+		this.screen = screen;
+	}
 
 }

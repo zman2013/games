@@ -34,6 +34,7 @@ public class BagScreen extends AbstractScreen{
 	private BagManager manager;
 	private BagResourceLoader loader;
 	
+	private CommodityDetailActor detailActor;
 	private ReturnActor returnActor;
 	
 	public BagScreen(){
@@ -49,9 +50,8 @@ public class BagScreen extends AbstractScreen{
 		cellTexture = loader.getCellTexture();
 		font = loader.getFont();
 		//init commodity detail actor
-		CommodityDetailActor detailActor = new CommodityDetailActor( loader, manager );
+		detailActor = new CommodityDetailActor( loader, manager );
 		manager.setDetailActor( detailActor );
-		stage.addActor( detailActor );
 		//init return actor
 		Drawable returnDrawable = loader.getReturnDrawable();
 		returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class, manager );
@@ -70,6 +70,8 @@ public class BagScreen extends AbstractScreen{
 			stage.addActor( actor );
 			manager.add( commodity.getCoordinateIndex(), actor );
 		}
+		//add detail actor
+		stage.addActor( detailActor );
 		
 		//add returnActor
 		stage.addActor( returnActor );

@@ -5,7 +5,7 @@ import mt.formation.SkillInfo;
 import com.badlogic.gdx.utils.Array;
 
 
-public class FighterInfo {
+public class FighterInfo implements Cloneable{
 	/**
 	 * 战宠编号，0表示player
 	 */
@@ -15,6 +15,12 @@ public class FighterInfo {
 	 * 0：上; 1：左中；2：右中；3：左下；4：右下。
 	 */
 	private int formationIndex;
+	//名字
+	private String name="哀木涕";
+	//等级
+	private int level=1;
+	//当前经验
+	private int currentExperience=12;
 
 	private String borderFilePath, smallBorderFilePath;
 	
@@ -278,6 +284,41 @@ public class FighterInfo {
 
 	public void setEquipments(Array<Commodity> equipments) {
 		this.equipments = equipments;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public int getCurrentExperience() {
+		return currentExperience;
+	}
+
+	public void setCurrentExperience(int currentExperience) {
+		this.currentExperience = currentExperience;
+	}
+
+	@Override
+	public FighterInfo clone(){
+		//todo
+		try {
+			return (FighterInfo) super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 

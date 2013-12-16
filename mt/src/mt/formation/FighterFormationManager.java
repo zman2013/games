@@ -42,6 +42,26 @@ public class FighterFormationManager extends AbstractCoordinateManager implement
 		FighterStatus fighterStatus = dataAccessor.getFighterStatus();
 		fighterStatus.setFighters( formation );
 		dataAccessor.flushFighterStatus( fighterStatus );
+		dataAccessor.flushFighters();
 	}
 
+	@Override
+	protected void moveFormation(CoordinateActor target, int formationIndex) {
+		FighterInfo info = ((HeroActor) target).getFighterInfo();
+		ObjectMap<String,Integer> map = dataAccessor.getFighterStatus().getFighters();
+		map.remove( String.valueOf(info.getFormationIndex()) );
+		map.put( String.valueOf(formationIndex), info.getId() );
+	}
+
+	@Override
+	protected void switchFormation(CoordinateActor from, CoordinateActor to) {
+		FighterInfo fromInfo = ((HeroActor) from).getFighterInfo();
+		FighterInfo toInfo = ((HeroActor) to).getFighterInfo();
+		
+		ObjectMap<String,Integer> map = dataAccessor.getFighterStatus().getFighters();
+		map.put( String.valueOf(from.getCoordinateIndex()),  toInfo.getId() );
+		map.put( String.valueOf(to.getCoordinateIndex()), fromInfo.getId() );
+	}
+
+	
 }

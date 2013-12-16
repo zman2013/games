@@ -33,9 +33,8 @@ public class BagManager extends AbstractCoordinateManager implements Manager{
 	}
 
 	public void showDetail(Commodity commodity) {
-		//-2因为有returnActor，returnActor需要始终显示在最上层
 		detailActor.setCommodity( commodity );
-		detailActor.setZIndex( detailActor.getStage().getActors().size-2 );
+		detailActor.setZIndex( detailActor.getStage().getActors().size-1 );
 		detailActor.setVisible( true );
 	}
 	

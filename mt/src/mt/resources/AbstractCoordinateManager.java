@@ -50,9 +50,11 @@ public abstract class AbstractCoordinateManager {
 						actor.setPosition( coor.x, coor.y );
 						actorMap.put( formationIndex, actor );
 						actor.setCoordinateIndex( formationIndex );
+						switchFormation( target, actor );
 					}else{
 						//目标位置不存在战宠呢，直接移动
 						actorMap.remove( formationIndex );
+						moveFormation( target, i );
 					}
 					actorMap.put( i, target );
 					target.setCoordinateIndex( i );
@@ -66,6 +68,19 @@ public abstract class AbstractCoordinateManager {
 		target.setPosition( coor.x, coor.y );
 	}
 	
+	/**
+	 * 将target移动到formationIndex位置
+	 * @param target
+	 * @param formationIndex
+	 */
+	protected void moveFormation(CoordinateActor target, int formationIndex) {}
+	/**
+	 * 将target和actor的位置互换
+	 * @param target
+	 * @param actor
+	 */
+	protected void switchFormation(CoordinateActor target, CoordinateActor actor) {}
+
 	//设置fighter为最上层显示。
 	public void setFront( CoordinateActor target ){
 		//-2因为有returnActor，returnActor需要始终显示在最上层

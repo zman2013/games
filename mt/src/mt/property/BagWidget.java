@@ -4,6 +4,7 @@ import mt.domain.Commodity;
 import mt.domain.FighterInfo;
 import mt.listener.EquipmentDetailActorClickListener;
 import mt.listener.PlusActorClickListener;
+import mt.screens.PropertyScreen;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -38,6 +39,8 @@ public class BagWidget extends Group implements EquipmentDetailActorClickListene
 	private IntMap<CommodityActor> commodityActors = new IntMap<CommodityActor>( 18 );
 	
 	private PropertyDataAccessor dataAccessor;
+	
+	private  PropertyScreen screen;
 	
 	public BagWidget( PropertyResourceLoader loader, PropertyEquipmentManager equipManager, PropertyDataAccessor dataAccessor ){
 		this.dataAccessor = dataAccessor;
@@ -132,7 +135,7 @@ public class BagWidget extends Group implements EquipmentDetailActorClickListene
 		}
 		equipDetailActor.addClickListener( this, detailButtonText );
 		equipDetailActor.setCommodity( commodity );
-		equipDetailActor.setZIndex( equipDetailActor.getStage().getActors().size-2 );
+		equipDetailActor.setZIndex( equipDetailActor.getStage().getActors().size-1 );
 		equipDetailActor.setVisible( true );
 	}
 
@@ -168,13 +171,22 @@ public class BagWidget extends Group implements EquipmentDetailActorClickListene
 		commodity.setCoordinateIndex( formationIndexInProperty );
 		equipManager.put( formationIndexInProperty, loader, commodity );
 		equips.add( commodity );
+		EquipmentActor actor = new EquipmentActor( commodity, loader, equipManager );
+		equipManager.add( commodity.getCoordinateIndex(), actor );
+		equipDetailActor.getStage().addActor( actor );
 		//flush data into files
 		dataAccessor.flushCommodities( commodities );
 		dataAccessor.flushFighterInfo( fighterInfo );
+		//重新计算displaying fighter info
+		screen.addEquipment( commodity );
 	}
 	
 	public void setEquipDetailActor(EquipmentDetailActor equipDetailActor) {
 		this.equipDetailActor = equipDetailActor;
 	}
 
+	public void setScreen( PropertyScreen screen ){
+		this.screen = screen;
+	}
+	
 }

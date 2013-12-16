@@ -56,7 +56,7 @@ public class PropertySkillManager extends AbstractCoordinateManager implements M
 	}
 
 	public void showDetail(SkillInfo info) {
-		detailActor.setZIndex( detailActor.getStage().getActors().size-2 );
+		detailActor.setZIndex( detailActor.getStage().getActors().size-1 );
 		detailActor.setSkillInfo( info );
 		detailActor.setVisible( true );
 	}

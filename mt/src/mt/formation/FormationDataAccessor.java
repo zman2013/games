@@ -50,7 +50,11 @@ public class FormationDataAccessor {
 		this.playerInfo = playerInfo;
 		DataAccessor.flushFighterInfo( playerInfo );
 	}
-	
+	public void flushFighters(){
+		for( FighterInfo info : fighterInfos ){
+			DataAccessor.flushFighterInfo( info );
+		}
+	}
 	
 	
 }

@@ -16,6 +16,7 @@ import mt.property.PropertyResourceLoader;
 import mt.property.PropertySkillManager;
 import mt.property.SkillActor;
 import mt.property.SkillDetailActor;
+import mt.util.PropertyCalculator;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -58,6 +59,13 @@ public class PropertyScreen extends AbstractScreen{
 	
 	private PropertyDataAccessor dataAccessor;
 	private PropertyResourceLoader resourceLoader;
+	
+	/**
+	 * 承载property页面真正显示的算上装备属性的fighterInfo，
+	 * 其本身为fighterInfo的clone，但是属性计算上了装备的属性。
+	 */
+	private FighterInfo displayInfo;
+	
 	public PropertyScreen(){
 		super();
 		
@@ -76,6 +84,7 @@ public class PropertyScreen extends AbstractScreen{
 				
 		skillManager = new PropertySkillManager( dataAccessor );
 		equipManager = new PropertyEquipmentManager( dataAccessor );
+		equipManager.setScreen( this );
 		skillCoors = skillManager.getCoordinates();
 		equipmentCoors = equipManager.getCoordinates();
 		
@@ -86,6 +95,7 @@ public class PropertyScreen extends AbstractScreen{
 		//bag widget
 		bagWidget = new BagWidget( resourceLoader, equipManager, dataAccessor );
 		bagWidget.setEquipDetailActor( equipDetailActor );
+		bagWidget.setScreen( this );
 		equipManager.setBagWidget( bagWidget );
 		
 		//plus actor
@@ -100,6 +110,7 @@ public class PropertyScreen extends AbstractScreen{
 	
 	
 	
+	
 	@Override
 	public void show() {
 		super.show();
@@ -110,8 +121,6 @@ public class PropertyScreen extends AbstractScreen{
 		//不改变fighter
 		changeFighter( null );
 	}
-
-
 
 	/**
 	 * 切换fighter
@@ -144,6 +153,8 @@ public class PropertyScreen extends AbstractScreen{
 			}
 		}
 		fighterInfo = dataAccessor.loadFighterInfo(  allFighters.get( currentFighterIndex ) );
+		displayInfo = fighterInfo.clone();
+		calculateProperty();
 		//添加arrow
 		if( currentFighterIndex<(allFighters.size-1)  ){
 			stage.addActor( nextArrowActor );
@@ -157,7 +168,7 @@ public class PropertyScreen extends AbstractScreen{
 		HeroActor fighter = new HeroActor( fighterInfo, resourceLoader, null );
 		fighter.setPosition( 50, 590 );
 		stage.addActor( fighter );
-		//add skills		
+		//add skills
 		skillManager.setFighterInfo( fighterInfo );
 		for( SkillInfo info : fighterInfo.getSkillInfos() ){
 			SkillActor skill = new SkillActor( info, resourceLoader, skillManager);
@@ -183,32 +194,43 @@ public class PropertyScreen extends AbstractScreen{
 		//return actor
 		stage.addActor( returnActor );
 	}
-
+	
+	public void calculateProperty(){
+		PropertyCalculator.calculate( displayInfo );
+	}
+	public void addEquipment( Commodity equipment ){
+		PropertyCalculator.addEquipment( displayInfo, equipment );
+	}
+	public void removeEquipment( Commodity equipment ){
+		PropertyCalculator.removeEquipment( displayInfo, equipment );
+	}
+	
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
 		Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
 		
 		batch.begin();
+		//背景
 		bgDrawable.draw( batch, 0, 0, stage.getWidth(), stage.getHeight() );
+		//名字、等级、经验
+		font.draw( batch, displayInfo.getName(), 75, 730 );
+		font.draw( batch, "等级: "+displayInfo.getLevel(), 175, 730 );
+		font.draw( batch, "经验: "+displayInfo.getCurrentExperience()/(fighterInfo.getLevel()*10.0)+"%", 275, 730 );
 		//属性左
-		font.draw( batch, "生命:"+fighterInfo.getHp(), 170, 700 );
-		font.draw( batch, "法力:"+fighterInfo.getMagic(), 170, 682 );
-		font.draw( batch, "最小物攻:"+fighterInfo.getMinMeleeAttack(), 170, 664 );
-		font.draw( batch, "最大物攻:"+fighterInfo.getMaxMeleeAttack(), 170, 646 );
-		font.draw( batch, "最小魔攻:"+fighterInfo.getMinSpellAttack(), 170, 628 );
-		font.draw( batch, "最大魔攻:"+fighterInfo.getMaxSpellAttack(), 170, 610 );
+		font.draw( batch, "生命:"+displayInfo.getHp(), 170, 700 );
+		font.draw( batch, "法力:"+displayInfo.getMagic(), 170, 682 );
+		font.draw( batch, "最小物攻:"+displayInfo.getMinMeleeAttack(), 170, 664 );
+		font.draw( batch, "最大物攻:"+displayInfo.getMaxMeleeAttack(), 170, 646 );
+		font.draw( batch, "最小魔攻:"+displayInfo.getMinSpellAttack(), 170, 628 );
+		font.draw( batch, "最大魔攻:"+displayInfo.getMaxSpellAttack(), 170, 610 );
 		//属性右
-		font.draw( batch, "物防:"+fighterInfo.getMelleDefense(), 310, 700 );
-		font.draw( batch, "魔防:"+fighterInfo.getSpellDefense(), 310, 682 );
-		font.draw( batch, "命中:"+fighterInfo.getHitScore(), 310, 664 );
-		font.draw( batch, "暴击:"+fighterInfo.getCrit(), 310, 646 );
-		font.draw( batch, "闪避:"+fighterInfo.getDoage(), 310, 628 );
-		font.draw( batch, "运气:"+fighterInfo.getLuck(), 310, 610 );
-		//属性上
-		font.draw( batch, "哀木涕", 75, 730 );
-		font.draw( batch, "等级:", 175, 730 );
-		font.draw( batch, "经验:", 275, 730 );
+		font.draw( batch, "物防:"+displayInfo.getMelleDefense(), 310, 700 );
+		font.draw( batch, "魔防:"+displayInfo.getSpellDefense(), 310, 682 );
+		font.draw( batch, "命中:"+displayInfo.getHitScore(), 310, 664 );
+		font.draw( batch, "暴击:"+displayInfo.getCrit(), 310, 646 );
+		font.draw( batch, "闪避:"+displayInfo.getDoage(), 310, 628 );
+		font.draw( batch, "运气:"+displayInfo.getLuck(), 310, 610 );
 		//技能
 		font.draw( batch, "技能", 40, 550 );
 		
