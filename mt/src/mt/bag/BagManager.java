@@ -1,16 +1,14 @@
 package mt.bag;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.IntMap;
-import com.badlogic.gdx.utils.Json;
-
 import mt.actor.CoordinateActor;
 import mt.domain.Commodity;
 import mt.manager.Manager;
 import mt.resources.AbstractCoordinateManager;
+import mt.resources.DataAccessor;
+
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.IntMap;
 
 public class BagManager extends AbstractCoordinateManager implements Manager{
 
@@ -51,9 +49,7 @@ public class BagManager extends AbstractCoordinateManager implements Manager{
 	 */
 	public void abandon( Commodity commodity ) {
 		int coordinateIndex = commodity.getCoordinateIndex();
-		CommodityActor actor = (CommodityActor) actorMap.get( coordinateIndex );
-		actor.remove();
-		actorMap.remove( coordinateIndex );
+		actorMap.remove( coordinateIndex ).remove();
 	}
 	
 	/**
@@ -65,8 +61,6 @@ public class BagManager extends AbstractCoordinateManager implements Manager{
 		for( CoordinateActor actor : actorMap.values() ){
 			commodities.add( ((CommodityActor)actor).getCommodity() );
 		}
-		FileHandle fileHandle = Gdx.files.local("assets/data/player/bag.data");
-		String jsonString = new Json().prettyPrint( commodities  );
-		fileHandle.writeString( jsonString, false );
+		DataAccessor.flushBagData( commodities );
 	}
 }

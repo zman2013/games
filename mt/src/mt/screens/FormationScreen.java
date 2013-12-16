@@ -3,6 +3,7 @@ package mt.screens;
 import mt.actor.shared.ReturnActor;
 import mt.domain.FighterInfo;
 import mt.formation.FighterFormationManager;
+import mt.formation.FormationDataAccessor;
 import mt.formation.FormationResourceLoader;
 import mt.formation.HeroActor;
 import mt.formation.SkillActor;
@@ -24,35 +25,49 @@ public class FormationScreen extends AbstractScreen{
 	private TextureRegion fighterPlaceHolderRegion;
 	private TextureRegion skillPlaceHolderRegion;
 	
-	private Drawable returnDrawable;
 	private BitmapFont font;
 	
 	private Array<Vector2> fighterPlaceHolderCoordinates;
 	private Array<Vector2> skillPlaceHolderCoordinates;
 	
+	private FormationDataAccessor dataAccessor;
+	
+	private FormationResourceLoader resourceLoader;
+	private FighterFormationManager fighterFormationManager;
+	private SkillFormationManager skillFormationManager;
+	
+	private ReturnActor returnActor;
+	
 	public FormationScreen(){
 		super();
 		
-		FormationResourceLoader resourceLoader = new FormationResourceLoader();
+		dataAccessor = new FormationDataAccessor();
+		
+		resourceLoader = new FormationResourceLoader();
 		bgDrawable = resourceLoader.getBgDrawable();
 		headerRegion = resourceLoader.getHeaderRegion();
 		fighterPlaceHolderRegion = resourceLoader.getFighterPlaceHolderRegion();
 		skillPlaceHolderRegion = resourceLoader.getSkillPlaceHolderRegion();
 		font = resourceLoader.getFont();
 		//add place holders
-		FighterFormationManager fighterFormationManager = new FighterFormationManager();
-		fighterFormationManager.setFighterStatus( resourceLoader.getFighterStatus() );
+		fighterFormationManager = new FighterFormationManager( dataAccessor );
+		skillFormationManager = new SkillFormationManager( dataAccessor );
 		fighterPlaceHolderCoordinates = fighterFormationManager.getCoordinates();
-		//暂时不支持在此处添加战宠
-//		Drawable plusDrawable = resourceLoader.getPlusDrawable();
-//		for( Vector2 coor : fighterPlaceHolderCoordinates ){
-//			PlusActor actor = new PlusActor( plusDrawable, coor.x, coor.y );
-//			actor.setPosition( coor.x+29, coor.y+42 );
-//			stage.addActor( actor );
-//		}
+		//create return actor
+		Drawable returnDrawable = resourceLoader.getReturnDrawable();
+		returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class,  fighterFormationManager, skillFormationManager );
+	}
+	
+	@Override
+	public void show() {
+		super.show();
+		
+		stage.clear();
+		dataAccessor.load();
+		
+		resourceLoader.loadFighterResource( dataAccessor.getFighterInfos(), dataAccessor.getPlayerInfo().getSkillInfos() );
 		//add fighters
-		Array<FighterInfo> fighterInfos = resourceLoader.getFighterInfos();
-		for( FighterInfo info : fighterInfos  ){
+		for( FighterInfo info : dataAccessor.getFighterInfos()  ){
 			HeroActor fighter = new HeroActor( info, resourceLoader, fighterFormationManager );
 			fighterFormationManager.add( info.getFormationIndex(), fighter );
 			Vector2 coor = fighterPlaceHolderCoordinates.get( info.getFormationIndex() );
@@ -60,10 +75,8 @@ public class FormationScreen extends AbstractScreen{
 			stage.addActor( fighter );
 		}
 		//add skills
-		SkillFormationManager skillFormationManager = new SkillFormationManager();
-		skillFormationManager.setPlayerInfo( resourceLoader.getPlayerInfo() );
 		skillPlaceHolderCoordinates = skillFormationManager.getCoordinates();
-		Array<SkillInfo> skillInfos = resourceLoader.getSkillInfos();
+		Array<SkillInfo> skillInfos = dataAccessor.getPlayerInfo().getSkillInfos();
 		for( SkillInfo info : skillInfos ){
 			SkillActor skill = new SkillActor( info, resourceLoader, skillFormationManager );
 			skillFormationManager.add( info.getFormationIndex(), skill );
@@ -71,12 +84,9 @@ public class FormationScreen extends AbstractScreen{
 			stage.addActor( skill );
 		}
 		//add return actor
-		returnDrawable = resourceLoader.getReturnDrawable();
-		ReturnActor returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class,  fighterFormationManager, skillFormationManager );
 		stage.addActor( returnActor );
+		
 	}
-
-	
 
 	@Override
 	public void render(float delta) {

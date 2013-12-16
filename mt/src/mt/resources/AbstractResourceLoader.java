@@ -28,7 +28,7 @@ public abstract class AbstractResourceLoader {
 		
 	}
 
-	public void loadResource(ObjectMap<String, Class<?>> resourceMap) {
+	protected void loadResource(ObjectMap<String, Class<?>> resourceMap) {
 		resourceMap.put( returnFilePath, Texture.class );
 		
 		AssetManager manager = ResourceUtil.getAssetManager();

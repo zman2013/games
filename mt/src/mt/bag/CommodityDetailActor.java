@@ -47,6 +47,8 @@ public class CommodityDetailActor extends Image{
 		setColor( 1, 1, 1, 0.95f );
 		//listener
 		initListener();
+		//
+		setVisible( false );
 	}
 	
 	private Rectangle buttonRectangle = new Rectangle( 74, 24, 90, 38 );

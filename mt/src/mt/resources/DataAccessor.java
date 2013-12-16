@@ -19,51 +19,68 @@ public class DataAccessor {
 	
 	private static String fighterStatusFilePath = "assets/data/player/fighter_status.data";
 	
-	@SuppressWarnings("unchecked")
-	public static Array<Commodity> loadBagData(){
-		if( json == null ){
-			json = new Json();
-		}
-		FileHandle fh = Gdx.files.internal( bagFilePath );
-		return json.fromJson( Array.class, Commodity.class, fh);
+	private static Array<Commodity> commodities;
+	private static FighterStatus fighterStatus;
+	
+	/**
+	 * 背包数据和fighterStatus只在class加载时初始化一次，后面不会再重新load。
+	 * 因为后面的flush方法会自动更新其为最新的状态。
+	 * 注意：当切换战宠时（property页面），fighterInfo需要重新load。
+	 */
+	static{
+		json = new Json();
+		loadBagData();
+		loadFighterStatus();
 	}
 	
-	public static void writeBagData(Array<Commodity> commodities){
-		if( json == null ){
-			json = new Json();
-		}
+	
+	public static Array<Commodity> getCommodities() {
+		return commodities;
+	}
+
+	public static void setCommodities(Array<Commodity> commodities) {
+		DataAccessor.commodities = commodities;
+	}
+
+	public static FighterStatus getFighterStatus() {
+		return fighterStatus;
+	}
+
+	public static void setFighterStatus(FighterStatus fighterStatus) {
+		DataAccessor.fighterStatus = fighterStatus;
+	}
+
+	@SuppressWarnings("unchecked")
+	private static Array<Commodity> loadBagData(){
+		FileHandle fh = Gdx.files.internal( bagFilePath );
+		commodities = json.fromJson( Array.class, Commodity.class, fh);
+		return commodities;
+	}
+	
+	public static void flushBagData(Array<Commodity> commodities){
+		DataAccessor.commodities = commodities;
 		FileHandle fh = Gdx.files.local( bagFilePath );
 		json.toJson( commodities, Array.class, Commodity.class, fh );
 	}
 
-	public static void writeFighterData(FighterInfo fighterInfo) {
-		if( json == null ){
-			json = new Json();
-		}
+	public static void flushFighterInfo(FighterInfo fighterInfo) {
 		FileHandle fh = Gdx.files.local( fighterFilePathPrefix+fighterInfo.getId() );
 		json.toJson( fighterInfo, FighterInfo.class, fh );
 	}
 
 	public static FighterInfo loadFighterData(int id) {
-		if( json == null ){
-			json = new Json();
-		}
 		FileHandle fh = Gdx.files.internal( fighterFilePathPrefix+id );
-		return json.fromJson( FighterInfo.class, fh );
+		return  json.fromJson( FighterInfo.class, fh );
 	}
 
-	public static FighterStatus loadFighterStatus() {
-		if( json == null ){
-			json = new Json();
-		}
+	private static FighterStatus loadFighterStatus() {
 		FileHandle fh = Gdx.files.internal( fighterStatusFilePath );
-		return json.fromJson( FighterStatus.class, fh );
+		fighterStatus = json.fromJson( FighterStatus.class, fh );
+		return fighterStatus;
 	}
 
 	public static void flushFighterStatus(FighterStatus fighterStatus) {
-		if( json == null ){
-			json = new Json();
-		}
+		DataAccessor.fighterStatus = fighterStatus;
 		FileHandle fh = Gdx.files.local( fighterStatusFilePath );
 		json.toJson( fighterStatus, FighterStatus.class, fh );
 	}

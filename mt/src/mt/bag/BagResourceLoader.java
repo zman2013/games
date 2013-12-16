@@ -1,15 +1,13 @@
 package mt.bag;
 
-import com.badlogic.gdx.Gdx;
+import mt.domain.Commodity;
+import mt.resources.AbstractResourceLoader;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.ObjectMap;
-
-import mt.domain.Commodity;
-import mt.resources.AbstractResourceLoader;
 
 public class BagResourceLoader extends AbstractResourceLoader{
 	
@@ -24,11 +22,8 @@ public class BagResourceLoader extends AbstractResourceLoader{
 	private String buttonFilePath = "assets/images/shared/data.dat_000454.png";
 	private String activeButtonFilePath = "assets/images/shared/data.dat_000455.png";
 	
-	private Array<Commodity> commodities;
-	
 	public BagResourceLoader(){ init(); }
 
-	@SuppressWarnings("unchecked")
 	@Override
 	protected ObjectMap<String, Class<?>> initResourceMap() {
 		ObjectMap<String, Class<?>> resourceMap = new ObjectMap<String, Class<?>>();
@@ -39,12 +34,15 @@ public class BagResourceLoader extends AbstractResourceLoader{
 		resourceMap.put( buttonFilePath, Texture.class );
 		resourceMap.put( activeButtonFilePath, Texture.class );
 		
-		commodities = new Json().fromJson( Array.class, Commodity.class, Gdx.files.internal("assets/data/player/bag.data") );
+		return resourceMap;
+	}
+	
+	public void loadCommodityResource( Array<Commodity> commodities ){
+		ObjectMap<String, Class<?>> resourceMap = new ObjectMap<String, Class<?>>();
 		for( Commodity commodity : commodities ){
 			resourceMap.put( commodity.getIconFilePath(), Texture.class );
 		}
-		
-		return resourceMap;
+		loadResource( resourceMap );
 	}
 	
 	public Drawable getBgDrawable(){ return getDrawable( bgFilePath ); }
@@ -53,10 +51,5 @@ public class BagResourceLoader extends AbstractResourceLoader{
 	public Texture getCellTexture(){ return getTexture( cellFilePath ); }
 	public Drawable getButtonDrawable(){ return getDrawable( buttonFilePath ); }
 	public Drawable getActiveButtonDrawable(){ return getDrawable( activeButtonFilePath ); }
-
-	public Array<Commodity> getCommodities() {
-		return commodities;
-	}
-	
 
 }

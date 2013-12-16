@@ -67,22 +67,22 @@ public class PropertyDataAccessor {
 	}
 	
 	public Array<Commodity> loadCommodities() {
-		this.commodities = DataAccessor.loadBagData();
+		this.commodities = DataAccessor.getCommodities();
 		return commodities;
 	}
 	
 	public void flushCommodities( Array<Commodity> commodities ){
 		this.commodities = commodities;
-		DataAccessor.writeBagData(commodities);
+		DataAccessor.flushBagData(commodities);
 	}
 	
 	public void flushFighterInfo( FighterInfo fighterInfo ){
 		this.fighterInfo = fighterInfo;
-		DataAccessor.writeFighterData(fighterInfo);
+		DataAccessor.flushFighterInfo(fighterInfo);
 	}
 	
 	public FighterStatus loadFighterStatus(){
-		this.fighterStatus = DataAccessor.loadFighterStatus();
+		this.fighterStatus = DataAccessor.getFighterStatus();
 		return fighterStatus;
 	}
 	

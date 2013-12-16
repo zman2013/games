@@ -1,18 +1,14 @@
 package mt.formation;
 
-import com.badlogic.gdx.Gdx;
+import mt.domain.FighterInfo;
+import mt.resources.AbstractResourceLoader;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.ObjectMap;
-import com.badlogic.gdx.utils.ObjectMap.Entry;
-
-import mt.domain.FighterInfo;
-import mt.domain.FighterStatus;
-import mt.resources.AbstractResourceLoader;
 
 public class FormationResourceLoader extends AbstractResourceLoader {
 
@@ -29,14 +25,6 @@ public class FormationResourceLoader extends AbstractResourceLoader {
 	
 	private String fontFilePath = "assets/font/font.fnt";
 	
-	private FighterStatus fighterStatus;
-	private Array<FighterInfo> fighterInfos;
-	/**
-	 * 主角信息
-	 */
-	private FighterInfo playerInfo;
-	private Array<SkillInfo> skillInfos;
-	
 	public FormationResourceLoader(){ init(); }
 	
 	@Override
@@ -49,40 +37,23 @@ public class FormationResourceLoader extends AbstractResourceLoader {
 		resourceMap.put( plusFilePath, Texture.class );
 		resourceMap.put( fontFilePath, BitmapFont.class );
 		
-		fighterInfos = loadFighterInfos( filghterStatusFilePath );
+		return resourceMap;
+	}
+	
+	public void loadFighterResource( Array<FighterInfo> fighterInfos, Array<SkillInfo> skillInfos ){
+		ObjectMap<String, Class<?>> resourceMap = new ObjectMap<String, Class<?>>();
 		for( FighterInfo info : fighterInfos ){
 			resourceMap.put( info.getBorderFilePath(), Texture.class );
 			resourceMap.put( info.getFighterFilePath(), Texture.class );
 		}
 		
-		skillInfos = loadSkillInfos( playerFilePath );
 		for( SkillInfo info : skillInfos ){
 			resourceMap.put( info.getIconFilePath(), Texture.class );
 		}
 		
-		return resourceMap;
+		loadResource( resourceMap );
 	}
 
-	private Json json = new Json();
-	private Array<SkillInfo> loadSkillInfos(String playerFilePath) {
-		playerInfo = json.fromJson( FighterInfo.class, Gdx.files.internal( playerFilePath ) );
-		return playerInfo.getSkillInfos();
-	}
-
-	private Array<FighterInfo> loadFighterInfos(String fighterStatusFilePath) {
-		Array<FighterInfo> infos = new Array<FighterInfo>(5);
-		fighterStatus = json.fromJson( FighterStatus.class, Gdx.files.internal( fighterStatusFilePath ) );
-		//加载出征战宠的信息
-		for( Entry<String, Integer> entry : fighterStatus.getFighters().entries() ){
-			FighterInfo fighterInfo = json.fromJson( FighterInfo.class, Gdx.files.internal( "assets/data/fighter/"+entry.value ) );
-			fighterInfo.setFormationIndex( Integer.parseInt(entry.key) );
-			infos.add( fighterInfo );
-		}
-		return infos;
-	}
-
-	public Array<FighterInfo> getFighterInfos() { return fighterInfos; }
-	public Array<SkillInfo> getSkillInfos(){ return skillInfos; }
 	public Drawable getBgDrawable(){ return getDrawable(bgFilePath); }
 	public TextureRegion getHeaderRegion(){ return getTextureRegion(headerFilePath); }
 	public TextureRegion getFighterPlaceHolderRegion(){ return getTextureRegion(fighterPlaceHolderFilePath); }
@@ -90,12 +61,4 @@ public class FormationResourceLoader extends AbstractResourceLoader {
 	public Drawable getPlusDrawable(){ return getDrawable(plusFilePath); }
 	public BitmapFont getFont(){ return getFont(fontFilePath); }
 
-	public FighterStatus getFighterStatus() {
-		return fighterStatus;
-	}
-
-	public FighterInfo getPlayerInfo() {
-		return playerInfo;
-	}
-	
 }

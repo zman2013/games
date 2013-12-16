@@ -6,6 +6,7 @@ import mt.bag.BagResourceLoader;
 import mt.bag.CommodityActor;
 import mt.bag.CommodityDetailActor;
 import mt.domain.Commodity;
+import mt.resources.DataAccessor;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -31,6 +32,9 @@ public class BagScreen extends AbstractScreen{
 	private Array<Commodity> commodities;
 	
 	private BagManager manager;
+	private BagResourceLoader loader;
+	
+	private ReturnActor returnActor;
 	
 	public BagScreen(){
 		super();
@@ -38,6 +42,19 @@ public class BagScreen extends AbstractScreen{
 		manager = new BagManager();
 		//get coordinates
 		coordinates = manager.getCoordinates();
+		
+		//load resource
+		loader = new BagResourceLoader();
+		bgDrawable = loader.getBgDrawable();
+		cellTexture = loader.getCellTexture();
+		font = loader.getFont();
+		//init commodity detail actor
+		CommodityDetailActor detailActor = new CommodityDetailActor( loader, manager );
+		manager.setDetailActor( detailActor );
+		stage.addActor( detailActor );
+		//init return actor
+		Drawable returnDrawable = loader.getReturnDrawable();
+		returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class, manager );
 	}
 	
 	@Override
@@ -45,31 +62,17 @@ public class BagScreen extends AbstractScreen{
 		super.show();
 		stage.clear();
 		
-		//load resource
-		BagResourceLoader loader = new BagResourceLoader();
-		bgDrawable = loader.getBgDrawable();
-		cellTexture = loader.getCellTexture();
-		font = loader.getFont();
-		Drawable returnDrawable = loader.getReturnDrawable();
-		
 		//add commodities
-		commodities = loader.getCommodities();
+		commodities = DataAccessor.getCommodities();
+		loader.loadCommodityResource( commodities );
 		for( Commodity commodity : commodities ){
 			CommodityActor actor = new CommodityActor( commodity, loader, manager);
 			stage.addActor( actor );
 			manager.add( commodity.getCoordinateIndex(), actor );
 		}
 		
-		//init commodity detail actor
-		CommodityDetailActor detailActor = new CommodityDetailActor( loader, manager );
-		detailActor.setVisible( false );
-		manager.setDetailActor( detailActor );
-		stage.addActor( detailActor );
-		
 		//add returnActor
-		ReturnActor returnActor = new ReturnActor( returnDrawable, stage.getWidth(), this, HomeScreen.class, manager );
 		stage.addActor( returnActor );
-		returnActor.setZIndex( 100 );
 	}
 
 

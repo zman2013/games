@@ -5,19 +5,20 @@ import mt.domain.FighterInfo;
 import mt.manager.Manager;
 import mt.resources.AbstractCoordinateManager;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.IntMap;
-import com.badlogic.gdx.utils.Json;
 
 public class SkillFormationManager extends AbstractCoordinateManager implements Manager{
 
-	/**
-	 * 主角信息
-	 */
-	private FighterInfo playerInfo;
+	private FormationDataAccessor dataAccessor;
 	
+	public SkillFormationManager(FormationDataAccessor dataAccessor) {
+		super();
+		
+		this.dataAccessor = dataAccessor;
+	}
+
 	public void init() {
 		actorMap = new IntMap<CoordinateActor>(8);
 		origin = new Vector2( 25, 25 );
@@ -40,13 +41,9 @@ public class SkillFormationManager extends AbstractCoordinateManager implements 
 		for( CoordinateActor actor : actorMap.values() ){
 			infos.add( ((SkillActor)actor).getInfo() );
 		}
+		FighterInfo playerInfo = dataAccessor.getPlayerInfo();
 		playerInfo.setSkillInfos( infos );
-		new Json().toJson( playerInfo, Gdx.files.local( FormationResourceLoader.playerFilePath ) );
+		dataAccessor.flushPlayer( playerInfo );
 	}
 
-	public void setPlayerInfo(FighterInfo playerInfo) {
-		this.playerInfo = playerInfo;
-	}
-	
-	
 }

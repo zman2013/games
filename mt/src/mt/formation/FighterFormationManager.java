@@ -6,16 +6,19 @@ import mt.domain.FighterStatus;
 import mt.manager.Manager;
 import mt.resources.AbstractCoordinateManager;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.IntMap;
-import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.ObjectMap;
 
 public class FighterFormationManager extends AbstractCoordinateManager implements Manager{
 
-	private FighterStatus fighterStatus;
+	private FormationDataAccessor dataAccessor;
+	
+	public FighterFormationManager( FormationDataAccessor dataAccessor ){
+		super();
+		this.dataAccessor = dataAccessor;
+	}
 	
 	public void init() {
 		super.actorMap = new IntMap<CoordinateActor>( 5 );
@@ -36,12 +39,9 @@ public class FighterFormationManager extends AbstractCoordinateManager implement
 			FighterInfo info = ((HeroActor) actor).getFighterInfo();
 			formation.put( String.valueOf(info.getFormationIndex()), info.getId() );
 		}
+		FighterStatus fighterStatus = dataAccessor.getFighterStatus();
 		fighterStatus.setFighters( formation );
-		new Json().toJson( fighterStatus, Gdx.files.local( FormationResourceLoader.filghterStatusFilePath ) );
+		dataAccessor.flushFighterStatus( fighterStatus );
 	}
 
-	public void setFighterStatus(FighterStatus fighterStatus) {
-		this.fighterStatus = fighterStatus;
-	}
-	
 }
