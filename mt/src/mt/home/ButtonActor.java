@@ -40,7 +40,7 @@ public class ButtonActor extends Image{
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
-		font.draw( batch, text, getX()+90, getY()+50 );
+		font.draw( batch, text, getX()+100, getY()+45 );
 		
 	}
 

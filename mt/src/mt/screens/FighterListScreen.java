@@ -110,7 +110,7 @@ public class FighterListScreen extends AbstractScreen{
 		stage.draw();
 		
 		batch.begin();
-		font.draw( batch, "英雄", listHeader.getX()+212, listHeader.getY()+48 );
+		font.draw( batch, "英雄", 224, 678 );
 		batch.end();
 		
 	}

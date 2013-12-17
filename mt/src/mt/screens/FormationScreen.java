@@ -102,7 +102,7 @@ public class FormationScreen extends AbstractScreen{
 		for( Vector2 coor : skillPlaceHolderCoordinates ){
 			batch.draw( skillPlaceHolderRegion, coor.x, coor.y, 0, 0, skillPlaceHolderRegion.getRegionWidth(), skillPlaceHolderRegion.getRegionHeight(), 0.8f, 0.8f, 0);
 		}
-		font.draw( batch, "阵型", 212, 698 );
+		font.draw( batch, "阵型", 224, 688 );
 		batch.end();
 		
 		stage.act( delta );

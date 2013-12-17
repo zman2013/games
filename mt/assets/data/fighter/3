@@ -28,7 +28,6 @@ skillInfos: [
 	}
 ],
 smallFighterFilePath: assets/images/fighter/data.dat_000159.png,
-attackInterval: 3.09689,
 id: 3,
 formationIndex: 1,
 equipments: [
@@ -815,6 +814,7 @@ equipments: [
 		}
 	}
 ],
+attackInterval: 3.09689,
 smallBorderFilePath: assets/images/border/101.png,
 fighterFilePath: assets/images/fighter/159.png,
 x: 305,

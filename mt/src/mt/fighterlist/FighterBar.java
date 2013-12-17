@@ -2,8 +2,10 @@ package mt.fighterlist;
 
 import mt.domain.FighterInfo;
 import mt.domain.FighterStatus;
+import mt.util.PropertyCalculator;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -23,10 +25,13 @@ public class FighterBar extends Image{
 	private Drawable checkBoxDrawable;
 	private Drawable uncheckedBoxDrawable;
 	private Drawable checkedBoxDrawable;
+	private BitmapFont font;
 	
 	private FighterInfo fighterInfo;
+	private FighterInfo displayFighterInfo;
 	private boolean isFighter;
 	private FighterListDataAccessor dataAccessor;
+	
 	
 	/**
 	 * 
@@ -36,6 +41,8 @@ public class FighterBar extends Image{
 	 */
 	public FighterBar( FighterInfo fighterInfo, FighterListDataAccessor dataAccessor, FighterListResourceLoader resourceLoader, boolean isFighter ){
 		this.fighterInfo = fighterInfo;
+		this.displayFighterInfo = fighterInfo.clone();
+		PropertyCalculator.calculate( displayFighterInfo );
 		this.isFighter = isFighter;
 		this.dataAccessor = dataAccessor;
 		
@@ -46,6 +53,8 @@ public class FighterBar extends Image{
 		borderBgRegion = resourceLoader.getBorderBgTextureRegion();
 		borderRegion = resourceLoader.getTextureRegion( fighterInfo.getSmallBorderFilePath() );
 		fighterRegion = resourceLoader.getTextureRegion( fighterInfo.getSmallFighterFilePath() );
+		
+		font = resourceLoader.getFont();
 		
 		setDrawable( defaultBarDrawable );
 		
@@ -80,6 +89,10 @@ public class FighterBar extends Image{
 		}
 		
 		checkBoxDrawable.draw( batch, x+400, y+20, checkBoxDrawable.getMinWidth(), checkBoxDrawable.getMinHeight() );
+		font.draw( batch, String.valueOf(displayFighterInfo.getLevel()), x+90, y+63 );
+		font.draw( batch, displayFighterInfo.getName(), x+115, y+63 );
+		font.draw( batch, String.valueOf(displayFighterInfo.getHp()), x+115, y+31 );
+		font.draw( batch, displayFighterInfo.getMinMeleeAttack()+" ~ "+displayFighterInfo.getMaxMeleeAttack(), x+215, y+31 );
 	}
 	
 	private void initListener() {
