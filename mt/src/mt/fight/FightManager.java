@@ -14,10 +14,7 @@ public class FightManager {
 	
 	private Array<Fighter> enemies;
 	
-	public FightManager( Array<Fighter> heros, Array<Fighter> enemies ){
-		this.heros = heros;
-		this.enemies = enemies;
-	}
+	public FightManager(){	}
 	
 	/**
 	 * 更新所有fighter的战斗状态

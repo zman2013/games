@@ -44,6 +44,9 @@ public class Fighter extends Image{
 		this.bottomSlateTextureRegion = bottomSlateRegion;
 		this.borderTextureRegion = borderRegion;
 		this.fighterTextureRegion = fighterRegion;
+		
+		heroOffset.x = borderOffset.x+(borderRegion.getRegionWidth()-fighterRegion.getRegionWidth())/2;
+		heroOffset.y = borderOffset.y+(borderRegion.getRegionHeight()-fighterRegion.getRegionHeight())/2;
 	}
 
 	private Vector2 startDragPosition = new Vector2();
@@ -83,7 +86,7 @@ public class Fighter extends Image{
 	}
 	
 	private Vector2 borderOffset = new Vector2( 10, 18 );
-	private Vector2 heroOffset = new Vector2( -11, 35 );
+	private Vector2 heroOffset = new Vector2();
 	private float previousRotation = 0;
 	@Override
 	public void draw(Batch batch, float parentAlpha) {

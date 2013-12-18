@@ -1,14 +1,14 @@
 package mt.fight;
 
-import mt.domain.FighterInfo;
-
 import com.badlogic.gdx.utils.Array;
 
 public class BarrierInfo {
+	
+	private int id;
 
 	private String backgroundFilePath;
 	
-	private Array<FighterInfo> enemyInfos;
+	private Array<Integer> fighterIds;
 	
 	public String getBackgroundFilePath() {
 		return backgroundFilePath;
@@ -18,12 +18,20 @@ public class BarrierInfo {
 		this.backgroundFilePath = backgroundFilePath;
 	}
 
-	public Array<FighterInfo> getEnemyInfos() {
-		return enemyInfos;
+	public Array<Integer> getFighterIds() {
+		return fighterIds;
 	}
 
-	public void setEnemyInfos(Array<FighterInfo> enemyInfos) {
-		this.enemyInfos = enemyInfos;
+	public void setFighterIds(Array<Integer> fighterIds) {
+		this.fighterIds = fighterIds;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 }

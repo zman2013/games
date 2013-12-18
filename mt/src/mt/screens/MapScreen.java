@@ -4,6 +4,7 @@ import mt.actor.shared.ReturnActor;
 import mt.map.BarrierActor;
 import mt.map.BarrierManager;
 import mt.map.MapResourceLoader;
+import mt.resources.DataAccessor;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
@@ -27,6 +28,8 @@ public class MapScreen extends AbstractScreen{
 	
 	private BarrierManager barrierManager = new BarrierManager();
 	
+	private ReturnActor returnActor;
+	
 	public MapScreen(){
 		super();
 		camera = stage.getCamera();
@@ -40,19 +43,21 @@ public class MapScreen extends AbstractScreen{
 		
 		initBarriers();
 		
-		stage.addActor( new ReturnActor( resourceLoader.getReturnDrawable(), stage.getWidth(), this, HomeScreen.class ) );
+		returnActor = new ReturnActor( resourceLoader.getReturnDrawable(), stage.getWidth(), this, HomeScreen.class );
+		stage.addActor( returnActor );
+		batch = stage.getSpriteBatch();
 	}
 	
 	private void initBarriers() {
 		Array<Vector2> barrierCoordinateArray = barrierManager.getBarrierCoordinateArray();
-		for( int i = 0; i <= barrierManager.getTaskProgress(); i ++ ){
+		for( int i = 0; i < DataAccessor.getBarrierProgress(); i ++ ){
 			BarrierActor barrier = new BarrierActor( i, this );
 			Vector2 coordinate = barrierCoordinateArray.get( i );
 			barrier.setPosition( coordinate.x, coordinate.y );
 			stage.addActor( barrier );
 		}
 	}
-
+	
 	private Vector2 previousDragPoint = new Vector2();
 	private Vector2 currectDragPoint = new Vector2();
 	private void initListener() {
@@ -89,12 +94,15 @@ public class MapScreen extends AbstractScreen{
 						//边界限定，不可溢出边界
 						if( cameraPosition.x + delta > 560 ){
 							cameraPosition.x = 560;
+							returnActor.setX( stage.getWidth() - returnActor.getWidth() );
 						}else{
 							camera.position.add( delta, 0, 0 );
 						}
 					}
 				}
 				previousDragPoint.set( currectDragPoint );
+				//始终固定在右下角
+				returnActor.setX( cameraPosition.x + stage.getWidth()/2 - returnActor.getWidth() );
 			}
 		});
 	}

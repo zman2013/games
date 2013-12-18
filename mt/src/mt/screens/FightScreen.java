@@ -1,5 +1,8 @@
 package mt.screens;
 
+import mt.domain.FighterInfo;
+import mt.fight.BarrierInfo;
+import mt.fight.FightDataAccessor;
 import mt.fight.FightManager;
 import mt.fight.FightResourceLoader;
 import mt.fight.Fighter;
@@ -14,30 +17,65 @@ import com.badlogic.gdx.utils.Array;
 
 public class FightScreen extends AbstractScreen{
 	
-	private int barrierIndex;
+	private int barrierId;
 	
-	private FightResourceLoader fightResourceLoader;
-	
-	private FightManager fightManager;
+	private FightDataAccessor dataAccessor;
+	private FightResourceLoader resourceLoader;
+	private FightManager manager;
 	
 	private Drawable bgDrawable;
 	private float bgHeight;
 	
 	public FightScreen(){
 		super();
-		//to do, should read from file or somewhere
-		this.barrierIndex = 0;
 		
-		initResources( barrierIndex );
-		
-		Array<Fighter> heros = fightResourceLoader.getHeros();
-		Array<Fighter> enemies = fightResourceLoader.getEnemies();
-		fightManager = new FightManager( heros, enemies );
-		addFighters( heros, enemies );
+		dataAccessor = new FightDataAccessor();
+		resourceLoader = new FightResourceLoader();
+		manager = new FightManager();
 		
 		initListeners();
 	}
 	
+	/**
+	 * before invoking this function, barrierId should be setted.
+	 */
+	@Override
+	public void show() {
+		super.show();
+		
+		dataAccessor.load( barrierId );
+		resourceLoader.loadResource( dataAccessor.getBarrierInfo().getBackgroundFilePath(), dataAccessor.getFighterInfos(), dataAccessor.getEnemyInfos() );
+		
+		initResources( dataAccessor.getBarrierInfo() );
+		
+		Array<Fighter> heros = constructFighters( dataAccessor.getFighterInfos() );
+		Array<Fighter> enemies = constructFighters( dataAccessor.getEnemyInfos() );
+		
+		manager.setHeros( heros );
+		manager.setEnemies( enemies );
+		
+		addFighters( heros, enemies );
+	}
+	
+	private Array<Fighter> constructFighters(Array<FighterInfo> fighterInfos) {
+		Array<Fighter> fighters = new Array<Fighter>();
+		for( FighterInfo info : fighterInfos ){
+			Fighter fighter = new Fighter( resourceLoader.getBottomSlateRegion(), 
+					resourceLoader.getTextureRegion(info.getBorderFilePath()), 
+					resourceLoader.getTextureRegion(info.getFighterFilePath()), info );
+			fighters.add( fighter );
+		}
+		return fighters;
+	}
+
+	private void initResources( BarrierInfo barrierInfo ) {
+		bgDrawable = resourceLoader.getDrawable( barrierInfo.getBackgroundFilePath() );
+		bgHeight = bgDrawable.getMinHeight();
+		bg2Y = bgHeight;
+	}
+
+
+
 	private void initListeners() {
 		stage.addListener( new InputListener(){
 			public boolean keyUp(InputEvent event, int keycode) {
@@ -69,13 +107,6 @@ public class FightScreen extends AbstractScreen{
 		}
 	}
 
-	private void initResources( int barrierIndex ) {
-		fightResourceLoader = new FightResourceLoader( barrierIndex );
-		bgDrawable = fightResourceLoader.getBackgroundDrawable();
-		bgHeight = bgDrawable.getMinHeight();
-		bg2Y = bgHeight;
-	}
-	
 	private boolean fighting = false;
 	private boolean walking = false;
 	@Override
@@ -84,11 +115,11 @@ public class FightScreen extends AbstractScreen{
 		Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
 		
 		if( fighting ){
-			fightManager.updateFighting( delta );
+			manager.updateFighting( delta );
 		}
 		if( walking ){
 			moveBackground();
-			fightManager.updateWalking();
+			manager.updateWalking();
 		}
 		
 		batch.begin();

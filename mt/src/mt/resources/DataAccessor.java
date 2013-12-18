@@ -3,6 +3,7 @@ package mt.resources;
 import mt.domain.Commodity;
 import mt.domain.FighterInfo;
 import mt.domain.FighterStatus;
+import mt.fight.BarrierInfo;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -19,8 +20,14 @@ public class DataAccessor {
 	
 	private static String fighterStatusFilePath = "assets/data/player/fighter_status.data";
 	
+	private static String barrierProgressFilePath = "assets/data/player/barrier_progress.data";
+	
+	private static String barrierInfoFilePathPrefix = "assets/data/barrier/";
+	
 	private static Array<Commodity> commodities;
 	private static FighterStatus fighterStatus;
+	//关卡进度
+	private static int barrierProgress;
 	
 	/**
 	 * 背包数据和fighterStatus只在class加载时初始化一次，后面不会再重新load。
@@ -31,6 +38,7 @@ public class DataAccessor {
 		json = new Json();
 		loadBagData();
 		loadFighterStatus();
+		loadBarrierStatus();
 	}
 	
 	
@@ -44,6 +52,10 @@ public class DataAccessor {
 
 	public static FighterStatus getFighterStatus() {
 		return fighterStatus;
+	}
+	
+	public static int getBarrierProgress(){
+		return barrierProgress;
 	}
 
 	public static void setFighterStatus(FighterStatus fighterStatus) {
@@ -67,7 +79,19 @@ public class DataAccessor {
 		fighterStatus = json.fromJson( FighterStatus.class, fh );
 		return fighterStatus;
 	}
+	
+	private static int loadBarrierStatus() {
+		FileHandle fh = Gdx.files.internal( barrierProgressFilePath );
+		barrierProgress = json.fromJson( Integer.class, fh );
+		return barrierProgress;
+	}
+	
+	public static BarrierInfo loadBarrierInfo( int id ) {
+		FileHandle fh = Gdx.files.internal( barrierInfoFilePathPrefix+id );
+		return json.fromJson( BarrierInfo.class, fh );
+	}
 
+	//flush
 	public static void flushFighterStatus(FighterStatus fighterStatus) {
 		DataAccessor.fighterStatus = fighterStatus;
 		FileHandle fh = Gdx.files.local( fighterStatusFilePath );
@@ -83,5 +107,16 @@ public class DataAccessor {
 	public static void flushFighterInfo(FighterInfo fighterInfo) {
 		FileHandle fh = Gdx.files.local( fighterFilePathPrefix+fighterInfo.getId() );
 		fh.writeString( json.prettyPrint(fighterInfo), false );
+	}
+	
+	public static void flushBarrierProgress( int barrierProgress ) {
+		DataAccessor.barrierProgress = barrierProgress;
+		FileHandle fh = Gdx.files.local( barrierProgressFilePath );
+		fh.writeString( json.prettyPrint(barrierProgress), false );
+	}
+
+	public static void flushBarrierInfo(BarrierInfo barrierInfo) {
+		FileHandle fh = Gdx.files.local( barrierInfoFilePathPrefix+barrierInfo.getId() );
+		fh.writeString( json.prettyPrint(barrierInfo), false );
 	}
 }

@@ -70,10 +70,12 @@ public class MeleeAttack extends Image{
 			stateTime = 0;
 			remove();
 		}
+		
+		offsetY += delta*50;
 	} 
 	
 	
-
+	private float offsetY;
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
@@ -87,7 +89,7 @@ public class MeleeAttack extends Image{
 		float rotation = enemy.getRotation();
 		batch.draw( bleedingRegion, x-60*scaleX, y+20*scaleY, 0, 0, width, height, scaleX, scaleY, rotation );
 		
-		font.draw( batch, String.valueOf(damage), x+100*scaleX, y+100*scaleY );
+		font.draw( batch, String.valueOf(damage), x+100*scaleX, y+150*scaleY+offsetY );
 		
 	}
 

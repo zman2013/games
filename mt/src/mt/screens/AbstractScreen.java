@@ -23,8 +23,6 @@ public class AbstractScreen extends ScreenAdapter{
 		this.stage = new Stage();
 	}
 	
-	public void init(){}
-	
 	@Override
 	public void resize(int width, int height) {
 		super.resize(width, height);

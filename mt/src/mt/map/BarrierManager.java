@@ -14,8 +14,6 @@ public class BarrierManager {
 
 	private Array<Vector2> barrierCoordinateArray;
 	
-	private int taskProgress = 16;
-	
 	/**
 	 * 当前正选中关卡的索引号。
 	 */
@@ -48,14 +46,6 @@ public class BarrierManager {
 	
 	public Vector2 getCoordinate( int index ){
 		return barrierCoordinateArray.get( index );
-	}
-
-	public int getTaskProgress() {
-		return taskProgress;
-	}
-
-	public void setTaskProgress(int taskProgress) {
-		this.taskProgress = taskProgress;
 	}
 
 	public int getFocusIndex() {
