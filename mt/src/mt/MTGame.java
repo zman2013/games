@@ -1,5 +1,8 @@
 package mt;
 
+import mt.fight.FightDataAccessor;
+import mt.fight.FightResourceLoader;
+import mt.fight.result.FightFailureScreen;
 import mt.screens.AbstractScreen;
 import mt.screens.BagScreen;
 import mt.screens.FightScreen;
@@ -25,7 +28,13 @@ public class MTGame extends Game{
 	}
 	
 	public void setScreen(  Class<? extends AbstractScreen> screenClass  ) {
-		super.setScreen( getScreen( screenClass ) );
+//		super.setScreen( getScreen( screenClass ) );
+		
+		FightFailureScreen screen = new FightFailureScreen();
+		screen.setGame( this );
+		screen.setDataAccessor( new FightDataAccessor() );
+		screen.setResourceLoader( new FightResourceLoader() );
+		super.setScreen( screen );
 	}
 
 	/**
